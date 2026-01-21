@@ -1038,3 +1038,120 @@ img {
         font-size: 2.25rem;
     }
 }
+
+
+/* ============================================
+   EMAIL CAPTURE SECTION
+   ============================================ */
+
+.email-capture {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
+}
+
+.email-capture-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.email-capture-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-md);
+}
+
+.email-capture-text p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.email-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.email-benefits li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    color: var(--gray-700);
+    font-size: 1rem;
+}
+
+.email-benefits li i {
+    color: var(--success-green);
+    font-size: 1rem;
+}
+
+.email-capture-form {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(59, 76, 139, 0.1);
+}
+
+.email-capture-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.email-capture-form input[type="text"],
+.email-capture-form input[type="email"] {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.email-capture-form input[type="text"]:focus,
+.email-capture-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(59, 76, 139, 0.1);
+}
+
+.email-capture-form button {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+/* Email Capture Responsive */
+@media (max-width: 768px) {
+    .email-capture-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .email-capture-text h2 {
+        font-size: 2rem;
+    }
+    
+    .email-benefits {
+        display: inline-block;
+        text-align: left;
+    }
+    
+    .email-capture-form {
+        padding: var(--spacing-lg);
+    }
+}

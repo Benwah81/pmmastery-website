@@ -20,6 +20,15 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -443,6 +452,42 @@
                     <div class="faq-answer">
                         <p>Yes. There are no long-term contracts. Monthly subscriptions can be cancelled anytime. Annual plans are non-refundable but you keep access for the full year.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="email-capture" id="newsletter">
+        <div class="container">
+            <div class="email-capture-content">
+                <div class="email-capture-text">
+                    <h2>Get Free PMP Study Tips</h2>
+                    <p>Join our newsletter for weekly PMP exam strategies, practice questions, and study tips delivered straight to your inbox.</p>
+                    <ul class="email-benefits">
+                        <li><i class="fas fa-check"></i> Weekly practice questions</li>
+                        <li><i class="fas fa-check"></i> Exam strategies & tips</li>
+                        <li><i class="fas fa-check"></i> PMBOK insights</li>
+                        <li><i class="fas fa-check"></i> Exclusive discounts</li>
+                    </ul>
+                </div>
+                <div class="email-capture-form">
+                    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="newsletter">
+                        <p class="hidden" style="display:none;">
+                            <label>Don't fill this out: <input name="bot-field"></label>
+                        </p>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn-primary-large">
+                            <i class="fas fa-envelope"></i> Subscribe Free
+                        </button>
+                        <p class="form-note">No spam, ever. Unsubscribe anytime.</p>
+                    </form>
                 </div>
             </div>
         </div>
