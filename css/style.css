@@ -1108,7 +1108,7 @@ img {
 .email-capture-form input[type="email"] {
     width: 100%;
     padding: var(--spacing-md);
-    border: 2px solid var(--gray-200);
+    border: 2px solid #888888;
     border-radius: var(--radius-md);
     font-size: 1rem;
     font-family: var(--font-body);
