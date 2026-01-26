@@ -51,6 +51,176 @@
         gtag('js', new Date());
         gtag('config', 'G-P0RSXYS7K8');
     </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://pmmastery.app/#organization",
+                "name": "PM Mastery Solutions, LLC",
+                "url": "https://pmmastery.app",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://pmmastery.app/og-image.png",
+                    "width": 1200,
+                    "height": 630
+                },
+                "description": "PMP exam preparation platform with 2,000 practice questions, 28 study tools, and comprehensive PMBOK coverage.",
+                "email": "support@pmmastery.app",
+                "foundingDate": "2026",
+                "sameAs": []
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://pmmastery.app/#website",
+                "url": "https://pmmastery.app",
+                "name": "PM Mastery",
+                "description": "World's #1 PMP Exam Prep Platform",
+                "publisher": {
+                    "@id": "https://pmmastery.app/#organization"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://app.pmmastery.app/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://pmmastery.app/#webpage",
+                "url": "https://pmmastery.app",
+                "name": "PM Mastery - World's #1 PMP Exam Prep Platform",
+                "isPartOf": {
+                    "@id": "https://pmmastery.app/#website"
+                },
+                "about": {
+                    "@id": "https://pmmastery.app/#organization"
+                },
+                "description": "PM Mastery - World's #1 PMP exam preparation platform with 2,000 practice questions, 28 study tools, and 100% PMBOK coverage. Pass your PMP exam on the first try."
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://pmmastery.app/#software",
+                "name": "PM Mastery",
+                "applicationCategory": "EducationalApplication",
+                "operatingSystem": "Web Browser",
+                "description": "Comprehensive PMP exam preparation platform with 2,000 practice questions, 28 study tools, full-length mock exams, and detailed PMBOK explanations.",
+                "url": "https://pmmastery.app",
+                "screenshot": "https://pmmastery.app/og-image.png",
+                "featureList": [
+                    "2,000 PMP practice questions",
+                    "28 integrated study tools",
+                    "Full-length 180-question mock exams",
+                    "PMBOK 7th edition aligned",
+                    "Advanced performance analytics",
+                    "Interactive flashcards",
+                    "Formula calculator (EVM, PERT)",
+                    "Progress tracking dashboard"
+                ],
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "name": "Free Trial",
+                        "price": "0",
+                        "priceCurrency": "USD",
+                        "description": "100 practice questions, basic flashcards, formula calculator",
+                        "url": "https://app.pmmastery.app/auth/register"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Premium Monthly",
+                        "price": "39",
+                        "priceCurrency": "USD",
+                        "billingIncrement": "P1M",
+                        "description": "Full access to all 2,000 questions and 28 study tools",
+                        "url": "https://app.pmmastery.app/auth/register"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Premium Yearly",
+                        "price": "149",
+                        "priceCurrency": "USD",
+                        "billingIncrement": "P1Y",
+                        "description": "Full access for one year - save $319 vs monthly",
+                        "url": "https://app.pmmastery.app/auth/register"
+                    }
+                ],
+                "provider": {
+                    "@id": "https://pmmastery.app/#organization"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://pmmastery.app/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Is PM Mastery aligned with PMBOK 7?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. All 2,000 questions are aligned with the PMBOK 7th edition and PMI's current exam content outline. Every question includes PMBOK references and connects theory to real-world application."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How many mock exams do I get?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "With 2,000 questions in the database, you can generate multiple full-length 180-question mock exams. The platform randomizes questions to create fresh exam experiences every time."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I access PM Mastery on mobile?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. PM Mastery is fully responsive and works on desktop, tablet, and mobile devices. Study anywhere, anytime with your progress automatically synced."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What's included in the free trial?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The free trial includes 100 practice questions, question of the day, basic flashcards, and the formula calculator. Upgrade anytime to unlock all 2,000 questions and advanced features."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How is this different from other PMP prep?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Most platforms give you questions and basic explanations. PM Mastery provides 7-angle explanations, advanced analytics, 28 integrated study tools, and teaches you how PMI thinks – not just what to memorize."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I cancel anytime?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. There are no long-term contracts. Monthly subscriptions can be cancelled anytime. Annual plans are non-refundable but you keep access for the full year."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://pmmastery.app/#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pmmastery.app"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
