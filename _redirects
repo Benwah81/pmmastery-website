@@ -1,0 +1,11 @@
+# Netlify redirects and headers
+
+# Clean URLs for blog posts (remove .html extension)
+/blog/how-to-pass-pmp-exam-first-try    /blog/how-to-pass-pmp-exam-first-try.html    200
+/blog/pmp-study-plan-3-months           /blog/pmp-study-plan-3-months.html           200
+/blog/pmp-vs-capm                       /blog/pmp-vs-capm.html                       200
+/blog/pmbok-7-changes                   /blog/pmbok-7-changes.html                   200
+
+# Blog index
+/blog       /blog/index.html    200
+/blog/      /blog/index.html    200
