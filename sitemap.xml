@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pmmastery.app/blog/pmp-vs-capm</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://app.pmmastery.app/</loc>
     <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
