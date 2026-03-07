@@ -814,6 +814,72 @@
     setTimeout(function() { if (!exitShown && !sessionStorage.getItem('pm_exit_dismissed')) showExitPopup(); }, 45000);
     </script>
 
+    <!-- GA Event Tracking -->
+    <script>
+    // Track all signup/CTA button clicks
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (!link) return;
+        const href = link.href || '';
+        const text = link.textContent.trim().toLowerCase();
+
+        // Track signup clicks
+        if (href.includes('/auth/register')) {
+            gtag('event', 'signup_click', {
+                event_category: 'conversion',
+                event_label: text.substring(0, 50),
+                link_url: href
+            });
+        }
+
+        // Track login clicks
+        if (href.includes('/auth/login')) {
+            gtag('event', 'login_click', { event_category: 'engagement' });
+        }
+
+        // Track cheat sheet link clicks
+        if (href.includes('/cheat-sheet')) {
+            gtag('event', 'cheatsheet_cta_click', {
+                event_category: 'lead_magnet',
+                event_label: document.title
+            });
+        }
+
+        // Track blog CTA clicks
+        if (link.closest('.article-cta') || link.closest('[style*="border: 2px solid #C9A55C"]')) {
+            gtag('event', 'blog_cta_click', {
+                event_category: 'conversion',
+                event_label: document.title
+            });
+        }
+    });
+
+    // Track pricing section visibility
+    if (document.getElementById('pricing')) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    gtag('event', 'pricing_viewed', { event_category: 'engagement' });
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(document.getElementById('pricing'));
+    }
+
+    // Track scroll depth
+    let scrollMilestones = {25: false, 50: false, 75: false, 100: false};
+    window.addEventListener('scroll', function() {
+        const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        [25, 50, 75, 100].forEach(function(milestone) {
+            if (pct >= milestone && !scrollMilestones[milestone]) {
+                scrollMilestones[milestone] = true;
+                gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: milestone + '%' });
+            }
+        });
+    });
+    </script>
+
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
 </body>
