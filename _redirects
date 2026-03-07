@@ -15,6 +15,14 @@
 /cheatsheet     /cheat-sheet.html    301
 /cheat-sheet/   /cheat-sheet.html    200
 
+# Link-in-bio
+/links      /links.html    200
+/links/     /links.html    200
+
+# 5-day email course
+/5-day-course    /5-day-course.html    200
+/course          /5-day-course.html    301
+
 # Blog index
 /blog       /blog/index.html    200
 /blog/      /blog/index.html    200
