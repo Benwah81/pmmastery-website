@@ -287,6 +287,11 @@
                     </a>
                 </div>
                 
+                <!-- App Screenshot -->
+                <div class="hero-screenshot" style="margin: 40px auto 40px; max-width: 900px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                    <img src="images/screenshots/analytics-hero.png" alt="PM Mastery Analytics Dashboard showing 76.2% accuracy, 75% exam readiness score, and domain performance tracking" style="width: 100%; display: block;" loading="lazy">
+                </div>
+                
                 <div class="hero-stats">
                     <div class="stat-card">
                         <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
@@ -333,6 +338,9 @@
                         <li><i class="fas fa-check"></i> PMBOK 8th Edition aligned</li>
                         <li><i class="fas fa-check"></i> 60% agile/hybrid, 40% predictive</li>
                     </ul>
+                    <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="images/screenshots/quiz-correct.png" alt="PMP practice question with detailed explanation showing correct answer reasoning and why other options are wrong" style="width: 100%; display: block;" loading="lazy">
+                    </div>
                 </div>
 
                 <!-- Feature 2 -->
@@ -351,6 +359,12 @@
                         <li><i class="fas fa-check"></i> Strength/weakness identification</li>
                         <li><i class="fas fa-check"></i> Exam readiness score</li>
                     </ul>
+                    <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="images/screenshots/charts.png" alt="Knowledge Area comparison chart and difficulty distribution showing balanced study across Easy, Medium, and Hard questions" style="width: 100%; display: block;" loading="lazy">
+                    </div>
+                    <div style="margin-top: 8px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="images/screenshots/focus-areas.png" alt="PM Mastery Focus Areas identifying weak spots, study tips, and recent activity feed" style="width: 100%; display: block;" loading="lazy">
+                    </div>
                 </div>
 
                 <!-- Feature 3 -->
@@ -368,6 +382,9 @@
                         <li><i class="fas fa-check"></i> Case studies + standalone (240 min)</li>
                         <li><i class="fas fa-check"></i> Detailed performance breakdown</li>
                     </ul>
+                    <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="images/screenshots/mock-exam.png" alt="PM Mastery Mock Exam showing 180 questions, 240 minutes, with progress tracking" style="width: 100%; display: block;" loading="lazy">
+                    </div>
                 </div>
 
                 <!-- Feature 4 -->
@@ -385,6 +402,10 @@
                         <li><i class="fas fa-check"></i> Formula calculator included</li>
                         <li><i class="fas fa-check"></i> Quick reference guides</li>
                     </ul>
+                    <div style="margin-top: 16px; display: flex; gap: 8px; border-radius: 8px; overflow: hidden;">
+                        <img src="images/screenshots/flashcard-question.png" alt="PMP Flashcard question side - Agile Manifesto" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" loading="lazy">
+                        <img src="images/screenshots/flashcard-answer.png" alt="PMP Flashcard answer side showing the 4 Agile values" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" loading="lazy">
+                    </div>
                 </div>
 
                 <!-- Feature 5 -->
@@ -402,6 +423,9 @@
                         <li><i class="fas fa-check"></i> 200 linked case study questions</li>
                         <li><i class="fas fa-check"></i> Real PM project contexts</li>
                     </ul>
+                    <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="images/screenshots/case-studies.png" alt="PM Mastery Case Studies page showing 40 real-world scenarios with progress tracking" style="width: 100%; display: block;" loading="lazy">
+                    </div>
                 </div>
 
                 <!-- Feature 6 -->
@@ -419,6 +443,9 @@
                         <li><i class="fas fa-check"></i> Process flow diagrams</li>
                         <li><i class="fas fa-check"></i> Study guides & templates</li>
                     </ul>
+                    <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="images/screenshots/readiness-report.png" alt="Exam Readiness Report showing 75% readiness score with domain performance breakdown and study recommendations" style="width: 100%; display: block;" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
@@ -933,5 +960,52 @@
 
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
+
+    <!-- Screenshot Lightbox -->
+    <style>
+        .screenshot-lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 10000;
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .screenshot-lightbox.active { display: flex; }
+        .screenshot-lightbox img {
+            max-width: 95%;
+            max-height: 95vh;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+        .screenshot-clickable {
+            cursor: zoom-in;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .screenshot-clickable:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+        }
+    </style>
+    <div class="screenshot-lightbox" id="screenshotLightbox" onclick="this.classList.remove('active')">
+        <img id="lightboxImg" src="" alt="Enlarged screenshot">
+    </div>
+    <script>
+        document.querySelectorAll('.hero-screenshot img, .feature-card img, .feature-benefits + div img').forEach(function(img) {
+            img.classList.add('screenshot-clickable');
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.getElementById('lightboxImg').src = this.src;
+                document.getElementById('lightboxImg').alt = this.alt;
+                document.getElementById('screenshotLightbox').classList.add('active');
+            });
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') document.getElementById('screenshotLightbox').classList.remove('active');
+        });
+    </script>
 </body>
 </html>
