@@ -1,4 +1,4 @@
-﻿const sgMail = require('@sendgrid/mail');
+const sgMail = require('@sendgrid/mail');
 
 exports.handler = async function(event, context) {
   const payload = JSON.parse(event.body).payload;
@@ -6,75 +6,227 @@ exports.handler = async function(event, context) {
   const name = payload.data.name || 'PMP Student';
   const formName = payload.form_name;
 
-  // Only send cheat sheet for exit-popup and newsletter forms
-  if (formName !== 'exit-popup' && formName !== 'newsletter') {
-    return { statusCode: 200, body: 'Skipped: not a cheat sheet form' };
-  }
+  console.log(`Form submission received: ${formName} from ${email} (${name})`);
 
   // Set SendGrid API key
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  const msg = {
-    to: email,
-    from: {
-      email: 'ben@pmmastery.app',
-      name: 'Ben from PM Mastery'
-    },
-    replyTo: 'support@pmmastery.app',
-    subject: 'Your Free PMP Cheat Sheet is Here!',
-    html: 
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="text-align: center; padding: 20px 0;">
-          <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
-          <p style="color: #C9A55C; font-weight: 600; margin: 5px 0 0;">Your PMP Exam Prep Partner</p>
-        </div>
+  // Build email based on form type
+  let msg;
 
-        <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
-          <h2 style="margin: 0 0 10px; color: white;">Hey ! Your cheat sheet is ready.</h2>
-          <p style="margin: 0; opacity: 0.9;">Everything you need on one page for the 2026 PMP exam.</p>
-        </div>
+  if (formName === '5day-course') {
+    // 5-Day Course signup — send Day 1 welcome
+    msg = {
+      to: email,
+      from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
+      replyTo: 'support@pmmastery.app',
+      subject: 'Day 1: The 2026 PMP Exam Breakdown',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="text-align: center; padding: 20px 0;">
+            <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
+            <p style="color: #C9A55C; font-weight: 600; margin: 5px 0 0;">5 Days to PMP Readiness</p>
+          </div>
 
-        <div style="background: #f8f9fc; padding: 24px; border-radius: 8px; border-left: 4px solid #C9A55C; margin-bottom: 24px;">
-          <h3 style="color: #3B4C8B; margin: 0 0 12px;">What's in your cheat sheet:</h3>
-          <ul style="color: #444; line-height: 1.8; padding-left: 20px; margin: 0;">
-            <li>All EVM formulas (PV, EV, AC, CPI, SPI, EAC, ETC, VAC, TCPI)</li>
-            <li>PERT estimation formula</li>
-            <li>12 PMBOK 8th Edition Principles</li>
-            <li>8 Performance Domains</li>
-            <li>2026 ECO domain weights (People 33%, Process 41%, BE 26%)</li>
-            <li>Exam day tips and strategies</li>
-          </ul>
-        </div>
+          <div style="background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
+            <h2 style="margin: 0 0 10px; color: white;">Day 1: The 2026 Exam Breakdown</h2>
+            <p style="margin: 0; opacity: 0.9;">Hey ${name}! Welcome to the course. Let's start with what changed.</p>
+          </div>
 
-        <div style="text-align: center; margin-bottom: 24px;">
-          <a href="https://pmmastery.app/PM_Mastery_2026_PMP_Cheat_Sheet.pdf"
-             style="display: inline-block; background: linear-gradient(135deg, #C9A55C, #d4b36f); color: #3B4C8B; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
-            Download Your Cheat Sheet
-          </a>
-        </div>
+          <div style="padding: 0 10px; color: #333; line-height: 1.7;">
+            <p>The PMP exam is changing in 2026, and it's a big shift. Here's what you need to know:</p>
 
-        <div style="background: #fff; padding: 20px; border: 2px solid #C9A55C; border-radius: 8px; text-align: center; margin-bottom: 24px;">
-          <h3 style="color: #3B4C8B; margin: 0 0 8px;">Ready to go deeper?</h3>
-          <p style="color: #666; margin: 0 0 16px;">PM Mastery has 4,500+ practice questions, 40 case studies, and mock exams built for the 2026 PMP exam.</p>
-          <a href="https://app.pmmastery.app/auth/register?utm_source=cheatsheet&utm_medium=email&utm_campaign=lead_magnet"
-             style="display: inline-block; background: #3B4C8B; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
-            Start Free - 100 Questions Included
-          </a>
-        </div>
+            <h3 style="color: #3B4C8B;">New Domain Weights</h3>
+            <p>The 2026 ECO (Examination Content Outline) restructures the exam into three domains:</p>
+            <ul>
+              <li><strong>People (33%)</strong> — Team leadership, conflict management, stakeholder engagement</li>
+              <li><strong>Process (41%)</strong> — Planning, executing, monitoring across predictive and agile</li>
+              <li><strong>Business Environment (26%)</strong> — Up from 8%! Benefits realization, compliance, organizational change</li>
+            </ul>
 
-        <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
-          <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
-          <p>You received this because you downloaded our PMP cheat sheet.</p>
-          <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+            <h3 style="color: #3B4C8B;">PMBOK 8th Edition</h3>
+            <p>The new exam references PMBOK 8th Edition, which shifts from process groups to <strong>12 Principles</strong> and <strong>8 Performance Domains</strong>. It's more principle-based and less prescriptive.</p>
+
+            <h3 style="color: #3B4C8B;">What This Means for You</h3>
+            <p>Focus your study time on agile/hybrid (60%+ of questions), the Business Environment domain (biggest increase), and understanding <em>why</em> behind project decisions, not just <em>what</em>.</p>
+
+            <div style="background: #f0f4ff; padding: 16px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #3498DB;">
+              <strong>Tomorrow's lesson:</strong> The formulas you actually need for exam day — EVM, PERT, EMV, and memory tricks to lock them in.
+            </div>
+          </div>
+
+          <div style="text-align: center; margin: 24px 0;">
+            <a href="https://app.pmmastery.app/auth/register?utm_source=5day_course&utm_medium=email&utm_campaign=day1"
+               style="display: inline-block; background: #3B4C8B; color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+              Start Practicing Free — 100 Questions Included
+            </a>
+          </div>
+
+          <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
+            <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
+            <p>You signed up for the 5 Days to PMP Readiness course.</p>
+            <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+          </div>
         </div>
+      `
+    };
+
+  } else if (formName === 'cheatsheet' || formName === 'exit-popup' || formName === 'newsletter') {
+    // Cheat sheet / newsletter forms — send cheat sheet PDF
+    msg = {
+      to: email,
+      from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
+      replyTo: 'support@pmmastery.app',
+      subject: 'Your Free PMP Cheat Sheet is Here!',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="text-align: center; padding: 20px 0;">
+            <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
+            <p style="color: #C9A55C; font-weight: 600; margin: 5px 0 0;">Your PMP Exam Prep Partner</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
+            <h2 style="margin: 0 0 10px; color: white;">Hey ${name}! Your cheat sheet is ready.</h2>
+            <p style="margin: 0; opacity: 0.9;">Everything you need on one page for the 2026 PMP exam.</p>
+          </div>
+
+          <div style="background: #f8f9fc; padding: 24px; border-radius: 8px; border-left: 4px solid #C9A55C; margin-bottom: 24px;">
+            <h3 style="color: #3B4C8B; margin: 0 0 12px;">What's in your cheat sheet:</h3>
+            <ul style="color: #444; line-height: 1.8; padding-left: 20px; margin: 0;">
+              <li>All EVM formulas (PV, EV, AC, CPI, SPI, EAC, ETC, VAC, TCPI)</li>
+              <li>PERT estimation formula</li>
+              <li>12 PMBOK 8th Edition Principles</li>
+              <li>8 Performance Domains</li>
+              <li>2026 ECO domain weights (People 33%, Process 41%, BE 26%)</li>
+              <li>Exam day tips and strategies</li>
+            </ul>
+          </div>
+
+          <div style="text-align: center; margin-bottom: 24px;">
+            <a href="https://pmmastery.app/PM_Mastery_2026_PMP_Cheat_Sheet.pdf"
+               style="display: inline-block; background: linear-gradient(135deg, #C9A55C, #d4b36f); color: #3B4C8B; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
+              Download Your Cheat Sheet
+            </a>
+          </div>
+
+          <div style="background: #fff; padding: 20px; border: 2px solid #C9A55C; border-radius: 8px; text-align: center; margin-bottom: 24px;">
+            <h3 style="color: #3B4C8B; margin: 0 0 8px;">Ready to go deeper?</h3>
+            <p style="color: #666; margin: 0 0 16px;">PM Mastery has 4,500+ practice questions, 40 case studies, and mock exams built for the 2026 PMP exam.</p>
+            <a href="https://app.pmmastery.app/auth/register?utm_source=cheatsheet&utm_medium=email&utm_campaign=lead_magnet"
+               style="display: inline-block; background: #3B4C8B; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+              Start Free - 100 Questions Included
+            </a>
+          </div>
+
+          <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
+            <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
+            <p>You received this because you downloaded our PMP cheat sheet.</p>
+            <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+          </div>
+        </div>
+      `
+    };
+
+  } else if (formName === 'blog-newsletter') {
+    // Blog newsletter — send welcome + cheat sheet
+    msg = {
+      to: email,
+      from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
+      replyTo: 'support@pmmastery.app',
+      subject: 'Welcome to the PM Mastery Newsletter!',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="text-align: center; padding: 20px 0;">
+            <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
+            <p style="color: #C9A55C; font-weight: 600; margin: 5px 0 0;">Your PMP Exam Prep Partner</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
+            <h2 style="margin: 0 0 10px; color: white;">You're on the list!</h2>
+            <p style="margin: 0; opacity: 0.9;">Weekly PMP strategies and study tips, straight to your inbox.</p>
+          </div>
+
+          <div style="padding: 0 10px; color: #333; line-height: 1.7;">
+            <p>Thanks for subscribing! As a welcome gift, here's our free 2-page PMP cheat sheet:</p>
+          </div>
+
+          <div style="text-align: center; margin: 24px 0;">
+            <a href="https://pmmastery.app/PM_Mastery_2026_PMP_Cheat_Sheet.pdf"
+               style="display: inline-block; background: linear-gradient(135deg, #C9A55C, #d4b36f); color: #3B4C8B; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
+              Download Your Cheat Sheet
+            </a>
+          </div>
+
+          <div style="text-align: center; margin: 24px 0;">
+            <a href="https://app.pmmastery.app/auth/register?utm_source=blog_newsletter&utm_medium=email&utm_campaign=welcome"
+               style="display: inline-block; background: #3B4C8B; color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+              Start Practicing Free — 100 Questions Included
+            </a>
+          </div>
+
+          <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
+            <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
+            <p>You subscribed to the PM Mastery blog newsletter.</p>
+            <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+          </div>
+        </div>
+      `
+    };
+
+  } else {
+    console.log(`Unhandled form: ${formName}`);
+    return { statusCode: 200, body: `Skipped: unhandled form '${formName}'` };
+  }
+
+  // Also send lead notification to Ben
+  const notifyMsg = {
+    to: 'ben@pmmastery.app',
+    from: { email: 'noreply@pmmastery.app', name: 'PM Mastery' },
+    subject: `New PM Mastery Lead: ${formName}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; padding: 20px;">
+        <h2 style="color: #3B4C8B;">New Lead from ${formName}</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Form:</strong> ${formName}</p>
+        <p><strong>Time:</strong> ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })}</p>
       </div>
-    
+    `
   };
 
   try {
-    await sgMail.send(msg);
-    console.log('Cheat sheet email sent to: ' + email);
-    return { statusCode: 200, body: 'Email sent successfully' };
+    // Send both: the user email and the notification to Ben
+    await Promise.all([
+      sgMail.send(msg),
+      sgMail.send(notifyMsg)
+    ]);
+    console.log(`Emails sent for ${formName}: user=${email}, notification=ben@pmmastery.app`);
+
+    // For 5-day course signups, register in Railway DB so cron can send Days 2-5
+    if (formName === '5day-course') {
+      try {
+        const courseApiKey = process.env.COURSE_API_KEY;
+        if (courseApiKey) {
+          const response = await fetch('https://app.pmmastery.app/api/course-signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-API-Key': courseApiKey
+            },
+            body: JSON.stringify({ email, name, source: '5day-course' })
+          });
+          const result = await response.json();
+          console.log(`Course signup registered: ${JSON.stringify(result)}`);
+        } else {
+          console.warn('COURSE_API_KEY not set, skipping course signup registration');
+        }
+      } catch (regError) {
+        // Don't fail the whole function if registration fails
+        console.error('Course signup registration error:', regError);
+      }
+    }
+
+    return { statusCode: 200, body: 'Emails sent successfully' };
   } catch (error) {
     console.error('SendGrid error:', error.response ? error.response.body : error);
     return { statusCode: 500, body: 'Failed to send email' };
