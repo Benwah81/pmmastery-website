@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free PERT Estimator for the 2026 PMP exam. Calculate three-point estimates, expected duration, and standard deviation. PERT formula: (O + 4M + P) / 6.">
+    <meta name="keywords" content="PERT estimator, PERT calculator PMP, three point estimate calculator, PMP PERT formula, (O+4M+P)/6 calculator, PMP 2026 formulas, PERT standard deviation">
+    <title>Free PERT Estimator &mdash; Three-Point Estimate Calculator for the 2026 PMP Exam | PM Mastery</title>
+
+    <link rel="canonical" href="https://pmmastery.app/tools/pert-estimator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pmmastery.app/tools/pert-estimator">
+    <meta property="og:title" content="Free PERT Estimator &mdash; Three-Point Estimate Calculator">
+    <meta property="og:description" content="Calculate PERT expected duration, standard deviation, and variance instantly. Built for the 2026 PMP exam.">
+    <meta property="og:image" content="https://pmmastery.app/og-image.png">
+    <meta property="og:site_name" content="PM Mastery">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free PERT Estimator for PMP Exam Prep">
+    <meta name="twitter:description" content="Three-point estimate calculator with (O+4M+P)/6 formula.">
+    <meta name="twitter:image" content="https://pmmastery.app/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%233B4C8B'/%3E%3Cpath d='M32 12 L48 40 L32 32 L16 40 Z' fill='%23C9A55C'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0RSXYS7K8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P0RSXYS7K8');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PMP PERT Estimator",
+        "description": "Free PERT three-point estimate calculator for PMP exam preparation. Calculate expected duration, standard deviation, and variance.",
+        "url": "https://pmmastery.app/tools/pert-estimator",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Organization", "name": "PM Mastery Solutions, LLC"}
+    }
+    </script>
+
+    <style>
+        .tool-hero { background: linear-gradient(135deg, #3B4C8B 0%, #2d3a6b 100%); padding: 60px 0 40px; text-align: center; }
+        .tool-hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
+        .tool-hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .tool-badge { display: inline-block; background: #C9A55C; color: #3B4C8B; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; }
+        .calc-section { padding: 40px 0 60px; }
+        .calc-card { background: #f8f9fa; border-radius: 12px; padding: 40px; border: 1px solid #e9ecef; max-width: 650px; margin: 0 auto; }
+        .calc-card h2 { font-size: 1.3rem; margin-bottom: 24px; color: #2d3a6b; text-align: center; }
+        .inputs-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        @media (max-width: 520px) { .inputs-grid { grid-template-columns: 1fr; } }
+        .input-group { }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; color: #343a40; }
+        .input-group .hint { font-weight: 400; color: #6c757d; font-size: 0.78rem; }
+        .input-group input { width: 100%; padding: 12px 16px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1.1rem; font-family: inherit; text-align: center; transition: border-color 0.2s; }
+        .input-group input:focus { outline: none; border-color: #3B4C8B; }
+        .btn-calculate { width: 100%; padding: 14px; background: #C9A55C; color: #3B4C8B; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+        .btn-calculate:hover { background: #b8944a; }
+        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; display: none; }
+        @media (max-width: 520px) { .results-grid { grid-template-columns: 1fr; } }
+        .result-card { background: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 20px; text-align: center; }
+        .result-card.primary { border: 2px solid #3B4C8B; grid-column: 1 / -1; }
+        .result-label { font-size: 0.8rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .result-value { font-size: 2rem; font-weight: 800; color: #3B4C8B; margin: 6px 0; font-family: 'Montserrat', sans-serif; }
+        .result-formula { font-size: 0.8rem; color: #6c757d; font-family: 'Courier New', monospace; }
+        .result-note { font-size: 0.85rem; color: #343a40; margin-top: 6px; }
+        .range-bar { margin-top: 20px; display: none; }
+        .range-bar h3 { font-size: 1rem; text-align: center; margin-bottom: 10px; color: #2d3a6b; }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">
+                    <svg class="logo-svg" width="160" height="40" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M8 35 L15 20 L22 35 L15 30 Z" fill="#C9A55C"/>
+                            <text x="30" y="33" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PM MASTERY</text>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/blog">Blog</a>
+                <a href="https://app.pmmastery.app/auth/login" class="btn-nav-secondary">Login</a>
+                <a href="https://app.pmmastery.app/auth/register" class="btn-nav-primary">Get Started Free</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i class="fas fa-calculator"></i> Free Tool</span>
+            <h1>PERT Estimator</h1>
+            <p>Calculate three-point estimates, expected duration, and standard deviation for the 2026 PMP exam.</p>
+        </div>
+    </section>
+
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-card">
+                <h2><i class="fas fa-clock"></i> Enter Your Estimates</h2>
+                <div class="inputs-grid">
+                    <div class="input-group">
+                        <label>Optimistic (O) <span class="hint">Best case</span></label>
+                        <input type="number" id="optimistic" placeholder="e.g. 4" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>Most Likely (M) <span class="hint">Normal case</span></label>
+                        <input type="number" id="most-likely" placeholder="e.g. 8" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>Pessimistic (P) <span class="hint">Worst case</span></label>
+                        <input type="number" id="pessimistic" placeholder="e.g. 16" step="any">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculate()"><i class="fas fa-bolt"></i> Calculate PERT Estimate</button>
+
+                <div class="results-grid" id="results">
+                    <div class="result-card primary">
+                        <div class="result-label">PERT Expected Duration (t<sub>E</sub>)</div>
+                        <div class="result-value" id="te"></div>
+                        <div class="result-formula" id="te-formula"></div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Standard Deviation (&sigma;)</div>
+                        <div class="result-value" id="sd" style="font-size: 1.5rem;"></div>
+                        <div class="result-formula" id="sd-formula"></div>
+                        <div class="result-note" id="sd-note"></div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Variance (&sigma;&sup2;)</div>
+                        <div class="result-value" id="var" style="font-size: 1.5rem;"></div>
+                        <div class="result-formula" id="var-formula"></div>
+                    </div>
+                </div>
+
+                <div class="range-bar" id="range-bar">
+                    <h3>Confidence Ranges</h3>
+                    <div id="range-content" style="font-size: 0.9rem; color: #343a40;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0 60px; background: #f8f9fa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">PERT Formula Explained for the PMP Exam</h2>
+
+            <h3 style="margin-top: 24px;">The PERT Expected Duration Formula</h3>
+            <p style="text-align: center; font-size: 1.3rem; font-weight: 700; color: #3B4C8B; margin: 16px 0; font-family: 'Courier New', monospace;">t<sub>E</sub> = (O + 4M + P) / 6</p>
+            <p>PERT (Program Evaluation and Review Technique) uses three estimates to calculate a weighted average. The most likely estimate (M) is weighted 4 times more heavily than the optimistic (O) and pessimistic (P) estimates. This creates a beta distribution that accounts for uncertainty while biasing toward the most probable outcome.</p>
+
+            <h3 style="margin-top: 24px;">Standard Deviation</h3>
+            <p style="text-align: center; font-size: 1.3rem; font-weight: 700; color: #3B4C8B; margin: 16px 0; font-family: 'Courier New', monospace;">&sigma; = (P &minus; O) / 6</p>
+            <p>Standard deviation measures the spread of uncertainty in your estimate. A larger gap between optimistic and pessimistic means more risk. On the PMP exam, standard deviation is used with confidence ranges: &plusmn;1&sigma; gives about 68% confidence, &plusmn;2&sigma; gives about 95%, and &plusmn;3&sigma; gives about 99.7%.</p>
+
+            <h3 style="margin-top: 24px;">When the PMP Tests This</h3>
+            <p>PERT questions on the 2026 PMP exam typically appear in two forms. First, straightforward calculations: &ldquo;Given O=3, M=5, P=13, what is the expected duration?&rdquo; Second, confidence range questions: &ldquo;What range gives 95% confidence?&rdquo; (answer: t<sub>E</sub> &plusmn; 2&sigma;). Know both.</p>
+
+            <h3 style="margin-top: 24px;">Common Exam Traps</h3>
+            <p><strong>Trap 1: Confusing PERT with triangular estimate.</strong> PERT = (O + 4M + P) / 6. Triangular = (O + M + P) / 3. The PMP tests both. Read which one the question asks for.</p>
+            <p><strong>Trap 2: Variance vs. standard deviation.</strong> Variance = &sigma;&sup2; (standard deviation squared). If the question asks for variance, square the standard deviation. Some questions give you activities on the critical path and ask for the total project variance &mdash; add the individual variances, not the standard deviations.</p>
+            <p><strong>Trap 3: Adding standard deviations.</strong> You cannot simply add standard deviations across activities. You must add the variances, then take the square root to get the combined standard deviation. This is a frequent PMP exam trap for critical path duration confidence questions.</p>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <p>Want to practice PERT and three-point estimate questions with AI-powered explanations?<br>
+            <a href="https://app.pmmastery.app/auth/register" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free &mdash; 100 questions included &rarr;</a></p>
+        </div>
+    </section>
+
+    <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 0 auto 60px; max-width: 700px;">
+        <h3 style="color: white; margin-bottom: 10px;">Master every PMP formula</h3>
+        <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,500+ questions &middot; AI Coach powered by Claude &middot; PERT, EVM, and all formulas explained</p>
+        <a href="https://app.pmmastery.app/auth/register" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>PM Mastery</h4>
+                    <p>AI-powered PMP exam preparation for the 2026 exam.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="https://app.pmmastery.app/auth/register">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Free Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="/tools/evm-calculator">EVM Calculator</a></li>
+                        <li><a href="/tools/communication-channels-calculator">Comm. Channels Calculator</a></li>
+                        <li><a href="/tools/pert-estimator" style="color: #C9A55C;">PERT Estimator</a></li>
+                        <li><a href="/cheat-sheet">Free Cheat Sheet</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://app.pmmastery.app/privacy">Privacy Policy</a></li>
+                        <li><a href="https://app.pmmastery.app/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PM Mastery Solutions, LLC. All rights reserved.</p>
+                <p class="footer-disclaimer">PMI, PMP, PMBOK are registered marks of the Project Management Institute, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+    function calculate() {
+        const o = parseFloat(document.getElementById('optimistic').value);
+        const m = parseFloat(document.getElementById('most-likely').value);
+        const p = parseFloat(document.getElementById('pessimistic').value);
+
+        if (isNaN(o) || isNaN(m) || isNaN(p)) {
+            alert('Please enter all three estimates.');
+            return;
+        }
+        if (o > m || m > p) {
+            alert('Values should be: Optimistic ≤ Most Likely ≤ Pessimistic');
+            return;
+        }
+
+        const te = (o + 4 * m + p) / 6;
+        const sd = (p - o) / 6;
+        const variance = sd * sd;
+
+        document.getElementById('te').textContent = te.toFixed(2);
+        document.getElementById('te-formula').textContent = '(' + o + ' + 4×' + m + ' + ' + p + ') / 6 = ' + (o + 4*m + p) + ' / 6';
+        document.getElementById('sd').textContent = sd.toFixed(2);
+        document.getElementById('sd-formula').textContent = '(' + p + ' − ' + o + ') / 6 = ' + (p - o) + ' / 6';
+        document.getElementById('sd-note').textContent = '±1σ covers ~68% probability';
+        document.getElementById('var').textContent = variance.toFixed(2);
+        document.getElementById('var-formula').textContent = sd.toFixed(2) + '² = ' + variance.toFixed(2);
+        document.getElementById('results').style.display = 'grid';
+
+        // Confidence ranges
+        const r1lo = (te - sd).toFixed(2);
+        const r1hi = (te + sd).toFixed(2);
+        const r2lo = (te - 2*sd).toFixed(2);
+        const r2hi = (te + 2*sd).toFixed(2);
+        const r3lo = (te - 3*sd).toFixed(2);
+        const r3hi = (te + 3*sd).toFixed(2);
+        let rangeHtml = '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center;">';
+        rangeHtml += '<div style="background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:14px;"><strong style="color:#3B4C8B;">68.3%</strong><br><span style="font-family:monospace;">±1σ</span><br>' + r1lo + ' – ' + r1hi + '</div>';
+        rangeHtml += '<div style="background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:14px;"><strong style="color:#3B4C8B;">95.5%</strong><br><span style="font-family:monospace;">±2σ</span><br>' + r2lo + ' – ' + r2hi + '</div>';
+        rangeHtml += '<div style="background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:14px;"><strong style="color:#3B4C8B;">99.7%</strong><br><span style="font-family:monospace;">±3σ</span><br>' + r3lo + ' – ' + r3hi + '</div>';
+        rangeHtml += '</div>';
+        document.getElementById('range-content').innerHTML = rangeHtml;
+        document.getElementById('range-bar').style.display = 'block';
+    }
+    </script>
+</body>
+</html>

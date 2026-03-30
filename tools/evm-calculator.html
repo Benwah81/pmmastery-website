@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free PMP EVM Calculator for the 2026 exam. Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI instantly. Includes formula explanations and exam tips.">
+    <meta name="keywords" content="PMP EVM calculator, earned value management calculator, CPI SPI calculator, PMP formulas, EVM formulas PMP exam, earned value calculator free, PMP 2026 formulas">
+    <title>Free PMP EVM Calculator &mdash; Earned Value Formulas for the 2026 Exam | PM Mastery</title>
+
+    <link rel="canonical" href="https://pmmastery.app/tools/evm-calculator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pmmastery.app/tools/evm-calculator">
+    <meta property="og:title" content="Free PMP EVM Calculator &mdash; All Earned Value Formulas">
+    <meta property="og:description" content="Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI instantly. Built for the 2026 PMP exam.">
+    <meta property="og:image" content="https://pmmastery.app/og-image.png">
+    <meta property="og:site_name" content="PM Mastery">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free PMP EVM Calculator">
+    <meta name="twitter:description" content="Calculate all EVM metrics instantly. Free tool for PMP exam prep.">
+    <meta name="twitter:image" content="https://pmmastery.app/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%233B4C8B'/%3E%3Cpath d='M32 12 L48 40 L32 32 L16 40 Z' fill='%23C9A55C'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0RSXYS7K8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P0RSXYS7K8');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PMP EVM Calculator",
+        "description": "Free Earned Value Management calculator for PMP exam preparation. Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI.",
+        "url": "https://pmmastery.app/tools/evm-calculator",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Organization", "name": "PM Mastery Solutions, LLC"}
+    }
+    </script>
+
+    <style>
+        .tool-hero { background: linear-gradient(135deg, #3B4C8B 0%, #2d3a6b 100%); padding: 60px 0 40px; text-align: center; }
+        .tool-hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
+        .tool-hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .tool-badge { display: inline-block; background: #C9A55C; color: #3B4C8B; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; }
+        .calc-section { padding: 40px 0 60px; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; }
+        @media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; } }
+        .calc-inputs { background: #f8f9fa; border-radius: 12px; padding: 30px; border: 1px solid #e9ecef; }
+        .calc-inputs h2 { font-size: 1.3rem; margin-bottom: 20px; color: #2d3a6b; }
+        .input-group { margin-bottom: 18px; }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; color: #343a40; }
+        .input-group .hint { font-weight: 400; color: #6c757d; font-size: 0.8rem; }
+        .input-group input { width: 100%; padding: 12px 16px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: border-color 0.2s; }
+        .input-group input:focus { outline: none; border-color: #3B4C8B; }
+        .btn-calculate { width: 100%; padding: 14px; background: #C9A55C; color: #3B4C8B; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+        .btn-calculate:hover { background: #b8944a; }
+        .results-panel h2 { font-size: 1.3rem; margin-bottom: 20px; color: #2d3a6b; }
+        .result-card { background: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; transition: border-color 0.2s; }
+        .result-card.positive { border-left: 4px solid #28a745; }
+        .result-card.negative { border-left: 4px solid #dc3545; }
+        .result-card.neutral { border-left: 4px solid #6c757d; }
+        .result-label { font-size: 0.85rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .result-value { font-size: 1.5rem; font-weight: 700; color: #2d3a6b; margin: 4px 0; }
+        .result-formula { font-size: 0.8rem; color: #6c757d; font-family: 'Courier New', monospace; }
+        .result-meaning { font-size: 0.85rem; color: #343a40; margin-top: 4px; }
+        .bac-input { margin-top: 20px; padding-top: 20px; border-top: 2px dashed #dee2e6; }
+        .bac-input label .optional { color: #C9A55C; font-size: 0.75rem; }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">
+                    <svg class="logo-svg" width="160" height="40" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M8 35 L15 20 L22 35 L15 30 Z" fill="#C9A55C"/>
+                            <text x="30" y="33" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PM MASTERY</text>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/blog">Blog</a>
+                <a href="https://app.pmmastery.app/auth/login" class="btn-nav-secondary">Login</a>
+                <a href="https://app.pmmastery.app/auth/register" class="btn-nav-primary">Get Started Free</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i class="fas fa-calculator"></i> Free Tool</span>
+            <h1>PMP EVM Calculator</h1>
+            <p>Enter your Earned Value metrics and instantly calculate every EVM formula you need for the 2026 PMP exam.</p>
+        </div>
+    </section>
+
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-grid">
+                <div class="calc-inputs">
+                    <h2><i class="fas fa-keyboard"></i> Enter Your Values</h2>
+                    <div class="input-group">
+                        <label>Planned Value (PV) <span class="hint">&mdash; Budgeted cost of work scheduled</span></label>
+                        <input type="number" id="pv" placeholder="e.g. 100000" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>Earned Value (EV) <span class="hint">&mdash; Budgeted cost of work performed</span></label>
+                        <input type="number" id="ev" placeholder="e.g. 90000" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>Actual Cost (AC) <span class="hint">&mdash; Actual cost of work performed</span></label>
+                        <input type="number" id="ac" placeholder="e.g. 110000" step="any">
+                    </div>
+                    <div class="input-group bac-input">
+                        <label>Budget at Completion (BAC) <span class="optional">OPTIONAL &mdash; needed for EAC/ETC/VAC/TCPI</span></label>
+                        <input type="number" id="bac" placeholder="e.g. 500000" step="any">
+                    </div>
+                    <button class="btn-calculate" onclick="calculate()"><i class="fas fa-bolt"></i> Calculate All EVM Metrics</button>
+                </div>
+                <div class="results-panel">
+                    <h2><i class="fas fa-chart-line"></i> Results</h2>
+                    <div id="results">
+                        <p style="color: #6c757d; text-align: center; padding: 40px 0;">Enter PV, EV, and AC above, then click Calculate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0 60px; background: #f8f9fa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">EVM Formulas Explained for the PMP Exam</h2>
+
+            <p>Earned Value Management (EVM) is one of the most tested topics on the PMP exam. The 2026 exam aligned with PMBOK 8th Edition continues to test EVM heavily in the Process domain (41% of the exam). Understanding these formulas is not optional &mdash; you will see EVM questions on exam day.</p>
+
+            <h3 style="margin-top: 30px;">Variance Formulas</h3>
+            <p><strong>Cost Variance (CV) = EV &minus; AC</strong> &mdash; Tells you whether you are under or over budget. A positive CV means you&rsquo;re under budget (good). A negative CV means you&rsquo;ve spent more than the value of work completed.</p>
+            <p><strong>Schedule Variance (SV) = EV &minus; PV</strong> &mdash; Tells you whether you are ahead or behind schedule. A positive SV means you&rsquo;ve completed more work than planned (ahead). A negative SV means you&rsquo;re behind where you should be.</p>
+
+            <h3 style="margin-top: 30px;">Performance Index Formulas</h3>
+            <p><strong>Cost Performance Index (CPI) = EV &divide; AC</strong> &mdash; The efficiency of your spending. A CPI of 1.0 means you&rsquo;re on budget. Above 1.0 is under budget. Below 1.0 means you&rsquo;re burning through money faster than planned. PMI considers CPI the single most important EVM metric.</p>
+            <p><strong>Schedule Performance Index (SPI) = EV &divide; PV</strong> &mdash; The efficiency of your time. An SPI of 1.0 means you&rsquo;re on schedule. Above 1.0 is ahead. Below 1.0 means you&rsquo;re behind. On the PMP exam, pay attention to whether the question asks about cost or schedule efficiency.</p>
+
+            <h3 style="margin-top: 30px;">Forecasting Formulas</h3>
+            <p><strong>Estimate at Completion (EAC)</strong> &mdash; The projected total cost of the project. There are four EAC formulas tested on the PMP exam:</p>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>EAC = BAC &divide; CPI</strong> &mdash; Used when current cost variance is expected to continue (most common on the exam)</li>
+                <li><strong>EAC = AC + (BAC &minus; EV)</strong> &mdash; Used when current variances are atypical and won&rsquo;t continue</li>
+                <li><strong>EAC = AC + Bottom-up ETC</strong> &mdash; Used when the original estimate is fundamentally flawed</li>
+                <li><strong>EAC = AC + (BAC &minus; EV) &divide; (CPI &times; SPI)</strong> &mdash; Used when both cost and schedule performance must be considered</li>
+            </ul>
+            <p><strong>Estimate to Complete (ETC) = EAC &minus; AC</strong> &mdash; How much more money you need to finish the project from this point forward.</p>
+            <p><strong>Variance at Completion (VAC) = BAC &minus; EAC</strong> &mdash; The projected budget overrun or underrun at the end of the project. Positive means under budget. Negative means over budget.</p>
+            <p><strong>To-Complete Performance Index (TCPI) = (BAC &minus; EV) &divide; (BAC &minus; AC)</strong> &mdash; The cost efficiency you must achieve on remaining work to finish within the original budget. A TCPI greater than 1.0 means you need to be more efficient than you have been. Above 1.2 is generally considered unrealistic.</p>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0 60px;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">PMP Exam Tips for EVM Questions</h2>
+
+            <p><strong>Tip 1: Know what the question is actually asking.</strong> Many EVM questions don&rsquo;t ask you to calculate &mdash; they ask you to interpret. &ldquo;The project has a CPI of 0.85 and SPI of 1.1. What should the PM do?&rdquo; You need to know that CPI below 1.0 means over budget and SPI above 1.0 means ahead of schedule, then apply the PMI mindset to recommend the right action.</p>
+
+            <p><strong>Tip 2: Memorize the direction.</strong> CV and SV: positive is good, negative is bad. CPI and SPI: above 1.0 is good, below 1.0 is bad. The exam will test whether you know which direction means what &mdash; especially in the first 10 seconds of reading a question.</p>
+
+            <p><strong>Tip 3: Know which EAC formula to use.</strong> This is the most common EVM trap on the PMP. If the question says &ldquo;current trends are expected to continue,&rdquo; use EAC = BAC/CPI. If it says &ldquo;the variance was a one-time issue,&rdquo; use EAC = AC + (BAC &minus; EV). Read the scenario carefully.</p>
+
+            <p><strong>Tip 4: TCPI is the overlooked formula.</strong> Many candidates skip TCPI because it seems complex. But it shows up on the exam and it&rsquo;s straightforward once you understand it: TCPI tells you how efficient you need to be on the remaining work. If TCPI is greater than 1.0, you need to improve. If it&rsquo;s much greater than 1.0, the original budget may not be achievable.</p>
+
+            <p style="margin-top: 30px; text-align: center;">Want to practice EVM questions with instant AI explanations?<br>
+            <a href="https://app.pmmastery.app/auth/register" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free &mdash; 100 questions included &rarr;</a></p>
+        </div>
+    </section>
+
+    <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 0 auto 60px; max-width: 700px;">
+        <h3 style="color: white; margin-bottom: 10px;">Master every PMP formula with AI coaching</h3>
+        <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,500+ questions &middot; AI Coach powered by Claude &middot; EVM, PERT, and all formulas explained</p>
+        <a href="https://app.pmmastery.app/auth/register" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
+    </div>
+
+    <section style="padding: 40px 0; background: #f8f9fa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h2>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">What is Earned Value Management (EVM)?</h3>
+                <p>Earned Value Management is a project management methodology that integrates scope, schedule, and cost data to measure project performance and progress. It answers three questions: How much work was planned? How much work was actually completed? How much did the completed work cost? EVM is a core topic on the PMP exam and appears in the Process domain.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">How many EVM questions are on the 2026 PMP exam?</h3>
+                <p>PMI does not disclose exact question counts per topic, but EVM is consistently one of the most tested quantitative areas on the PMP exam. Candidates typically report 5 to 15 EVM-related questions, including both calculation and interpretation questions. The Process domain (41% of the exam) covers EVM most heavily.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">What are the three core EVM values?</h3>
+                <p>The three core EVM values are Planned Value (PV), which is the authorized budget for work scheduled; Earned Value (EV), which is the authorized budget for work actually completed; and Actual Cost (AC), which is the total cost incurred for the work performed. Every other EVM formula is derived from these three inputs.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">What is the most important EVM metric for the PMP exam?</h3>
+                <p>According to PMI, the Cost Performance Index (CPI) is the most critical EVM metric because it measures cost efficiency and is the most reliable predictor of final project cost. Once a project&rsquo;s CPI is established after 20% completion, it rarely changes significantly. The PMP exam frequently tests CPI interpretation and its use in EAC forecasting.</p>
+            </div>
+        </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is Earned Value Management (EVM)?", "acceptedAnswer": {"@type": "Answer", "text": "Earned Value Management is a project management methodology that integrates scope, schedule, and cost data to measure project performance and progress. It is a core topic on the PMP exam."}},
+            {"@type": "Question", "name": "How many EVM questions are on the 2026 PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "Candidates typically report 5 to 15 EVM-related questions. The Process domain (41% of the exam) covers EVM most heavily."}},
+            {"@type": "Question", "name": "What are the three core EVM values?", "acceptedAnswer": {"@type": "Answer", "text": "Planned Value (PV), Earned Value (EV), and Actual Cost (AC). Every other EVM formula is derived from these three inputs."}},
+            {"@type": "Question", "name": "What is the most important EVM metric for the PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "The Cost Performance Index (CPI) is the most critical EVM metric because it measures cost efficiency and is the most reliable predictor of final project cost."}}
+        ]
+    }
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>PM Mastery</h4>
+                    <p>AI-powered PMP exam preparation for the 2026 exam.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="https://app.pmmastery.app/auth/register">Get Started</a></li>
+                        <li><a href="https://app.pmmastery.app/auth/login">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/tools/evm-calculator" style="color: #C9A55C;">EVM Calculator</a></li>
+                        <li><a href="/cheat-sheet">Free Cheat Sheet</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://app.pmmastery.app/privacy">Privacy Policy</a></li>
+                        <li><a href="https://app.pmmastery.app/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PM Mastery Solutions, LLC. All rights reserved.</p>
+                <p class="footer-disclaimer">PMI, PMP, PMBOK are registered marks of the Project Management Institute, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+    function calculate() {
+        const pv = parseFloat(document.getElementById('pv').value);
+        const ev = parseFloat(document.getElementById('ev').value);
+        const ac = parseFloat(document.getElementById('ac').value);
+        const bac = parseFloat(document.getElementById('bac').value);
+
+        if (isNaN(pv) || isNaN(ev) || isNaN(ac)) {
+            document.getElementById('results').innerHTML = '<p style="color:#dc3545;text-align:center;padding:20px;">Please enter PV, EV, and AC to calculate.</p>';
+            return;
+        }
+
+        const cv = ev - ac;
+        const sv = ev - pv;
+        const cpi = ac !== 0 ? ev / ac : 0;
+        const spi = pv !== 0 ? ev / pv : 0;
+
+        let html = '';
+        html += card('Cost Variance (CV)', cv, 'EV − AC = ' + fmt(ev) + ' − ' + fmt(ac), cv >= 0 ? 'Under budget' : 'Over budget', cv >= 0 ? 'positive' : 'negative');
+        html += card('Schedule Variance (SV)', sv, 'EV − PV = ' + fmt(ev) + ' − ' + fmt(pv), sv >= 0 ? 'Ahead of schedule' : 'Behind schedule', sv >= 0 ? 'positive' : 'negative');
+        html += card('Cost Performance Index (CPI)', cpi, 'EV ÷ AC = ' + fmt(ev) + ' ÷ ' + fmt(ac), cpi >= 1 ? 'Cost efficient' : 'Cost overrun', cpi >= 1 ? 'positive' : 'negative');
+        html += card('Schedule Performance Index (SPI)', spi, 'EV ÷ PV = ' + fmt(ev) + ' ÷ ' + fmt(pv), spi >= 1 ? 'On or ahead of schedule' : 'Behind schedule', spi >= 1 ? 'positive' : 'negative');
+
+        if (!isNaN(bac) && bac > 0) {
+            const eac = cpi !== 0 ? bac / cpi : 0;
+            const etc = eac - ac;
+            const vac = bac - eac;
+            const tcpiBac = (bac - ac) !== 0 ? (bac - ev) / (bac - ac) : 0;
+
+            html += card('Estimate at Completion (EAC)', eac, 'BAC ÷ CPI = ' + fmt(bac) + ' ÷ ' + cpi.toFixed(2), eac <= bac ? 'Projected under budget' : 'Projected over budget', eac <= bac ? 'positive' : 'negative');
+            html += card('Estimate to Complete (ETC)', etc, 'EAC − AC = ' + fmt(eac) + ' − ' + fmt(ac), 'Remaining cost to finish', 'neutral');
+            html += card('Variance at Completion (VAC)', vac, 'BAC − EAC = ' + fmt(bac) + ' − ' + fmt(eac), vac >= 0 ? 'Projected under budget' : 'Projected over budget', vac >= 0 ? 'positive' : 'negative');
+            html += card('To-Complete Performance Index (TCPI)', tcpiBac, '(BAC − EV) ÷ (BAC − AC)', tcpiBac <= 1 ? 'Achievable efficiency target' : (tcpiBac <= 1.2 ? 'Challenging but possible' : 'Very difficult to achieve'), tcpiBac <= 1 ? 'positive' : (tcpiBac <= 1.2 ? 'neutral' : 'negative'));
+        }
+
+        document.getElementById('results').innerHTML = html;
+    }
+
+    function card(label, value, formula, meaning, status) {
+        const display = Math.abs(value) >= 1 ? '$' + value.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) : value.toFixed(2);
+        const isIndex = label.includes('Index') || label.includes('TCPI');
+        const displayValue = isIndex ? value.toFixed(2) : '$' + Math.abs(value).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        const sign = (!isIndex && value < 0) ? '−$' : (!isIndex && value >= 0) ? '$' : '';
+        const finalDisplay = isIndex ? value.toFixed(2) : (value < 0 ? '−$' + Math.abs(value).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) : '$' + value.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}));
+        return '<div class="result-card ' + status + '"><div class="result-label">' + label + '</div><div class="result-value">' + finalDisplay + '</div><div class="result-formula">' + formula + '</div><div class="result-meaning">' + meaning + '</div></div>';
+    }
+
+    function fmt(n) { return '$' + n.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}); }
+    </script>
+</body>
+</html>

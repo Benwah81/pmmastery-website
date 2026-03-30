@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free PMP Communication Channels Calculator. Enter your team size and instantly calculate the number of communication channels. Formula: n(n-1)/2. Built for the 2026 PMP exam.">
+    <meta name="keywords" content="PMP communication channels calculator, communication channels formula PMP, n(n-1)/2 calculator, PMP formulas, project communication channels, 2026 PMP exam formulas">
+    <title>Free PMP Communication Channels Calculator &mdash; 2026 PMP Exam | PM Mastery</title>
+
+    <link rel="canonical" href="https://pmmastery.app/tools/communication-channels-calculator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pmmastery.app/tools/communication-channels-calculator">
+    <meta property="og:title" content="Free PMP Communication Channels Calculator">
+    <meta property="og:description" content="Calculate communication channels instantly with n(n-1)/2. See how adding one person changes project complexity.">
+    <meta property="og:image" content="https://pmmastery.app/og-image.png">
+    <meta property="og:site_name" content="PM Mastery">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PMP Communication Channels Calculator">
+    <meta name="twitter:description" content="Free calculator for the n(n-1)/2 formula. Built for the 2026 PMP exam.">
+    <meta name="twitter:image" content="https://pmmastery.app/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%233B4C8B'/%3E%3Cpath d='M32 12 L48 40 L32 32 L16 40 Z' fill='%23C9A55C'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0RSXYS7K8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P0RSXYS7K8');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PMP Communication Channels Calculator",
+        "description": "Free communication channels calculator for PMP exam preparation. Uses the formula n(n-1)/2.",
+        "url": "https://pmmastery.app/tools/communication-channels-calculator",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Organization", "name": "PM Mastery Solutions, LLC"}
+    }
+    </script>
+
+    <style>
+        .tool-hero { background: linear-gradient(135deg, #3B4C8B 0%, #2d3a6b 100%); padding: 60px 0 40px; text-align: center; }
+        .tool-hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
+        .tool-hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .tool-badge { display: inline-block; background: #C9A55C; color: #3B4C8B; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; }
+        .calc-section { padding: 40px 0 60px; }
+        .calc-card { background: #f8f9fa; border-radius: 12px; padding: 40px; border: 1px solid #e9ecef; max-width: 600px; margin: 0 auto; text-align: center; }
+        .calc-card h2 { font-size: 1.3rem; margin-bottom: 24px; color: #2d3a6b; }
+        .input-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+        .input-row label { font-weight: 600; font-size: 1rem; color: #343a40; }
+        .input-row input { width: 120px; padding: 14px 18px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1.3rem; font-family: inherit; text-align: center; transition: border-color 0.2s; }
+        .input-row input:focus { outline: none; border-color: #3B4C8B; }
+        .btn-calculate { padding: 14px 40px; background: #C9A55C; color: #3B4C8B; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+        .btn-calculate:hover { background: #b8944a; }
+        .result-display { margin-top: 30px; padding: 30px; background: #fff; border-radius: 10px; border: 2px solid #3B4C8B; display: none; }
+        .result-big { font-size: 3rem; font-weight: 800; color: #3B4C8B; font-family: 'Montserrat', sans-serif; }
+        .result-formula { font-size: 1rem; color: #6c757d; margin-top: 8px; font-family: 'Courier New', monospace; }
+        .result-note { font-size: 0.9rem; color: #343a40; margin-top: 12px; }
+        .compare-section { margin-top: 30px; display: none; }
+        .compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+        .compare-item { background: #fff; border: 1px solid #e9ecef; border-radius: 8px; padding: 14px; text-align: center; }
+        .compare-item .num { font-size: 1.1rem; font-weight: 700; color: #2d3a6b; }
+        .compare-item .label { font-size: 0.8rem; color: #6c757d; margin-top: 4px; }
+        .compare-item.highlight { border-color: #C9A55C; background: #fdf8ef; }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">
+                    <svg class="logo-svg" width="160" height="40" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M8 35 L15 20 L22 35 L15 30 Z" fill="#C9A55C"/>
+                            <text x="30" y="33" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PM MASTERY</text>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/blog">Blog</a>
+                <a href="https://app.pmmastery.app/auth/login" class="btn-nav-secondary">Login</a>
+                <a href="https://app.pmmastery.app/auth/register" class="btn-nav-primary">Get Started Free</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i class="fas fa-calculator"></i> Free Tool</span>
+            <h1>Communication Channels Calculator</h1>
+            <p>Calculate the number of communication channels on your project using the PMP formula n(n&minus;1)/2.</p>
+        </div>
+    </section>
+
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-card">
+                <h2><i class="fas fa-users"></i> How many people are on the project?</h2>
+                <div class="input-row">
+                    <label for="team-size">Team size (n):</label>
+                    <input type="number" id="team-size" min="2" max="500" placeholder="e.g. 10" value="">
+                    <button class="btn-calculate" onclick="calculate()"><i class="fas fa-bolt"></i> Calculate</button>
+                </div>
+
+                <div class="result-display" id="result">
+                    <div class="result-big" id="channel-count"></div>
+                    <div style="font-size: 1rem; color: #6c757d; margin-top: 4px;">communication channels</div>
+                    <div class="result-formula" id="formula-display"></div>
+                    <div class="result-note" id="result-note"></div>
+                </div>
+
+                <div class="compare-section" id="compare">
+                    <p style="font-weight: 600; color: #2d3a6b;">What happens when you add one person?</p>
+                    <div class="compare-grid" id="compare-grid"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0 60px; background: #f8f9fa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Communication Channels Formula Explained</h2>
+
+            <p>The communication channels formula is one of the most frequently tested calculations on the PMP exam. It calculates the total number of potential communication pathways in a project team.</p>
+
+            <h3 style="margin-top: 30px;">The Formula</h3>
+            <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: #3B4C8B; margin: 20px 0; font-family: 'Courier New', monospace;">Communication Channels = n(n &minus; 1) / 2</p>
+            <p>Where <strong>n</strong> is the total number of people involved in the project, including the project manager. This is critical &mdash; many exam questions try to trick you by asking about a team of 8 &ldquo;plus the project manager,&rdquo; which means n = 9, not 8.</p>
+
+            <h3 style="margin-top: 30px;">Why It Matters</h3>
+            <p>Communication complexity grows exponentially, not linearly. A team of 5 has 10 channels. A team of 10 has 45. A team of 20 has 190. This is why PMI emphasizes communication management as a core project management competency &mdash; as teams grow, the number of potential miscommunications skyrockets.</p>
+            <p>On the PMP exam, this formula appears in questions about stakeholder management, team scaling, and communication planning. The exam may also ask you to calculate the <em>change</em> in channels when a team member is added or removed.</p>
+
+            <h3 style="margin-top: 30px;">Common PMP Exam Traps</h3>
+            <p><strong>Trap 1: Forgetting to include the PM.</strong> If the question says &ldquo;a team of 12 people,&rdquo; n = 12. If it says &ldquo;a team of 12 people plus the project manager,&rdquo; n = 13. Read carefully.</p>
+            <p><strong>Trap 2: Calculating the change.</strong> Some questions ask how many <em>new</em> channels are created when a person joins. The answer is not 1 &mdash; it&rsquo;s the difference: channels(n+1) &minus; channels(n). For a team going from 10 to 11, that&rsquo;s 55 &minus; 45 = 10 new channels.</p>
+            <p><strong>Trap 3: Confusing channels with stakeholders.</strong> Channels are communication pathways between pairs of people. A team of 5 has 5 stakeholders but 10 channels. Don&rsquo;t confuse the two.</p>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0 60px;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Quick Reference Table</h2>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <thead>
+                    <tr style="background: #3B4C8B; color: #fff;">
+                        <th style="padding: 12px 16px; text-align: left;">Team Size (n)</th>
+                        <th style="padding: 12px 16px; text-align: right;">Channels</th>
+                        <th style="padding: 12px 16px; text-align: right;">New channels vs. n&minus;1</th>
+                    </tr>
+                </thead>
+                <tbody id="ref-table">
+                </tbody>
+            </table>
+
+            <p style="margin-top: 30px; text-align: center;">Want to practice communication channels questions with AI-powered explanations?<br>
+            <a href="https://app.pmmastery.app/auth/register" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free &mdash; 100 questions included &rarr;</a></p>
+        </div>
+    </section>
+
+    <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 0 auto 60px; max-width: 700px;">
+        <h3 style="color: white; margin-bottom: 10px;">Master every PMP formula</h3>
+        <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,500+ questions &middot; AI Coach powered by Claude &middot; All formulas explained step by step</p>
+        <a href="https://app.pmmastery.app/auth/register" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
+    </div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is the communication channels formula for the PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "The formula is n(n-1)/2, where n is the total number of people on the project including the project manager. This calculates the total number of potential communication pathways."}},
+            {"@type": "Question", "name": "Do you include the project manager in the communication channels formula?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The project manager is always included in n. If a question says 'a team of 8 plus the PM,' then n = 9."}},
+            {"@type": "Question", "name": "How many communication channels does a team of 10 have?", "acceptedAnswer": {"@type": "Answer", "text": "A team of 10 has 45 communication channels. The calculation is 10(10-1)/2 = 10(9)/2 = 90/2 = 45."}},
+            {"@type": "Question", "name": "How do you calculate the change in communication channels when someone joins?", "acceptedAnswer": {"@type": "Answer", "text": "Calculate channels for both team sizes and subtract. For example, going from 10 to 11 people: 11(10)/2 - 10(9)/2 = 55 - 45 = 10 new channels."}}
+        ]
+    }
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>PM Mastery</h4>
+                    <p>AI-powered PMP exam preparation for the 2026 exam.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="https://app.pmmastery.app/auth/register">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Free Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="/tools/evm-calculator">EVM Calculator</a></li>
+                        <li><a href="/tools/communication-channels-calculator" style="color: #C9A55C;">Comm. Channels Calculator</a></li>
+                        <li><a href="/tools/pert-estimator">PERT Estimator</a></li>
+                        <li><a href="/cheat-sheet">Free Cheat Sheet</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://app.pmmastery.app/privacy">Privacy Policy</a></li>
+                        <li><a href="https://app.pmmastery.app/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PM Mastery Solutions, LLC. All rights reserved.</p>
+                <p class="footer-disclaimer">PMI, PMP, PMBOK are registered marks of the Project Management Institute, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+    function channels(n) { return n * (n - 1) / 2; }
+
+    function calculate() {
+        const n = parseInt(document.getElementById('team-size').value);
+        if (isNaN(n) || n < 2) {
+            alert('Please enter a team size of 2 or more.');
+            return;
+        }
+        const c = channels(n);
+        document.getElementById('channel-count').textContent = c.toLocaleString();
+        document.getElementById('formula-display').textContent = n + ' × (' + n + ' − 1) / 2 = ' + n + ' × ' + (n-1) + ' / 2 = ' + c;
+        const prev = channels(n - 1);
+        const next = channels(n + 1);
+        document.getElementById('result-note').textContent = 'Adding 1 person (to ' + (n+1) + ') adds ' + (next - c) + ' new channels. Removing 1 (to ' + (n-1) + ') removes ' + (c - prev) + '.';
+        document.getElementById('result').style.display = 'block';
+
+        // Comparison grid
+        let html = '';
+        for (let i = Math.max(2, n - 2); i <= n + 3; i++) {
+            const ch = channels(i);
+            const cls = i === n ? 'compare-item highlight' : 'compare-item';
+            html += '<div class="' + cls + '"><div class="num">' + ch + '</div><div class="label">' + i + ' people</div></div>';
+        }
+        document.getElementById('compare-grid').innerHTML = html;
+        document.getElementById('compare').style.display = 'block';
+    }
+
+    // Build reference table
+    const tbody = document.getElementById('ref-table');
+    const sizes = [2,3,4,5,6,7,8,9,10,12,15,20,25,30,50,100];
+    sizes.forEach(function(n, i) {
+        const c = channels(n);
+        const prev = n > 2 ? channels(n - 1) : 0;
+        const diff = n > 2 ? '+' + (c - prev) : '&mdash;';
+        const bg = i % 2 === 0 ? '#fff' : '#f8f9fa';
+        tbody.innerHTML += '<tr style="background:' + bg + '"><td style="padding:10px 16px;border-bottom:1px solid #e9ecef;">' + n + ' people</td><td style="padding:10px 16px;text-align:right;border-bottom:1px solid #e9ecef;font-weight:600;color:#3B4C8B;">' + c + '</td><td style="padding:10px 16px;text-align:right;border-bottom:1px solid #e9ecef;color:#6c757d;">' + diff + '</td></tr>';
+    });
+
+    // Auto-calculate on Enter
+    document.getElementById('team-size').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') calculate();
+    });
+    </script>
+</body>
+</html>
