@@ -226,6 +226,103 @@ exports.handler = async function(event, context) {
       }
     }
 
+    // Schedule cheat sheet lead nurture drip (SendGrid send_at)
+    if (formName === 'cheatsheet' || formName === 'exit-popup') {
+      try {
+        const now = Math.floor(Date.now() / 1000);
+
+        // Email 2: Practice question teaser (24 hours later)
+        const drip2 = {
+          to: email,
+          from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
+          replyTo: 'support@pmmastery.app',
+          subject: 'Can you spot the trap in this PMP question?',
+          send_at: now + 86400,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+              <div style="text-align: center; padding: 20px 0;">
+                <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
+              </div>
+              <div style="padding: 0 10px; color: #333; line-height: 1.7;">
+                <p>Hey ${name},</p>
+                <p>Quick scenario for you:</p>
+                <blockquote style="border-left: 4px solid #C9A55C; padding: 12px 16px; background: #f8f9fa; margin: 16px 0; font-style: italic;">
+                  A senior stakeholder has been giving requirements directly to your development team without going through the change control process. The team already started working on two requests. What should you do FIRST?
+                </blockquote>
+                <p><strong>A.</strong> Escalate to the project sponsor<br>
+                <strong>B.</strong> Meet with the stakeholder to discuss the process<br>
+                <strong>C.</strong> Evaluate the impact of the unauthorized changes<br>
+                <strong>D.</strong> Tell the team to stop working on the requests</p>
+                <p>Most experienced PMs pick B or D. But PMI wants C — <strong>assess before you act.</strong></p>
+                <p>This is exactly the kind of trap the PMP exam sets. Real-world instincts lead you to the wrong answer.</p>
+                <p>We wrote up 5 of these tricky questions with full explanations:</p>
+                <div style="text-align: center; margin: 24px 0;">
+                  <a href="https://pmmastery.app/blog/5-pmp-questions-that-trip-up-experienced-pms?utm_source=drip&utm_medium=email&utm_campaign=cheatsheet_nurture"
+                     style="display: inline-block; background: #3B4C8B; color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                    Read All 5 Questions →
+                  </a>
+                </div>
+                <p style="color: #999; font-size: 0.85rem;">— Ben, PM Mastery</p>
+              </div>
+              <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
+                <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
+                <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+              </div>
+            </div>
+          `
+        };
+
+        // Email 3: Signup nudge (72 hours later)
+        const drip3 = {
+          to: email,
+          from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
+          replyTo: 'support@pmmastery.app',
+          subject: 'Your cheat sheet + 100 free practice questions',
+          send_at: now + 259200,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+              <div style="text-align: center; padding: 20px 0;">
+                <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
+              </div>
+              <div style="padding: 0 10px; color: #333; line-height: 1.7;">
+                <p>Hey ${name},</p>
+                <p>A few days ago you grabbed our PMP cheat sheet — nice move. That two-pager covers the formulas and principles you'll need on exam day.</p>
+                <p>But formulas alone won't pass the exam. The 2026 PMP is 70-80% situational questions where you have to <strong>think like PMI thinks</strong>.</p>
+                <p>That's what practice questions are for. And we have 4,500+ of them.</p>
+                <p>Here's what you get free — no credit card:</p>
+                <ul>
+                  <li><strong>100 practice questions</strong> aligned with the 2026 ECO</li>
+                  <li><strong>AI Coach</strong> that explains any answer (3 questions/day)</li>
+                  <li><strong>Basic flashcards</strong> and formula calculator</li>
+                  <li><strong>2026 ECO reference</strong> page</li>
+                </ul>
+                <div style="text-align: center; margin: 24px 0;">
+                  <a href="https://app.pmmastery.app/auth/register?utm_source=drip&utm_medium=email&utm_campaign=cheatsheet_nurture_day3"
+                     style="display: inline-block; background: linear-gradient(135deg, #C9A55C, #d4b36f); color: #3B4C8B; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
+                    Start Practicing Free →
+                  </a>
+                </div>
+                <p style="color: #999; font-size: 0.85rem;">— Ben, PM Mastery</p>
+              </div>
+              <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
+                <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
+                <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+              </div>
+            </div>
+          `
+        };
+
+        await Promise.all([
+          sgMail.send(drip2),
+          sgMail.send(drip3)
+        ]);
+        console.log(`Drip emails scheduled for ${email}: +24h and +72h`);
+      } catch (dripError) {
+        // Don't fail the main function if drip scheduling fails
+        console.error('Drip scheduling error:', dripError.response ? dripError.response.body : dripError);
+      }
+    }
+
     return { statusCode: 200, body: 'Emails sent successfully' };
   } catch (error) {
     console.error('SendGrid error:', error.response ? error.response.body : error);
