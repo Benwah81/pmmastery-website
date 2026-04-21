@@ -45,3 +45,10 @@
   from = "/tools"
   to = "/tools/"
   status = 301
+
+# 301 redirect for duplicate content consolidation (April 20, 2026)
+[[redirects]]
+  from = "/blog/is-pmp-worth-it-2026"
+  to = "/blog/is-pmp-exam-worth-it-2026"
+  status = 301
+  force = true
