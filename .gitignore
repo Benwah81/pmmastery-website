@@ -1,1 +1,9 @@
-﻿node_modules/
+node_modules/
+
+# Scratch files used in claude-assisted sessions
+_*.py
+_*.html
+_*.txt
+_*.json
+_*.csv
+_*.md
