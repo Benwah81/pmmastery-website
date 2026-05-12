@@ -226,6 +226,34 @@ exports.handler = async function(event, context) {
       }
     }
 
+    // For cheatsheet / exit-popup / blog-newsletter signups, register in Railway DB
+    // so the cron-driven nurture flow (cheatsheet email1 and email2) can fire.
+    // Note: the +24h and +72h SendGrid send_at drips below STILL FIRE for now.
+    // They will be removed in a follow-up commit once the Postgres+cron flow is
+    // validated in production (avoids a no-email gap during cutover).
+    if (formName === 'cheatsheet' || formName === 'exit-popup' || formName === 'blog-newsletter') {
+      try {
+        const courseApiKey = process.env.COURSE_API_KEY;
+        if (courseApiKey) {
+          const response = await fetch('https://app.pmmastery.app/api/cheatsheet-signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-API-Key': courseApiKey
+            },
+            body: JSON.stringify({ email, name })
+          });
+          const result = await response.json();
+          console.log(`Cheatsheet signup registered: ${JSON.stringify(result)}`);
+        } else {
+          console.warn('COURSE_API_KEY not set, skipping cheatsheet signup registration');
+        }
+      } catch (regError) {
+        // Don't fail the whole function if registration fails
+        console.error('Cheatsheet signup registration error:', regError);
+      }
+    }
+
     // Schedule cheat sheet lead nurture drip (SendGrid send_at)
     if (formName === 'cheatsheet' || formName === 'exit-popup') {
       try {
