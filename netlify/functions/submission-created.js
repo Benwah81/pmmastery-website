@@ -1,10 +1,34 @@
 const sgMail = require('@sendgrid/mail');
+const crypto = require('crypto');
+
+/**
+ * Generate a forge-proof unsubscribe URL.
+ *
+ * Token must match the format used by routes/unsubscribe_routes.py:
+ *   HMAC-SHA256(email_lowercased, SECRET_KEY) truncated to first 32 hex chars.
+ *
+ * Requires UNSUBSCRIBE_SECRET env var to be set to the same value as the
+ * Flask app's SECRET_KEY. If not set, falls back to an empty string which
+ * generates a token that won't validate - intentional fail-safe so misconfig
+ * is obvious during testing.
+ */
+function generateUnsubscribeUrl(email) {
+  const secret = process.env.UNSUBSCRIBE_SECRET || '';
+  const normalized = (email || '').trim().toLowerCase();
+  const token = crypto
+    .createHmac('sha256', secret)
+    .update(normalized)
+    .digest('hex')
+    .substring(0, 32);
+  return `https://app.pmmastery.app/unsubscribe?email=${encodeURIComponent(email || '')}&token=${token}`;
+}
 
 exports.handler = async function(event, context) {
   const payload = JSON.parse(event.body).payload;
   const email = payload.data.email;
   const name = payload.data.name || 'PMP Student';
   const formName = payload.form_name;
+  const unsubscribeUrl = generateUnsubscribeUrl(email);
 
   console.log(`Form submission received: ${formName} from ${email} (${name})`);
 
@@ -63,9 +87,10 @@ exports.handler = async function(event, context) {
           </div>
 
           <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
-            <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
-            <p>You signed up for the 5 Days to PMP Readiness course.</p>
-            <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+            <p style="margin: 4px 0;"><strong>PM Mastery Solutions, LLC</strong></p>
+            <p style="margin: 4px 0;">New Orleans, LA 70115</p>
+            <p style="margin: 12px 0 4px;"><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a> &nbsp;|&nbsp; <a href="${unsubscribeUrl}" style="color: #C9A55C;">Unsubscribe</a></p>
+            <p style="margin: 8px 0 0; font-size: 0.75rem;">You signed up for the 5 Days to PMP Readiness course at pmmastery.app.</p>
           </div>
         </div>
       `
@@ -119,9 +144,10 @@ exports.handler = async function(event, context) {
           </div>
 
           <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
-            <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
-            <p>You received this because you downloaded our PMP cheat sheet.</p>
-            <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+            <p style="margin: 4px 0;"><strong>PM Mastery Solutions, LLC</strong></p>
+            <p style="margin: 4px 0;">New Orleans, LA 70115</p>
+            <p style="margin: 12px 0 4px;"><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a> &nbsp;|&nbsp; <a href="${unsubscribeUrl}" style="color: #C9A55C;">Unsubscribe</a></p>
+            <p style="margin: 8px 0 0; font-size: 0.75rem;">You signed up for the free PM Mastery cheat sheet at pmmastery.app.</p>
           </div>
         </div>
       `
@@ -165,9 +191,10 @@ exports.handler = async function(event, context) {
           </div>
 
           <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
-            <p>PM Mastery Solutions, LLC | New Orleans, LA</p>
-            <p>You subscribed to the PM Mastery blog newsletter.</p>
-            <p><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a></p>
+            <p style="margin: 4px 0;"><strong>PM Mastery Solutions, LLC</strong></p>
+            <p style="margin: 4px 0;">New Orleans, LA 70115</p>
+            <p style="margin: 12px 0 4px;"><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a> &nbsp;|&nbsp; <a href="${unsubscribeUrl}" style="color: #C9A55C;">Unsubscribe</a></p>
+            <p style="margin: 8px 0 0; font-size: 0.75rem;">You subscribed to the PM Mastery blog newsletter.</p>
           </div>
         </div>
       `
