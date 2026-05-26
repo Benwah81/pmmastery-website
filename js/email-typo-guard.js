@@ -129,28 +129,63 @@
     }
   }
 
-  function attachToForm(form) {
-    // Capture-phase listener fires before any other submit handlers (regardless of
-    // attachment order). This prevents:
-    //   (a) AJAX fetch() handlers on marketing pages from firing before our check
-    //   (b) Google Analytics event handlers from inflating attempt counts when
-    //       we end up blocking the submission
-    form.addEventListener('submit', function (e) {
-      var emailInputs = form.querySelectorAll('input[type="email"]');
-      for (var i = 0; i < emailInputs.length; i++) {
-        var input = emailInputs[i];
-        // Re-check on submit in case user typed and didn't blur
-        checkInput(input);
-        var suggestion = input.parentNode.querySelector('.email-typo-suggestion');
-        if (suggestion && suggestion.getAttribute('data-typo-resolved') === 'false') {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          input.focus();
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          return false;
-        }
+  function checkFormForBlockingTypo(form) {
+    var emailInputs = form.querySelectorAll('input[type="email"]');
+    for (var i = 0; i < emailInputs.length; i++) {
+      var input = emailInputs[i];
+      // Re-check in case user typed and didn't blur
+      checkInput(input);
+      var suggestion = input.parentNode.querySelector('.email-typo-suggestion');
+      if (suggestion && suggestion.getAttribute('data-typo-resolved') === 'false') {
+        return input; // return the problem input so caller can focus it
       }
-    }, true); // <-- capture: true
+    }
+    return null;
+  }
+
+  function attachToForm(form) {
+    // Strategy: intercept the event chain BEFORE the submit event fires.
+    // Why: inline onsubmit="..." attributes are part of the DOM dispatch chain
+    // and CANNOT be stopped by stopImmediatePropagation() on a capture-phase
+    // submit listener. So we have to block earlier — at click/keydown.
+    //
+    // Three intercept points:
+    //   1. click on any submit button → catches mouse/touch button submission
+    //   2. keydown (Enter) on any input inside the form → catches keyboard submission
+    //   3. submit event itself (capture phase) → fallback for JS-triggered form.submit()
+
+    function blockIfTypo(e) {
+      var bad = checkFormForBlockingTypo(form);
+      if (bad) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        bad.focus();
+        bad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+    }
+
+    // 1. Submit buttons (button[type=submit], input[type=submit], or default-type buttons inside form)
+    var submitButtons = form.querySelectorAll('button[type="submit"], input[type="submit"], button:not([type])');
+    for (var i = 0; i < submitButtons.length; i++) {
+      submitButtons[i].addEventListener('click', blockIfTypo, true);
+    }
+
+    // 2. Enter key inside any field within the form
+    var allInputs = form.querySelectorAll('input, select, textarea');
+    for (var j = 0; j < allInputs.length; j++) {
+      allInputs[j].addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+          // Only intercept if this would trigger form submission (textarea Enter is for newline)
+          if (e.target.tagName === 'TEXTAREA') return;
+          blockIfTypo(e);
+        }
+      }, true);
+    }
+
+    // 3. Fallback: submit event itself, capture phase
+    form.addEventListener('submit', blockIfTypo, true);
   }
 
   function init() {
