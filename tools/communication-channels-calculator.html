@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free Communication Channels Formula Calculator for the PMP exam. Enter your team size to instantly calculate channels using n(n-1)/2. Includes exam traps and reference table. No login required.">
+    <meta name="description" content="Free communication channels calculator for the PMP exam. Enter team size to calculate channels with n(n-1)/2, plus exam traps and a reference table.">
     <meta name="keywords" content="communication channels formula calculator, PMP communication channels calculator, communication channels formula PMP, n(n-1)/2 calculator, PMP formulas, project communication channels, 2026 PMP exam formulas">
-    <title>Free Communication Channels Formula Calculator for the PMP Exam | PM Mastery</title>
+    <title>Free Communication Channels Calculator for the PMP Exam</title>
 
     <link rel="canonical" href="https://pmmastery.app/tools/communication-channels-calculator">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pmmastery.app/tools/communication-channels-calculator">
-    <meta property="og:title" content="Free Communication Channels Formula Calculator for the PMP Exam">
-    <meta property="og:description" content="Calculate communication channels instantly with n(n-1)/2. Built for the PMP exam. See how adding one person changes project complexity.">
+    <meta property="og:title" content="Free Communication Channels Calculator for the PMP Exam">
+    <meta property="og:description" content="Free communication channels calculator for the PMP exam. Enter team size to calculate channels with n(n-1)/2, plus exam traps and a reference table.">
     <meta property="og:image" content="https://pmmastery.app/og-image-v2.png">
     <meta property="og:site_name" content="PM Mastery">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Communication Channels Formula Calculator for PMP">
-    <meta name="twitter:description" content="Free calculator for the n(n-1)/2 formula. Built for the 2026 PMP exam.">
+    <meta name="twitter:title" content="Free Communication Channels Calculator for the PMP Exam">
+    <meta name="twitter:description" content="Free communication channels calculator for the PMP exam. Enter team size to calculate channels with n(n-1)/2, plus exam traps and a reference table.">
     <meta name="twitter:image" content="https://pmmastery.app/og-image-v2.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,15 +150,15 @@
 
             <h3 style="margin-top: 30px;">The Formula</h3>
             <p style="text-align: center; font-size: 1.4rem; font-weight: 700; color: #3B4C8B; margin: 20px 0; font-family: 'Courier New', monospace;">Communication Channels = n(n &minus; 1) / 2</p>
-            <p>Where <strong>n</strong> is the total number of people involved in the project, including the project manager. This is critical &mdash; many exam questions try to trick you by asking about a team of 8 &ldquo;plus the project manager,&rdquo; which means n = 9, not 8.</p>
+            <p>Where <strong>n</strong> is the total number of people involved in the project, including the project manager. This is critical - many exam questions try to trick you by asking about a team of 8 &ldquo;plus the project manager,&rdquo; which means n = 9, not 8.</p>
 
             <h3 style="margin-top: 30px;">Why It Matters</h3>
-            <p>Communication complexity grows exponentially, not linearly. A team of 5 has 10 channels. A team of 10 has 45. A team of 20 has 190. This is why PMI emphasizes communication management as a core project management competency &mdash; as teams grow, the number of potential miscommunications skyrockets.</p>
+            <p>Communication complexity grows exponentially, not linearly. A team of 5 has 10 channels. A team of 10 has 45. A team of 20 has 190. This is why PMI emphasizes communication management as a core project management competency - as teams grow, the number of potential miscommunications skyrockets.</p>
             <p>On the PMP exam, this formula appears in questions about stakeholder management, team scaling, and communication planning. The exam may also ask you to calculate the <em>change</em> in channels when a team member is added or removed.</p>
 
             <h3 style="margin-top: 30px;">Common PMP Exam Traps</h3>
             <p><strong>Trap 1: Forgetting to include the PM.</strong> If the question says &ldquo;a team of 12 people,&rdquo; n = 12. If it says &ldquo;a team of 12 people plus the project manager,&rdquo; n = 13. Read carefully.</p>
-            <p><strong>Trap 2: Calculating the change.</strong> Some questions ask how many <em>new</em> channels are created when a person joins. The answer is not 1 &mdash; it&rsquo;s the difference: channels(n+1) &minus; channels(n). For a team going from 10 to 11, that&rsquo;s 55 &minus; 45 = 10 new channels.</p>
+            <p><strong>Trap 2: Calculating the change.</strong> Some questions ask how many <em>new</em> channels are created when a person joins. The answer is not 1 - it&rsquo;s the difference: channels(n+1) &minus; channels(n). For a team going from 10 to 11, that&rsquo;s 55 &minus; 45 = 10 new channels.</p>
             <p><strong>Trap 3: Confusing channels with stakeholders.</strong> Channels are communication pathways between pairs of people. A team of 5 has 5 stakeholders but 10 channels. Don&rsquo;t confuse the two.</p>
         </div>
     </section>
@@ -179,7 +179,7 @@
             </table>
 
             <p style="margin-top: 30px; text-align: center;">Want to practice communication channels questions with AI-powered explanations?<br>
-            <a href="https://app.pmmastery.app/auth/register" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free &mdash; 100 questions included &rarr;</a></p>
+            <a href="https://app.pmmastery.app/auth/register" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free - 100 questions included &rarr;</a></p>
         </div>
     </section>
 
@@ -263,7 +263,7 @@
     sizes.forEach(function(n, i) {
         const c = channels(n);
         const prev = n > 2 ? channels(n - 1) : 0;
-        const diff = n > 2 ? '+' + (c - prev) : '&mdash;';
+        const diff = n > 2 ? '+' + (c - prev) : '-';
         const bg = i % 2 === 0 ? '#fff' : '#f8f9fa';
         tbody.innerHTML += '<tr style="background:' + bg + '"><td style="padding:10px 16px;border-bottom:1px solid #e9ecef;">' + n + ' people</td><td style="padding:10px 16px;text-align:right;border-bottom:1px solid #e9ecef;font-weight:600;color:#3B4C8B;">' + c + '</td><td style="padding:10px 16px;text-align:right;border-bottom:1px solid #e9ecef;color:#6c757d;">' + diff + '</td></tr>';
     });
