@@ -69,7 +69,7 @@ exports.handler = async function(event, context) {
             </ul>
 
             <h3 style="color: #3B4C8B;">PMBOK 8th Edition</h3>
-            <p>The new exam references PMBOK 8th Edition, which shifts from process groups to <strong>12 Principles</strong> and <strong>8 Performance Domains</strong>. It's more principle-based and less prescriptive.</p>
+            <p>The new exam references PMBOK 8th Edition, which shifts from process groups to <strong>6 Principles</strong> and <strong>7 Performance Domains</strong>. It's more principle-based and less prescriptive.</p>
 
             <h3 style="color: #3B4C8B;">What This Means for You</h3>
             <p>Focus your study time on agile/hybrid (60%+ of questions), the Business Environment domain (biggest increase), and understanding <em>why</em> behind project decisions, not just <em>what</em>.</p>
@@ -120,8 +120,8 @@ exports.handler = async function(event, context) {
             <ul style="color: #444; line-height: 1.8; padding-left: 20px; margin: 0;">
               <li>All EVM formulas (PV, EV, AC, CPI, SPI, EAC, ETC, VAC, TCPI)</li>
               <li>PERT estimation formula</li>
-              <li>12 PMBOK 8th Edition Principles</li>
-              <li>8 Performance Domains</li>
+              <li>6 PMBOK 8th Edition Principles</li>
+              <li>7 Performance Domains</li>
               <li>2026 ECO domain weights (People 33%, Process 41%, BE 26%)</li>
               <li>Exam day tips and strategies</li>
             </ul>
