@@ -303,6 +303,11 @@
                         <i class="fas fa-rocket"></i> Start Practicing Free
                     </a>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 8px;">100 free questions. No credit card required.</p>
+                    <div style="margin-top:18px;">
+                        <a href="https://app.pmmastery.app/try" class="btn-hero-try" style="display:inline-block; padding:13px 28px; border:2px solid rgba(255,255,255,0.5); border-radius:10px; color:#ffffff; font-weight:700; text-decoration:none; background:rgba(255,255,255,0.08);">
+                            <i class="fas fa-bolt"></i> Try 3 questions free, no signup
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- App Screenshot -->
@@ -812,6 +817,15 @@
         // Track signup clicks
         if (href.includes('/auth/register')) {
             gtag('event', 'signup_click', {
+                event_category: 'conversion',
+                event_label: text.substring(0, 50),
+                link_url: href
+            });
+        }
+
+        // Track anonymous trial clicks
+        if (href.includes('/try')) {
+            gtag('event', 'try_cta_click', {
                 event_category: 'conversion',
                 event_label: text.substring(0, 50),
                 link_url: href
