@@ -142,8 +142,16 @@
                     },
                     {
                         "@type": "Offer",
+                        "name": "Exam Prep Pass",
+                        "price": "99",
+                        "priceCurrency": "USD",
+                        "description": "90 days of full access - one-time payment, no subscription",
+                        "url": "https://app.pmmastery.app/auth/register"
+                    },
+                    {
+                        "@type": "Offer",
                         "name": "Lifetime Access",
-                        "price": "299",
+                        "price": "399",
                         "priceCurrency": "USD",
                         "description": "Full access forever - one-time payment",
                         "url": "https://app.pmmastery.app/auth/register"
@@ -162,7 +170,7 @@
                         "name": "What is PM Mastery?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "PM Mastery is the PMP exam simulator built for the 2026 PMP exam (effective July 9, 2026). It features 4,500+ practice questions aligned with PMBOK 8th Edition and the 2026 ECO, 40 case studies for the new multi-question scenario format, 180-question mock exams in the actual 2026 ECO domain weights, and an AI Coach powered by Claude. Free tier includes 100 balanced questions. Premium plans are $49/month or $299 lifetime."
+                            "text": "PM Mastery is the PMP exam simulator built for the 2026 PMP exam (effective July 9, 2026). It features 4,500+ practice questions aligned with PMBOK 8th Edition and the 2026 ECO, 40 case studies for the new multi-question scenario format, 180-question mock exams in the actual 2026 ECO domain weights, and an AI Coach powered by Claude. Free tier includes 100 balanced questions. Paid plans are a $99 Exam Prep Pass (90 days, one-time, no subscription), $49/month, or $399 lifetime."
                         }
                     },
                     {
@@ -186,7 +194,7 @@
                         "name": "How is PM Mastery different from Brain Sensei or PM PrepCast?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Brain Sensei ($99/mo or $349/yr) and PM PrepCast (~$389 one-time) are video courses that include the 35 contact hours required for the PMP application. PM Mastery is a question-bank-first platform with an AI Coach, significantly cheaper at $49/month or $299 lifetime. PM Mastery does not include the 35 contact hours, so candidates pair it with a Udemy course (Andrew Ramdayal or Joseph Phillips) to satisfy that requirement."
+                            "text": "Brain Sensei ($99/mo or $349/yr) and PM PrepCast (~$389 one-time) are video courses that include the 35 contact hours required for the PMP application. PM Mastery is a question-bank-first platform with an AI Coach, significantly cheaper: a $99 90-day Exam Prep Pass, $49/month, or $399 lifetime. PM Mastery does not include the 35 contact hours, so candidates pair it with a Udemy course (Andrew Ramdayal or Joseph Phillips) to satisfy that requirement."
                         }
                     },
                     {
@@ -359,7 +367,7 @@
                     <strong>PM Mastery is the PMP exam simulator built specifically for the 2026 PMP exam format (effective July 9, 2026).</strong> It features 4,500+ practice questions aligned with PMBOK 8th Edition and the 2026 Examination Content Outline (ECO), 40 case studies with 200 linked questions for the new multi-question scenario format, 180-question mock exams in the actual 2026 ECO domain weights (People 33%, Process 41%, Business Environment 26%), and an AI Coach powered by Claude that explains every answer and adapts to each user's weak areas.
                 </p>
                 <p style="font-size: 1.05rem; line-height: 1.7; color: #555; margin-bottom: 16px;">
-                    PM Mastery offers a free tier with 100 balanced practice questions (no credit card required) and premium plans at $49 per month or $299 lifetime. The platform was founded in 2026 by a current PMP candidate and is operated by PM Mastery Solutions, LLC, based in New Orleans, Louisiana.
+                    PM Mastery offers a free tier with 100 balanced practice questions (no credit card required) and paid plans including a $99 Exam Prep Pass (90 days of full access, one-time, no subscription), $49 per month, or $399 lifetime. The platform was founded in 2026 by a current PMP candidate and is operated by PM Mastery Solutions, LLC, based in New Orleans, Louisiana.
                 </p>
                 <p style="font-size: 1.05rem; line-height: 1.7; color: #555; margin-bottom: 0;">
                     PM Mastery is best for self-directed learners preparing for the July 2026 PMP exam who want AI-powered explanations, 2026-native content built around PMBOK 8th Edition, and a robust question bank with case study practice. It pairs well with structured video courses (such as those on Udemy by Andrew Ramdayal or Joseph Phillips) that satisfy the 35 contact hours required for PMI's PMP application.
@@ -486,9 +494,33 @@
                     <a href="https://app.pmmastery.app/auth/register" class="btn-pricing">Sign Up Free</a>
                 </div>
 
-                <!-- Premium Plan - Most Popular -->
+                <!-- Exam Prep Pass - Most Popular -->
                 <div class="pricing-card premium">
                     <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Exam Prep Pass</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">one-time</span>
+                        </div>
+                        <p class="price-period">90 days full access, no subscription</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Premium, for 90 days</li>
+                        <li><i class="fas fa-check"></i> 4,500+ practice questions</li>
+                        <li style="color: #C9A55C; font-weight: 600;"><i class="fas fa-robot"></i> AI Coach powered by Claude (25/day)</li>
+                        <li><i class="fas fa-check"></i> 40 case studies (200 questions)</li>
+                        <li><i class="fas fa-check"></i> Unlimited 180-question mock exams</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics & readiness score</li>
+                        <li style="font-weight: 600;"><i class="fas fa-check"></i> Pay once, never auto-renews</li>
+                        <li><i class="fas fa-check"></i> 7-day money-back guarantee</li>
+                    </ul>
+                    <a href="https://app.pmmastery.app/checkout/pass" class="btn-pricing primary">Get the Pass</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card">
                     <div class="pricing-header">
                         <h3>Premium</h3>
                         <div class="price">
@@ -496,7 +528,7 @@
                             <span class="amount">49</span>
                             <span class="period">/month</span>
                         </div>
-                        <p class="price-period">or $299 lifetime</p>
+                        <p class="price-period">or $399 lifetime</p>
                     </div>
                     <ul class="pricing-features">
                         <li><i class="fas fa-check"></i> 4,500+ practice questions</li>
@@ -509,10 +541,12 @@
                         <li><i class="fas fa-check"></i> All study tools</li>
                         <li><i class="fas fa-check"></i> 7-day money-back guarantee</li>
                     </ul>
-                    <a href="https://app.pmmastery.app/checkout/monthly" class="btn-pricing primary">Get Started</a>
+                    <a href="https://app.pmmastery.app/checkout/monthly" class="btn-pricing">Get Started</a>
                 </div>
 
-                <!-- Comparison Card -->
+            </div>
+
+            <div style="max-width: 420px; margin: 48px auto 0;">
                 <div class="pricing-card comparison">
                     <div class="pricing-header">
                         <h3>Compare</h3>
@@ -644,7 +678,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Brain Sensei ($99/mo or $349/yr) and PM PrepCast (~$389 one-time) are video-first courses that include the 35 contact hours required for the PMP application. PM Mastery is a question-bank-first platform with an AI Coach and is significantly cheaper ($49/mo or $299 lifetime). PM Mastery does not include the 35 contact hours, so candidates typically pair it with a Udemy course (Andrew Ramdayal or Joseph Phillips) to satisfy that requirement.</p>
+                        <p>Brain Sensei ($99/mo or $349/yr) and PM PrepCast (~$389 one-time) are video-first courses that include the 35 contact hours required for the PMP application. PM Mastery is a question-bank-first platform with an AI Coach and is significantly cheaper (a $99 90-day Exam Prep Pass, $49/mo, or $399 lifetime). PM Mastery does not include the 35 contact hours, so candidates typically pair it with a Udemy course (Andrew Ramdayal or Joseph Phillips) to satisfy that requirement.</p>
                     </div>
                 </div>
 
