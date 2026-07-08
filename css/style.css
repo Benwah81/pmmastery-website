@@ -985,6 +985,22 @@ img {
     .mobile-menu-toggle {
         display: block;
     }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        padding: var(--spacing-md) var(--spacing-lg);
+        box-shadow: var(--shadow-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+    }
     
     .hero-title {
         font-size: 2rem;
