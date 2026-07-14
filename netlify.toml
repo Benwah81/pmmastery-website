@@ -52,3 +52,10 @@
   to = "/blog/is-pmp-exam-worth-it-2026"
   status = 301
   force = true
+
+# 301 redirect: orphan tools index duplicate -> canonical /tools/ (cleanup Jul 2026)
+[[redirects]]
+  from = "/tools/tools-index"
+  to = "/tools/"
+  status = 301
+  force = true
