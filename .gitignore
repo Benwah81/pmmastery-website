@@ -7,3 +7,7 @@ _*.txt
 _*.json
 _*.csv
 _*.md
+
+# Python artifacts from indexnow_submit.py
+__pycache__/
+*.pyc
