@@ -281,3 +281,8 @@ TTL: Automatic
 ---
 
 **🎊 NOW GO CELEBRATE AND START MARKETING! 🎊**
+
+## SITEMAP
+- [ ] Run `python generate_sitemap.py` from the repo root before
+      committing any content change (updates lastmod from git history;
+      never adds/removes URLs; new URLs are still added by hand)
