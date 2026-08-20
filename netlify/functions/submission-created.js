@@ -44,7 +44,7 @@ exports.handler = async function(event, context) {
       to: email,
       from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
       replyTo: 'support@pmmastery.app',
-      subject: 'Day 1: The 2026 PMP Exam Breakdown',
+      subject: 'Day 1: A quarter of the 2026 exam is hiding in plain sight',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; padding: 20px 0;">
@@ -53,30 +53,32 @@ exports.handler = async function(event, context) {
           </div>
 
           <div style="background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
-            <h2 style="margin: 0 0 10px; color: white;">Day 1: The 2026 Exam Breakdown</h2>
-            <p style="margin: 0; opacity: 0.9;">Hey ${name}! Welcome to the course. Let's start with what changed.</p>
+            <h2 style="margin: 0 0 10px; color: white;">Day 1: A quarter of the 2026 exam is hiding in plain sight</h2>
+            <p style="margin: 0; opacity: 0.9;">Hey ${name}! Welcome to the course. Let's start with the change nobody's prepping for.</p>
           </div>
 
           <div style="padding: 0 10px; color: #333; line-height: 1.7;">
-            <p>The PMP exam is changing in 2026, and it's a big shift. Here's what you need to know:</p>
+            <p>Here's the 2026 exam breakdown by domain:</p>
 
-            <h3 style="color: #3B4C8B;">New Domain Weights</h3>
-            <p>The 2026 ECO (Examination Content Outline) restructures the exam into three domains:</p>
             <ul>
-              <li><strong>People (33%)</strong> — Team leadership, conflict management, stakeholder engagement</li>
-              <li><strong>Process (41%)</strong> — Planning, executing, monitoring across predictive and agile</li>
-              <li><strong>Business Environment (26%)</strong> — Up from 8%! Benefits realization, compliance, organizational change</li>
+              <li><strong>People — 33%</strong> (team leadership, conflict, stakeholders)</li>
+              <li><strong>Process — 41%</strong> (planning and executing across predictive and agile)</li>
+              <li><strong>Business Environment — 26%</strong> (benefits realization, compliance, org change)</li>
             </ul>
 
-            <h3 style="color: #3B4C8B;">PMBOK 8th Edition</h3>
-            <p>The new exam references PMBOK 8th Edition, which shifts from process groups to <strong>6 Principles</strong> and <strong>7 Performance Domains</strong>. It's more principle-based and less prescriptive.</p>
+            <p>Look at that last one. Business Environment used to be 8% of the exam. In 2026 it's 26%, more than triple. It's now a bigger slice than People.</p>
 
-            <h3 style="color: #3B4C8B;">What This Means for You</h3>
-            <p>Focus your study time on agile/hybrid (60%+ of questions), the Business Environment domain (biggest increase), and understanding <em>why</em> behind project decisions, not just <em>what</em>.</p>
+            <p>Here's why that matters to you today: almost every prep book and question bank still in circulation was built for the old 8%. They treat Business Environment as a footnote, a handful of questions you could half-skip and still pass. On the 2026 exam, that's roughly one in four questions you're walking in unprepared for. You can be strong on People and Process and still fail on the domain everyone else is ignoring.</p>
 
-            <div style="background: #f0f4ff; padding: 16px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #3498DB;">
-              <strong>Tomorrow's lesson:</strong> The formulas you actually need for exam day — EVM, PERT, EMV, and memory tricks to lock them in.
-            </div>
+            <p>That's the gap this course is going to close.</p>
+
+            <h3 style="color: #3B4C8B;">The other shift: PMBOK 8th Edition</h3>
+            <p>The 2026 exam references PMBOK 8, which restructures things around <strong>6 Principles</strong> and <strong>7 Performance Domains</strong> instead of the old process-group model. It's more principle-based and less about memorizing prescriptive steps. Practically, that means more questions asking <em>why</em> a decision is right, not <em>what</em> the textbook step is.</p>
+
+            <h3 style="color: #3B4C8B;">What to do with this</h3>
+            <p>Put real study time into Business Environment instead of skimming it, get comfortable with agile and hybrid scenarios (a large share of the exam now), and practice reasoning through the why behind decisions. That's what the 2026 exam rewards.</p>
+
+            <p>The fastest way to feel where your gaps actually are is to answer real questions. Start free, 100 included:</p>
           </div>
 
           <div style="text-align: center; margin: 24px 0;">
@@ -84,6 +86,12 @@ exports.handler = async function(event, context) {
                style="display: inline-block; background: #3B4C8B; color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
               Start Practicing Free — 100 Questions Included
             </a>
+          </div>
+
+          <div style="padding: 0 10px;">
+            <div style="background: #f0f4ff; padding: 16px; border-radius: 8px; margin: 0 0 20px; border-left: 4px solid #3498DB; color: #333; line-height: 1.7;">
+              <strong>Tomorrow:</strong> the formulas you actually need on exam day. EVM, PERT, EMV, and memory tricks to lock them in.
+            </div>
           </div>
 
           <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
