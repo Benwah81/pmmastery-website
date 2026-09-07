@@ -59,3 +59,18 @@
   to = "/tools/"
   status = 301
   force = true
+
+# App routes requested on the marketing domain -> the app (Sep 2026).
+# Googlebot extracts these paths from the GA tracking script in index.html and
+# resolves them against pmmastery.app, producing 404s. These also catch anyone
+# who types or shares the app URL without the app. subdomain. Netlify preserves
+# query strings, so UTM params survive the hop.
+[[redirects]]
+  from = "/try"
+  to = "https://app.pmmastery.app/try"
+  status = 301
+
+[[redirects]]
+  from = "/auth/*"
+  to = "https://app.pmmastery.app/auth/:splat"
+  status = 301
