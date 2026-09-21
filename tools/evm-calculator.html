@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free PMP EVM Calculator for the 2026 exam. Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI instantly. Includes formula explanations and exam tips.">
-    <meta name="keywords" content="PMP EVM calculator, earned value management calculator, CPI SPI calculator, PMP formulas, EVM formulas PMP exam, earned value calculator free, PMP 2026 formulas">
-    <title>Free PMP EVM Calculator for the 2026 Exam | PM Mastery</title>
+    <meta name="description" content="Every earned value (EVM) formula for the PMP exam: CV, SV, CPI, SPI, the four EAC formulas, ETC, VAC, and TCPI, with a worked example and a free calculator.">
+    <meta name="keywords" content="earned value management formulas, EVM formulas PMP, earned value calculator, EVM calculator, CPI formula, SPI formula, EAC formula PMP, TCPI formula, cost variance schedule variance, PMBOK 8 earned value">
+    <title>Earned Value (EVM) Formulas and Calculator for the PMP Exam</title>
 
     <link rel="canonical" href="https://pmmastery.app/tools/evm-calculator">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pmmastery.app/tools/evm-calculator">
-    <meta property="og:title" content="Free PMP EVM Calculator for the 2026 Exam">
-    <meta property="og:description" content="Free PMP EVM Calculator for the 2026 exam. Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI instantly. Includes formula explanations and exam tips.">
+    <meta property="og:title" content="Earned Value (EVM) Formulas and Calculator for the PMP Exam">
+    <meta property="og:description" content="Every earned value (EVM) formula for the PMP exam: CV, SV, CPI, SPI, the four EAC formulas, ETC, VAC, and TCPI, with a worked example and a free calculator.">
     <meta property="og:image" content="https://pmmastery.app/og-image-v2.png">
     <meta property="og:site_name" content="PM Mastery">
+    <meta property="article:published_time" content="2026-03-30T02:48:00-05:00">
+    <meta property="article:modified_time" content="2026-09-21T18:08:00-05:00">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free PMP EVM Calculator for the 2026 Exam">
-    <meta name="twitter:description" content="Free PMP EVM Calculator for the 2026 exam. Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI instantly. Includes formula explanations and exam tips.">
+    <meta name="twitter:title" content="Earned Value (EVM) Formulas and Calculator for the PMP Exam">
+    <meta name="twitter:description" content="Every earned value (EVM) formula for the PMP exam: CV, SV, CPI, SPI, the four EAC formulas, ETC, VAC, and TCPI, with a worked example and a free calculator.">
     <meta name="twitter:image" content="https://pmmastery.app/og-image-v2.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,17 +42,19 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "PMP EVM Calculator",
-        "description": "Free Earned Value Management calculator for PMP exam preparation. Calculate CPI, SPI, CV, SV, EAC, ETC, VAC, and TCPI.",
+        "name": "PMP Earned Value (EVM) Calculator",
+        "description": "Free earned value calculator and formula explainer for PMP exam preparation. Calculates CV, SV, CPI, SPI, EAC, ETC, VAC, and TCPI from PV, EV, AC, and BAC.",
         "url": "https://pmmastery.app/tools/evm-calculator",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Web Browser",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        "author": {"@type": "Organization", "name": "PM Mastery Solutions, LLC"}
+        "author": {"@type": "Organization", "name": "PM Mastery Solutions, LLC"},
+        "datePublished": "2026-03-30",
+        "dateModified": "2026-09-21"
     }
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pmmastery.app/"},{"@type":"ListItem","position":2,"name":"Free Tools","item":"https://pmmastery.app/tools/"},{"@type":"ListItem","position":3,"name":"EVM Calculator"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pmmastery.app/"},{"@type":"ListItem","position":2,"name":"Free Tools","item":"https://pmmastery.app/tools/"},{"@type":"ListItem","position":3,"name":"EVM Formulas and Calculator"}]}
     </script>
 
     <style>
@@ -122,8 +126,9 @@
     <section class="tool-hero">
         <div class="container">
             <span class="tool-badge"><i class="fas fa-calculator"></i> Free Tool</span>
-            <h1>PMP EVM Calculator</h1>
-            <p>Enter your Earned Value metrics and instantly calculate every EVM formula you need for the 2026 PMP exam.</p>
+            <h1>Earned Value (EVM) Formulas and Calculator</h1>
+            <p style="font-family: 'Courier New', monospace; font-size: 1.35rem; font-weight: 700; color: #C9A55C; margin: 0 auto 12px;">CPI = EV / AC &middot; SPI = EV / PV</p>
+            <p>Every EVM formula for the PMP exam, with a free calculator. Enter PV, EV, AC, and BAC to get variances, indexes, and forecasts, then read the worked example and how the exam tests it below.</p>
         </div>
     </section>
 
@@ -162,74 +167,104 @@
 
     <section style="padding: 40px 0 60px; background: #f8f9fa;">
         <div class="container" style="max-width: 800px;">
-            <h2 style="text-align: center; margin-bottom: 30px;">EVM Formulas Explained for the PMP Exam</h2>
+            <h2 style="text-align: center; margin-bottom: 10px;">Earned Value Formulas Explained for the PMP Exam</h2>
+            <p style="text-align: center; font-size: 0.9rem; color: #6c757d;">Updated September 2026.</p>
 
-            <p>Earned Value Management (EVM) is one of the most tested topics on the PMP exam. The 2026 exam aligned with PMBOK 8th Edition continues to test EVM heavily in the Process domain (41% of the exam). Understanding these formulas is not optional - you will see EVM questions on exam day.</p>
+            <h3 style="margin-top: 30px;">The three inputs, and BAC</h3>
+            <p>Earned value management puts scope, schedule, and cost on one scale, money, so you can compare them. PMBOK 8 defines the three measurements it tracks for every work package (Section 5, Earned value analysis). <strong>Planned value (PV)</strong> is the budget assigned to the work that was scheduled to be done by now. <strong>Earned value (EV)</strong> is the budget assigned to the work that actually got done, and it can never exceed the PV budgeted for that work. <strong>Actual cost (AC)</strong> is what that work really cost, with no upper limit. <strong>Budget at completion (BAC)</strong> is the total planned value for the whole project, the cost baseline. Management reserve sits outside all of these.</p>
 
-            <h3 style="margin-top: 30px;">Variance Formulas</h3>
-            <p><strong>Cost Variance (CV) = EV &minus; AC</strong> - Tells you whether you are under or over budget. A positive CV means you&rsquo;re under budget (good). A negative CV means you&rsquo;ve spent more than the value of work completed.</p>
-            <p><strong>Schedule Variance (SV) = EV &minus; PV</strong> - Tells you whether you are ahead or behind schedule. A positive SV means you&rsquo;ve completed more work than planned (ahead). A negative SV means you&rsquo;re behind where you should be.</p>
+            <h3 style="margin-top: 30px;">Variances: are we over or under?</h3>
+            <p><strong>Cost variance (CV) = EV &minus; AC</strong> The budget surplus or deficit for the work done so far. Positive is under planned cost, negative is over.</p>
+            <p><strong>Schedule variance (SV) = EV &minus; PV</strong> How far ahead of or behind the plan the completed work is, measured in money, not days. Positive is ahead of schedule, negative is behind.</p>
 
-            <h3 style="margin-top: 30px;">Performance Index Formulas</h3>
-            <p><strong>Cost Performance Index (CPI) = EV &divide; AC</strong> - The efficiency of your spending. A CPI of 1.0 means you&rsquo;re on budget. Above 1.0 is under budget. Below 1.0 means you&rsquo;re burning through money faster than planned. PMI considers CPI the single most important EVM metric.</p>
-            <p><strong>Schedule Performance Index (SPI) = EV &divide; PV</strong> - The efficiency of your time. An SPI of 1.0 means you&rsquo;re on schedule. Above 1.0 is ahead. Below 1.0 means you&rsquo;re behind. On the PMP exam, pay attention to whether the question asks about cost or schedule efficiency.</p>
+            <h3 style="margin-top: 30px;">Indexes: how efficient are we?</h3>
+            <p><strong>Cost performance index (CPI) = EV &divide; AC</strong> Cost efficiency. Exactly 1.0 means the work done so far cost exactly its budget. Above 1.0 is under planned cost, below 1.0 is over. A CPI of 0.80 means each dollar spent earned 80 cents of planned work.</p>
+            <p><strong>Schedule performance index (SPI) = EV &divide; PV</strong> Schedule efficiency. Exactly 1.0 is on schedule, above is ahead, below is behind.</p>
 
-            <h3 style="margin-top: 30px;">Forecasting Formulas</h3>
-            <p><strong>Estimate at Completion (EAC)</strong> - The projected total cost of the project. There are four EAC formulas tested on the PMP exam:</p>
+            <h3 style="margin-top: 30px;">Forecasts: where does this end up?</h3>
+            <p><strong>Estimate at completion (EAC)</strong> is the expected total cost of the project, actual cost to date plus the estimate to complete. PMBOK 8 prints four versions in Table 5-1, and each comes with the condition that tells you when to use it. The exam tests the condition more than the arithmetic.</p>
             <ul style="margin: 10px 0 10px 20px;">
-                <li><strong>EAC = BAC &divide; CPI</strong> - Used when current cost variance is expected to continue (most common on the exam)</li>
-                <li><strong>EAC = AC + (BAC &minus; EV)</strong> - Used when current variances are atypical and won&rsquo;t continue</li>
-                <li><strong>EAC = AC + Bottom-up ETC</strong> - Used when the original estimate is fundamentally flawed</li>
-                <li><strong>EAC = AC + (BAC &minus; EV) &divide; (CPI &times; SPI)</strong> - Used when both cost and schedule performance must be considered</li>
+                <li><strong>EAC = BAC &divide; CPI.</strong> When the CPI is expected to stay the same for the rest of the project. The default when a question gives no condition, and the one the calculator above uses.</li>
+                <li><strong>EAC = AC + (BAC &minus; EV).</strong> When the variance so far was a one-off and future work will run at the planned rate.</li>
+                <li><strong>EAC = AC + (BAC &minus; EV) &divide; (CPI &times; SPI).</strong> When both cost and schedule performance influence the remaining work.</li>
+                <li><strong>EAC = AC + bottom-up ETC.</strong> When the original plan is no longer valid and the remaining work has to be re-estimated from scratch.</li>
             </ul>
-            <p><strong>Estimate to Complete (ETC) = EAC &minus; AC</strong> - How much more money you need to finish the project from this point forward.</p>
-            <p><strong>Variance at Completion (VAC) = BAC &minus; EAC</strong> - The projected budget overrun or underrun at the end of the project. Positive means under budget. Negative means over budget.</p>
-            <p><strong>To-Complete Performance Index (TCPI) = (BAC &minus; EV) &divide; (BAC &minus; AC)</strong> - The cost efficiency you must achieve on remaining work to finish within the original budget. A TCPI greater than 1.0 means you need to be more efficient than you have been. Above 1.2 is generally considered unrealistic.</p>
-        </div>
-    </section>
+            <p><strong>Estimate to complete (ETC) = EAC &minus; AC</strong> What the rest of the work will cost. The guide also allows a bottom-up re-estimate in place of the formula.</p>
+            <p><strong>Variance at completion (VAC) = BAC &minus; EAC</strong> The projected surplus or overrun at the end. Positive is under planned cost, negative is over.</p>
 
-    <section style="padding: 40px 0 60px;">
-        <div class="container" style="max-width: 800px;">
-            <h2 style="text-align: center; margin-bottom: 30px;">PMP Exam Tips for EVM Questions</h2>
+            <h3 style="margin-top: 30px;">TCPI: the efficiency you'd need from here</h3>
+            <p style="text-align: center; font-family: 'Courier New', monospace; font-size: 1.2rem; font-weight: 700; color: #3B4C8B; margin: 12px 0;">TCPI = (BAC &minus; EV) &divide; (BAC &minus; AC)</p>
+            <p>The to-complete performance index is the cost efficiency the remaining work has to hit to finish on a target. Work remaining over funds remaining. Greater than 1.0 means the rest of the project has to run more efficiently than the plan, exactly 1.0 means the same, less than 1.0 means easier. PMBOK 8 gives two forms. The BAC form above targets the original budget. When the BAC is no longer viable and a new EAC has been approved, the EAC replaces it: <strong>TCPI = (BAC &minus; EV) &divide; (EAC &minus; AC)</strong>. Whether a TCPI is achievable is a judgment call the guide ties to risk, time remaining, and technical performance, not to a fixed cutoff.</p>
 
-            <p><strong>Tip 1: Know what the question is actually asking.</strong> Many EVM questions don&rsquo;t ask you to calculate - they ask you to interpret. &ldquo;The project has a CPI of 0.85 and SPI of 1.1. What should the PM do?&rdquo; You need to know that CPI below 1.0 means over budget and SPI above 1.0 means ahead of schedule, then apply the PMI mindset to recommend the right action.</p>
+            <h3 style="margin-top: 30px;">Worked example, PMP style</h3>
+            <p>A project has a BAC of $450,000. At the status date, PV is $200,000, EV is $180,000, and AC is $225,000. Type those four numbers into the calculator above and you'll get every result below.</p>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>CV:</strong> 180,000 &minus; 225,000 = <strong>&minus;$45,000</strong>. Over planned cost.</li>
+                <li><strong>SV:</strong> 180,000 &minus; 200,000 = <strong>&minus;$20,000</strong>. Behind schedule.</li>
+                <li><strong>CPI:</strong> 180,000 &divide; 225,000 = <strong>0.80</strong>. Each dollar spent earned 80 cents.</li>
+                <li><strong>SPI:</strong> 180,000 &divide; 200,000 = <strong>0.90</strong>. Work is coming in at 90 percent of the planned rate.</li>
+                <li><strong>EAC (CPI continues):</strong> 450,000 &divide; 0.80 = <strong>$562,500</strong>.</li>
+                <li><strong>EAC (one-off variance):</strong> 225,000 + (450,000 &minus; 180,000) = <strong>$495,000</strong>.</li>
+                <li><strong>EAC (cost and schedule):</strong> 225,000 + 270,000 &divide; (0.80 &times; 0.90) = 225,000 + 375,000 = <strong>$600,000</strong>.</li>
+                <li><strong>ETC:</strong> 562,500 &minus; 225,000 = <strong>$337,500</strong> (using the first EAC).</li>
+                <li><strong>VAC:</strong> 450,000 &minus; 562,500 = <strong>&minus;$112,500</strong>. Projected overrun.</li>
+                <li><strong>TCPI (to the BAC):</strong> 270,000 &divide; 225,000 = <strong>1.20</strong>. The rest of the work has to run 50 percent more efficiently than it has so far (CPI 0.80 to 1.20).</li>
+                <li><strong>TCPI (to the EAC of $562,500):</strong> 270,000 &divide; 337,500 = <strong>0.80</strong>. Same as the current CPI, which is exactly what BAC &divide; CPI assumes.</li>
+            </ul>
+            <p>Read the shape of it: 40 percent of the value is earned, 50 percent of the budget is spent, and the three EAC versions land $105,000 apart from the same four inputs. That spread is why the exam asks which formula, not just what the number is.</p>
 
-            <p><strong>Tip 2: Memorize the direction.</strong> CV and SV: positive is good, negative is bad. CPI and SPI: above 1.0 is good, below 1.0 is bad. The exam will test whether you know which direction means what - especially in the first 10 seconds of reading a question.</p>
+            <h3 style="margin-top: 30px;">The direction rule</h3>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>Variances (CV, SV, VAC):</strong> positive is good, negative is bad, zero is on plan.</li>
+                <li><strong>Indexes (CPI, SPI):</strong> above 1.0 is good, below 1.0 is bad, exactly 1.0 is on plan.</li>
+                <li><strong>TCPI:</strong> the reverse. Above 1.0 means the remaining work is harder than planned, below 1.0 easier.</li>
+                <li><strong>EAC vs BAC:</strong> EAC below BAC is under budget, above is over. VAC has the sign already.</li>
+            </ul>
 
-            <p><strong>Tip 3: Know which EAC formula to use.</strong> This is the most common EVM trap on the PMP. If the question says &ldquo;current trends are expected to continue,&rdquo; use EAC = BAC/CPI. If it says &ldquo;the variance was a one-time issue,&rdquo; use EAC = AC + (BAC &minus; EV). Read the scenario carefully.</p>
+            <h3 style="margin-top: 30px;">Where it fits on the 2026 exam</h3>
+            <p>PMI doesn't publish a formula list, so no one can promise you an EVM question or a count. What's documented: PMBOK 8 prints the formula set in Table 5-1 and lists earned value analysis as a tool of Monitor and Control Project Performance, Monitor and Control Schedule, and Monitor and Control Finances, which also outputs the cost forecast that carries the EAC. The 2026 Exam Content Outline puts the work in the Process domain, 41 percent of the exam: plan and manage finance includes monitoring financial variations, plan and manage schedule includes analyzing schedule variation, and evaluate project status includes measuring and updating project metrics. On agile projects the same math runs on story points per iteration, with PV and EV in points and AC from the team's hours, so don't assume EVM is predictive-only.</p>
 
-            <p><strong>Tip 4: TCPI is the overlooked formula.</strong> Many candidates skip TCPI because it seems complex. But it shows up on the exam and it&rsquo;s straightforward once you understand it: TCPI tells you how efficient you need to be on the remaining work. If TCPI is greater than 1.0, you need to improve. If it&rsquo;s much greater than 1.0, the original budget may not be achievable.</p>
+            <h3 style="margin-top: 30px;">Common exam traps</h3>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>Calculating when the question wants a decision.</strong> "CPI is 0.80 and SPI is 1.10, what should the project manager do?" is about reading the numbers (over budget, ahead of schedule) and picking the action, not about arithmetic.</li>
+                <li><strong>The wrong EAC.</strong> Read the condition in the stem. "Expected to continue" is BAC &divide; CPI. "Won't happen again" is AC + (BAC &minus; EV). All four results are usually in the answer choices.</li>
+                <li><strong>SV in days.</strong> Schedule variance is in money. A question asking how many days behind is asking for something else.</li>
+                <li><strong>TCPI read backwards.</strong> A TCPI of 1.20 is bad news for the remaining work, not good.</li>
+                <li><strong>The EV chart.</strong> Graphic-based questions can show the three curves. PV is the plan line, AC and EV are the actuals; EV below PV is behind schedule, AC above EV is over budget.</li>
+            </ul>
+
+            <p style="margin-top: 30px;"><strong>Related:</strong> <a href="/tools/pert-estimator">PERT Formula and Calculator</a> &middot; <a href="/tools/communication-channels-calculator">Communication Channels Calculator</a> &middot; <a href="/blog/pmp-formulas-explained-2026">PMP Formulas Explained</a> &middot; <a href="/cheat-sheet">Free PMP Cheat Sheet</a></p>
 
             <p style="margin-top: 30px; text-align: center;">Want to practice EVM questions with instant AI explanations?<br>
-            <a href="https://app.pmmastery.app/auth/register" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free - 100 questions included &rarr;</a></p>
+            <a href="https://app.pmmastery.app/auth/register?utm_source=tools&utm_medium=organic&utm_campaign=evm-calculator" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free - 100 questions included &rarr;</a></p>
         </div>
     </section>
 
     <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 0 auto 60px; max-width: 700px;">
         <h3 style="color: white; margin-bottom: 10px;">Master every PMP formula with AI coaching</h3>
         <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,500+ questions &middot; AI Coach powered by Claude &middot; EVM, PERT, and all formulas explained</p>
-        <a href="https://app.pmmastery.app/auth/register" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
+        <a href="https://app.pmmastery.app/auth/register?utm_source=tools&utm_medium=organic&utm_campaign=evm-calculator" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
     </div>
 
     <section style="padding: 40px 0; background: #f8f9fa;">
         <div class="container" style="max-width: 800px;">
-            <h2 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h2>
+            <h2 style="text-align: center; margin-bottom: 30px;">Common Questions</h2>
 
             <div style="margin-bottom: 20px;">
-                <h3 style="font-size: 1.1rem;">What is Earned Value Management (EVM)?</h3>
-                <p>Earned Value Management is a project management methodology that integrates scope, schedule, and cost data to measure project performance and progress. It answers three questions: How much work was planned? How much work was actually completed? How much did the completed work cost? EVM is a core topic on the PMP exam and appears in the Process domain.</p>
+                <h3 style="font-size: 1.1rem;">What are the earned value management (EVM) formulas for the PMP exam?</h3>
+                <p>The core set is cost variance CV = EV - AC, schedule variance SV = EV - PV, cost performance index CPI = EV / AC, and schedule performance index SPI = EV / PV. The forecasting set is estimate at completion (EAC, four versions), estimate to complete ETC = EAC - AC, variance at completion VAC = BAC - EAC, and to-complete performance index TCPI = (BAC - EV) / (BAC - AC). PMBOK 8 prints all of them in Table 5-1.</p>
             </div>
             <div style="margin-bottom: 20px;">
-                <h3 style="font-size: 1.1rem;">How many EVM questions are on the 2026 PMP exam?</h3>
-                <p>PMI does not disclose exact question counts per topic, but EVM is consistently one of the most tested quantitative areas on the PMP exam. Candidates typically report 5 to 15 EVM-related questions, including both calculation and interpretation questions. The Process domain (41% of the exam) covers EVM most heavily.</p>
+                <h3 style="font-size: 1.1rem;">What is the CPI formula and what does it mean?</h3>
+                <p>CPI = EV / AC, earned value divided by actual cost. It measures cost efficiency: a CPI of 1.0 means the work done so far cost exactly what was budgeted, above 1.0 means under planned cost, below 1.0 means over planned cost. A CPI of 0.80 means every dollar spent has earned 80 cents of budgeted work. SPI = EV / PV is the schedule twin and reads the same way.</p>
             </div>
             <div style="margin-bottom: 20px;">
-                <h3 style="font-size: 1.1rem;">What are the three core EVM values?</h3>
-                <p>The three core EVM values are Planned Value (PV), which is the authorized budget for work scheduled; Earned Value (EV), which is the authorized budget for work actually completed; and Actual Cost (AC), which is the total cost incurred for the work performed. Every other EVM formula is derived from these three inputs.</p>
+                <h3 style="font-size: 1.1rem;">Which EAC formula should I use on the PMP exam?</h3>
+                <p>Match the formula to the condition the question states. If current cost performance is expected to continue, EAC = BAC / CPI. If the variance was a one-off and future work will run at the planned rate, EAC = AC + (BAC - EV). If both cost and schedule performance affect the remaining work, EAC = AC + (BAC - EV) / (CPI x SPI). If the original plan is no longer valid, EAC = AC + a bottom-up ETC. When the question gives no condition, BAC / CPI is the default.</p>
             </div>
             <div style="margin-bottom: 20px;">
-                <h3 style="font-size: 1.1rem;">What is the most important EVM metric for the PMP exam?</h3>
-                <p>According to PMI, the Cost Performance Index (CPI) is the most critical EVM metric because it measures cost efficiency and is the most reliable predictor of final project cost. Once a project&rsquo;s CPI is established after 20% completion, it rarely changes significantly. The PMP exam frequently tests CPI interpretation and its use in EAC forecasting.</p>
+                <h3 style="font-size: 1.1rem;">Is earned value on the 2026 PMP exam?</h3>
+                <p>PMI does not publish a formula list, so nobody can promise a count. What's documented: PMBOK 8 prints the full EVM formula set in Table 5-1 and lists earned value analysis as a tool in three monitoring processes, and the 2026 Exam Content Outline's Process domain, 41 percent of the exam, includes monitoring financial variations, analyzing schedule variation, and measuring project metrics. Expect EVM inside a scenario, usually as an interpretation question, sometimes as a chart.</p>
             </div>
             <p style="margin-top: 20px; text-align: center;"><strong>Related:</strong> <a href="/tools/pert-estimator">PERT Formula and Calculator</a> &middot; <a href="/tools/communication-channels-calculator">Communication Channels Calculator</a></p>
         </div>
@@ -240,10 +275,10 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            {"@type": "Question", "name": "What is Earned Value Management (EVM)?", "acceptedAnswer": {"@type": "Answer", "text": "Earned Value Management is a project management methodology that integrates scope, schedule, and cost data to measure project performance and progress. It is a core topic on the PMP exam."}},
-            {"@type": "Question", "name": "How many EVM questions are on the 2026 PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "Candidates typically report 5 to 15 EVM-related questions. The Process domain (41% of the exam) covers EVM most heavily."}},
-            {"@type": "Question", "name": "What are the three core EVM values?", "acceptedAnswer": {"@type": "Answer", "text": "Planned Value (PV), Earned Value (EV), and Actual Cost (AC). Every other EVM formula is derived from these three inputs."}},
-            {"@type": "Question", "name": "What is the most important EVM metric for the PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "The Cost Performance Index (CPI) is the most critical EVM metric because it measures cost efficiency and is the most reliable predictor of final project cost."}}
+            {"@type": "Question", "name": "What are the earned value management (EVM) formulas for the PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "The core set is cost variance CV = EV - AC, schedule variance SV = EV - PV, cost performance index CPI = EV / AC, and schedule performance index SPI = EV / PV. The forecasting set is estimate at completion (EAC, four versions), estimate to complete ETC = EAC - AC, variance at completion VAC = BAC - EAC, and to-complete performance index TCPI = (BAC - EV) / (BAC - AC). PMBOK 8 prints all of them in Table 5-1."}},
+            {"@type": "Question", "name": "What is the CPI formula and what does it mean?", "acceptedAnswer": {"@type": "Answer", "text": "CPI = EV / AC, earned value divided by actual cost. It measures cost efficiency: a CPI of 1.0 means the work done so far cost exactly what was budgeted, above 1.0 means under planned cost, below 1.0 means over planned cost. A CPI of 0.80 means every dollar spent has earned 80 cents of budgeted work. SPI = EV / PV is the schedule twin and reads the same way."}},
+            {"@type": "Question", "name": "Which EAC formula should I use on the PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "Match the formula to the condition the question states. If current cost performance is expected to continue, EAC = BAC / CPI. If the variance was a one-off and future work will run at the planned rate, EAC = AC + (BAC - EV). If both cost and schedule performance affect the remaining work, EAC = AC + (BAC - EV) / (CPI x SPI). If the original plan is no longer valid, EAC = AC + a bottom-up ETC. When the question gives no condition, BAC / CPI is the default."}},
+            {"@type": "Question", "name": "Is earned value on the 2026 PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "PMI does not publish a formula list, so nobody can promise a count. What's documented: PMBOK 8 prints the full EVM formula set in Table 5-1 and lists earned value analysis as a tool in three monitoring processes, and the 2026 Exam Content Outline's Process domain, 41 percent of the exam, includes monitoring financial variations, analyzing schedule variation, and measuring project metrics. Expect EVM inside a scenario, usually as an interpretation question, sometimes as a chart."}}
         ]
     }
     </script>
