@@ -343,10 +343,10 @@
         const spi = pv !== 0 ? ev / pv : 0;
 
         let html = '';
-        html += card('Cost Variance (CV)', cv, 'EV âˆ’ AC = ' + fmt(ev) + ' âˆ’ ' + fmt(ac), cv >= 0 ? 'Under budget' : 'Over budget', cv >= 0 ? 'positive' : 'negative');
-        html += card('Schedule Variance (SV)', sv, 'EV âˆ’ PV = ' + fmt(ev) + ' âˆ’ ' + fmt(pv), sv >= 0 ? 'Ahead of schedule' : 'Behind schedule', sv >= 0 ? 'positive' : 'negative');
-        html += card('Cost Performance Index (CPI)', cpi, 'EV Ã· AC = ' + fmt(ev) + ' Ã· ' + fmt(ac), cpi >= 1 ? 'Cost efficient' : 'Cost overrun', cpi >= 1 ? 'positive' : 'negative');
-        html += card('Schedule Performance Index (SPI)', spi, 'EV Ã· PV = ' + fmt(ev) + ' Ã· ' + fmt(pv), spi >= 1 ? 'On or ahead of schedule' : 'Behind schedule', spi >= 1 ? 'positive' : 'negative');
+        html += card('Cost Variance (CV)', cv, 'EV \u2212 AC = ' + fmt(ev) + ' \u2212 ' + fmt(ac), cv >= 0 ? 'Under budget' : 'Over budget', cv >= 0 ? 'positive' : 'negative');
+        html += card('Schedule Variance (SV)', sv, 'EV \u2212 PV = ' + fmt(ev) + ' \u2212 ' + fmt(pv), sv >= 0 ? 'Ahead of schedule' : 'Behind schedule', sv >= 0 ? 'positive' : 'negative');
+        html += card('Cost Performance Index (CPI)', cpi, 'EV \u00F7 AC = ' + fmt(ev) + ' \u00F7 ' + fmt(ac), cpi >= 1 ? 'Cost efficient' : 'Cost overrun', cpi >= 1 ? 'positive' : 'negative');
+        html += card('Schedule Performance Index (SPI)', spi, 'EV \u00F7 PV = ' + fmt(ev) + ' \u00F7 ' + fmt(pv), spi >= 1 ? 'On or ahead of schedule' : 'Behind schedule', spi >= 1 ? 'positive' : 'negative');
 
         if (!isNaN(bac) && bac > 0) {
             const eac = cpi !== 0 ? bac / cpi : 0;
@@ -354,10 +354,10 @@
             const vac = bac - eac;
             const tcpiBac = (bac - ac) !== 0 ? (bac - ev) / (bac - ac) : 0;
 
-            html += card('Estimate at Completion (EAC)', eac, 'BAC Ã· CPI = ' + fmt(bac) + ' Ã· ' + cpi.toFixed(2), eac <= bac ? 'Projected under budget' : 'Projected over budget', eac <= bac ? 'positive' : 'negative');
-            html += card('Estimate to Complete (ETC)', etc, 'EAC âˆ’ AC = ' + fmt(eac) + ' âˆ’ ' + fmt(ac), 'Remaining cost to finish', 'neutral');
-            html += card('Variance at Completion (VAC)', vac, 'BAC âˆ’ EAC = ' + fmt(bac) + ' âˆ’ ' + fmt(eac), vac >= 0 ? 'Projected under budget' : 'Projected over budget', vac >= 0 ? 'positive' : 'negative');
-            html += card('To-Complete Performance Index (TCPI)', tcpiBac, '(BAC âˆ’ EV) Ã· (BAC âˆ’ AC)', tcpiBac <= 1 ? 'Achievable efficiency target' : (tcpiBac <= 1.2 ? 'Challenging but possible' : 'Very difficult to achieve'), tcpiBac <= 1 ? 'positive' : (tcpiBac <= 1.2 ? 'neutral' : 'negative'));
+            html += card('Estimate at Completion (EAC)', eac, 'BAC \u00F7 CPI = ' + fmt(bac) + ' \u00F7 ' + cpi.toFixed(2), eac <= bac ? 'Projected under budget' : 'Projected over budget', eac <= bac ? 'positive' : 'negative');
+            html += card('Estimate to Complete (ETC)', etc, 'EAC \u2212 AC = ' + fmt(eac) + ' \u2212 ' + fmt(ac), 'Remaining cost to finish', 'neutral');
+            html += card('Variance at Completion (VAC)', vac, 'BAC \u2212 EAC = ' + fmt(bac) + ' \u2212 ' + fmt(eac), vac >= 0 ? 'Projected under budget' : 'Projected over budget', vac >= 0 ? 'positive' : 'negative');
+            html += card('To-Complete Performance Index (TCPI)', tcpiBac, '(BAC \u2212 EV) \u00F7 (BAC \u2212 AC)', tcpiBac > 1 ? 'Harder to complete than planned' : (tcpiBac < 1 ? 'Easier to complete than planned' : 'Same efficiency as planned'), tcpiBac > 1 ? 'negative' : (tcpiBac < 1 ? 'positive' : 'neutral'));
         }
 
         document.getElementById('results').innerHTML = html;
@@ -367,8 +367,8 @@
         const display = Math.abs(value) >= 1 ? '$' + value.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) : value.toFixed(2);
         const isIndex = label.includes('Index') || label.includes('TCPI');
         const displayValue = isIndex ? value.toFixed(2) : '$' + Math.abs(value).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
-        const sign = (!isIndex && value < 0) ? 'âˆ’$' : (!isIndex && value >= 0) ? '$' : '';
-        const finalDisplay = isIndex ? value.toFixed(2) : (value < 0 ? 'âˆ’$' + Math.abs(value).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) : '$' + value.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}));
+        const sign = (!isIndex && value < 0) ? '\u2212$' : (!isIndex && value >= 0) ? '$' : '';
+        const finalDisplay = isIndex ? value.toFixed(2) : (value < 0 ? '\u2212$' + Math.abs(value).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}) : '$' + value.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}));
         return '<div class="result-card ' + status + '"><div class="result-label">' + label + '</div><div class="result-value">' + finalDisplay + '</div><div class="result-formula">' + formula + '</div><div class="result-meaning">' + meaning + '</div></div>';
     }
 
