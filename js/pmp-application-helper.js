@@ -474,9 +474,6 @@
 
         attestCheckbox.addEventListener('change', function () {
             updateAttestState();
-            if (attestCheckbox.checked) {
-                track('apphelper_attested', {});
-            }
         });
 
         // ---------- Copy ----------
