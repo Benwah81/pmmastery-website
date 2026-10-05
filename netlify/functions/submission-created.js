@@ -144,7 +144,7 @@ exports.handler = async function(event, context) {
 
           <div style="background: #fff; padding: 20px; border: 2px solid #C9A55C; border-radius: 8px; text-align: center; margin-bottom: 24px;">
             <h3 style="color: #3B4C8B; margin: 0 0 8px;">Ready to go deeper?</h3>
-            <p style="color: #666; margin: 0 0 16px;">PM Mastery has 4,500+ practice questions, 40 case studies, and mock exams built for the 2026 PMP exam.</p>
+            <p style="color: #666; margin: 0 0 16px;">PM Mastery has 4,000+ questions (including 200 in 40 case studies) and mock exams built for the 2026 PMP exam.</p>
             <a href="https://app.pmmastery.app/auth/register?utm_source=cheatsheet&utm_medium=email&utm_campaign=lead_magnet"
                style="display: inline-block; background: #3B4C8B; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
               Start Free - 100 Questions Included
