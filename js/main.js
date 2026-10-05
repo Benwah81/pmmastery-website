@@ -1,3 +1,38 @@
+// Announcement bar (BANNER-1): new question types. Self-expires after Oct 31 2026 CT; remove in a later cleanup.
+(function () {
+    var KEY = 'pmm_banner_qtypes_2026_10';
+    var END = Date.parse('2026-11-01T05:00:00Z'); // 2026-10-31 11:59 pm CT
+    var POST = '/blog/pm-mastery-new-question-types-2026';
+    try {
+        if (Date.now() >= END) return;
+        if (location.pathname.replace(/\/$/, '').replace(/\.html$/, '') === POST) return;
+        try { if (localStorage.getItem(KEY) === '1') return; } catch (e) {}
+        if (!document.body || document.getElementById('pmm-announce')) return;
+        var bar = document.createElement('div');
+        bar.id = 'pmm-announce';
+        bar.setAttribute('role', 'region');
+        bar.setAttribute('aria-label', 'Announcement');
+        bar.style.cssText = 'background:#3B4C8B;color:#fff;font-size:0.9rem;line-height:1.4;padding:8px 44px;text-align:center;position:relative;border-bottom:2px solid #C9A55C;';
+        bar.appendChild(document.createTextNode('New: every PM Mastery mock now includes matching, multi-select and chart questions.'));
+        var a = document.createElement('a');
+        a.href = POST;
+        a.textContent = 'See what’s new';
+        a.style.cssText = 'color:#fff;font-weight:600;text-decoration:underline;margin-left:6px;';
+        bar.appendChild(a);
+        var x = document.createElement('button');
+        x.type = 'button';
+        x.setAttribute('aria-label', 'Dismiss announcement');
+        x.textContent = '×';
+        x.style.cssText = 'position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;font-size:1.3rem;line-height:1;cursor:pointer;padding:4px 8px;';
+        x.addEventListener('click', function () {
+            try { localStorage.setItem(KEY, '1'); } catch (e) {}
+            bar.parentNode && bar.parentNode.removeChild(bar);
+        });
+        bar.appendChild(x);
+        document.body.insertBefore(bar, document.body.firstChild);
+    } catch (e) {}
+})();
+
 // PM MASTERY - WEBSITE INTERACTIONS
 
 document.addEventListener('DOMContentLoaded', function() {
