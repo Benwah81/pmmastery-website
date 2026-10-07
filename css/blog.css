@@ -384,8 +384,20 @@
     }
     
     .article-content {
-        padding: 40px 25px;
-        margin: 0 15px;
+        padding: 28px 18px;
+        margin: 0;
+    }
+
+    .blog-article .container {
+        padding: 0 12px;
+    }
+
+    .article-content table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        background: #ffffff;
     }
     
     .article-content h2 {

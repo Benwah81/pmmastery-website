@@ -37,11 +37,30 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+        mobileToggle.setAttribute('role', 'button');
+        mobileToggle.setAttribute('tabindex', '0');
+        mobileToggle.setAttribute('aria-label', 'Menu');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        const toggleMenu = () => {
+            const open = navLinks.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        mobileToggle.addEventListener('click', toggleMenu);
+        mobileToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+        });
+    }
+
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
     
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        if (!question) return;
         
         question.addEventListener('click', () => {
             // Close other open items
@@ -69,16 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Mobile menu toggle (basic implementation)
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    }
     
     // Add animation class when elements come into view
     const observerOptions = {

@@ -983,7 +983,13 @@ img {
     }
     
     .mobile-menu-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        margin-right: -10px;
+        touch-action: manipulation;
     }
 
     .nav-links.active {
