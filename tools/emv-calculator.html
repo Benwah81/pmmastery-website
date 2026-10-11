@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free EMV calculator for the PMP exam. Add risks or decision-tree branches to get expected monetary value, see which option wins, and learn how the exam tests it.">
+    <meta name="keywords" content="expected monetary value, EMV formula, EMV PMP, expected monetary value formula, decision tree analysis, decision tree analysis PMP, EMV calculator, PMBOK 8 risk analysis">
+    <title>Expected Monetary Value (EMV) and Decision Tree Calculator for the PMP</title>
+
+    <link rel="canonical" href="https://pmmastery.app/tools/emv-calculator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pmmastery.app/tools/emv-calculator">
+    <meta property="og:title" content="Expected Monetary Value (EMV) and Decision Tree Calculator for the PMP">
+    <meta property="og:description" content="Free EMV calculator for the PMP exam. Add risks or decision-tree branches to get expected monetary value, see which option wins, and learn how the exam tests it.">
+    <meta property="og:image" content="https://pmmastery.app/og-image-v2.png">
+    <meta property="og:site_name" content="PM Mastery">
+    <meta property="article:published_time" content="2026-10-11T09:00:00-05:00">
+    <meta property="article:modified_time" content="2026-10-11T09:00:00-05:00">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Expected Monetary Value (EMV) and Decision Tree Calculator for the PMP">
+    <meta name="twitter:description" content="Free EMV calculator for the PMP exam. Add risks or decision-tree branches to get expected monetary value, see which option wins, and learn how the exam tests it.">
+    <meta name="twitter:image" content="https://pmmastery.app/og-image-v2.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%233B4C8B'/%3E%3Cpath d='M32 12 L48 40 L32 32 L16 40 Z' fill='%23C9A55C'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../css/style.css?v=20261007">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0RSXYS7K8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-P0RSXYS7K8');
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "EMV and Decision Tree Calculator",
+        "description": "Free EMV calculator for the PMP exam. Add risks or decision-tree branches to get expected monetary value, see which option wins, and learn how the exam tests it.",
+        "url": "https://pmmastery.app/tools/emv-calculator",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Organization", "name": "PM Mastery Solutions, LLC"},
+        "datePublished": "2026-10-11",
+        "dateModified": "2026-10-11"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pmmastery.app/"},{"@type":"ListItem","position":2,"name":"Free Tools","item":"https://pmmastery.app/tools/"},{"@type":"ListItem","position":3,"name":"EMV and Decision Tree Calculator"}]}
+    </script>
+
+    <style>
+        .tool-hero { background: linear-gradient(135deg, #3B4C8B 0%, #2d3a6b 100%); padding: 60px 0 40px; text-align: center; }
+        .tool-hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
+        .tool-hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .tool-badge { display: inline-block; background: #C9A55C; color: #3B4C8B; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; }
+        .calc-section { padding: 40px 0 60px; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; }
+        @media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; } }
+        .calc-inputs { background: #f8f9fa; border-radius: 12px; padding: 30px; border: 1px solid #e9ecef; }
+        .calc-inputs h2 { font-size: 1.3rem; margin-bottom: 20px; color: #2d3a6b; }
+        .input-group { margin-bottom: 18px; }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; color: #343a40; }
+        .input-group .hint { font-weight: 400; color: #6c757d; font-size: 0.8rem; }
+        .input-group input { width: 100%; padding: 12px 16px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: border-color 0.2s; }
+        .input-group input:focus { outline: none; border-color: #3B4C8B; }
+        .btn-calculate { width: 100%; padding: 14px; background: #C9A55C; color: #3B4C8B; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+        .btn-calculate:hover { background: #b8944a; }
+        .results-panel h2 { font-size: 1.3rem; margin-bottom: 20px; color: #2d3a6b; }
+        .result-card { background: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; transition: border-color 0.2s; }
+        .result-card.positive { border-left: 4px solid #28a745; }
+        .result-card.negative { border-left: 4px solid #dc3545; }
+        .result-card.neutral { border-left: 4px solid #6c757d; }
+        .result-label { font-size: 0.85rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .result-value { font-size: 1.5rem; font-weight: 700; color: #2d3a6b; margin: 4px 0; }
+        .result-formula { font-size: 0.8rem; color: #6c757d; font-family: 'Courier New', monospace; }
+        .result-meaning { font-size: 0.85rem; color: #343a40; margin-top: 4px; }
+        .bac-input { margin-top: 20px; padding-top: 20px; border-top: 2px dashed #dee2e6; }
+        .bac-input label .optional { color: #C9A55C; font-size: 0.75rem; }
+        .related-links a { color: #3B4C8B; font-weight: 600; text-decoration: underline; text-decoration-color: #C9A55C; text-underline-offset: 3px; }
+        .related-links a:hover { color: #C9A55C; }
+        .calc-tabs { display: flex; gap: 8px; max-width: 1000px; margin: 0 auto 20px; }
+        .calc-tab { flex: 1; padding: 12px 16px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; font-weight: 700; color: #2d3a6b; cursor: pointer; font-family: inherit; }
+        .calc-tab.active { background: #3B4C8B; border-color: #3B4C8B; color: #fff; }
+        .btn-row { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-row .btn-calculate { flex: 1; }
+        .btn-secondary { padding: 14px 20px; background: #fff; color: #3B4C8B; border: 2px solid #3B4C8B; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .btn-secondary:hover { background: #eef0f8; }
+        .btn-small { padding: 8px 14px; background: #fff; color: #3B4C8B; border: 2px solid #3B4C8B; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .btn-small:hover { background: #eef0f8; }
+        .btn-remove { padding: 0 12px; background: #fff; color: #dc3545; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .btn-remove:hover { border-color: #dc3545; }
+        .risk-row, .outcome-row { background: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 14px; margin-bottom: 12px; }
+        .row-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .row-fields .wide { grid-column: 1 / -1; }
+        .row-fields label { display: block; font-weight: 600; font-size: 0.8rem; margin-bottom: 4px; color: #343a40; }
+        .row-fields input, .row-fields select, .option-head input { width: 100%; padding: 10px 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; font-family: inherit; background: #fff; }
+        .row-fields input:focus, .row-fields select:focus, .option-head input:focus { outline: none; border-color: #3B4C8B; }
+        .row-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .row-top .row-title { font-weight: 700; font-size: 0.85rem; color: #6c757d; text-transform: uppercase; letter-spacing: 0.5px; }
+        .option-block { background: #fff; border: 1px solid #dee2e6; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+        .option-block h3 { font-size: 1.05rem; color: #2d3a6b; margin-bottom: 10px; }
+        .option-head { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+        .option-head label { display: block; font-weight: 600; font-size: 0.8rem; margin-bottom: 4px; color: #343a40; }
+        .field-error { color: #dc3545; font-size: 0.9rem; margin-top: 8px; }
+        .calc-note { font-size: 0.85rem; color: #6c757d; margin-top: 12px; }
+        .winner-line { font-size: 1.15rem; font-weight: 700; color: #2d3a6b; margin: 4px 0 6px; }
+        .results-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 12px; }
+        .results-table th, .results-table td { padding: 8px 6px; border-bottom: 1px solid #e9ecef; text-align: left; }
+        .results-table td.num, .results-table th.num { text-align: right; white-space: nowrap; }
+        @media (max-width: 480px) { .row-fields, .option-head { grid-template-columns: 1fr; } .tool-hero h1 { font-size: 1.7rem; } .calc-inputs { padding: 18px; } .calc-tab { font-size: 0.9rem; padding: 10px 8px; } }
+    </style>
+    <!-- PostHog analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_BXWzeGqfBgSm7hC9tf5dryxKwou8BAxMKmwX3Cjy9XU6', {
+            api_host: 'https://us.i.posthog.com',
+            defaults: '2026-05-30'
+        });
+    </script>
+    <!-- /PostHog -->
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/">
+                    <svg class="logo-svg" width="160" height="40" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M8 35 L15 20 L22 35 L15 30 Z" fill="#C9A55C"/>
+                            <text x="30" y="33" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">PM MASTERY</text>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/blog/">Blog</a>
+                <a href="https://app.pmmastery.app/auth/login" class="btn-nav-secondary">Login</a>
+                <a href="https://app.pmmastery.app/auth/register" class="btn-nav-primary">Get Started Free</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i class="fas fa-calculator"></i> Free Tool</span>
+            <h1>Expected Monetary Value (EMV) and Decision Tree Calculator</h1>
+            <p style="font-family: 'Courier New', monospace; font-size: 1.35rem; font-weight: 700; color: #C9A55C; margin: 0 auto 12px;">EMV = Probability &times; Impact, summed across outcomes</p>
+            <p>Expected monetary value turns a risk, or a choice with uncertain outcomes, into one dollar figure you can compare. Use the risk list for threats and opportunities, or the decision tree to compare two options, then read how the exam tests it below.</p>
+        </div>
+    </section>
+
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-tabs" role="tablist">
+                <button type="button" class="calc-tab active" id="tab-risk" role="tab" aria-selected="true" aria-controls="panel-risk" onclick="showTab('risk')">Risk list</button>
+                <button type="button" class="calc-tab" id="tab-tree" role="tab" aria-selected="false" aria-controls="panel-tree" onclick="showTab('tree')">Decision tree</button>
+            </div>
+
+            <div class="calc-grid" id="panel-risk" role="tabpanel">
+                <div class="calc-inputs">
+                    <h2><i class="fas fa-keyboard"></i> Your Risks</h2>
+                    <div id="risk-rows"></div>
+                    <button type="button" class="btn-small" id="add-risk" onclick="addRiskRow()"><i class="fas fa-plus"></i> Add risk</button>
+                    <div class="btn-row">
+                        <button type="button" class="btn-calculate" onclick="calcRisk()"><i class="fas fa-bolt"></i> Calculate</button>
+                        <button type="button" class="btn-secondary" onclick="resetRisk()">Reset</button>
+                    </div>
+                </div>
+                <div class="results-panel">
+                    <h2><i class="fas fa-chart-line"></i> Results</h2>
+                    <div id="risk-results">
+                        <p style="color: #6c757d; text-align: center; padding: 40px 0;">Click Calculate to see the EMV of each risk and the net.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calc-grid" id="panel-tree" role="tabpanel" style="display: none;">
+                <div class="calc-inputs">
+                    <h2><i class="fas fa-code-branch"></i> Your Two Options</h2>
+                    <div id="tree-options"></div>
+                    <div class="btn-row">
+                        <button type="button" class="btn-calculate" onclick="calcTree()"><i class="fas fa-bolt"></i> Calculate</button>
+                        <button type="button" class="btn-secondary" onclick="resetTree()">Reset</button>
+                    </div>
+                </div>
+                <div class="results-panel">
+                    <h2><i class="fas fa-chart-line"></i> Results</h2>
+                    <div id="tree-results">
+                        <p style="color: #6c757d; text-align: center; padding: 40px 0;">Click Calculate to compare the two options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 40px 0 60px; background: #f8f9fa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 10px;">Expected Monetary Value Explained for the PMP Exam</h2>
+            <p style="text-align: center; font-size: 0.9rem; color: #6c757d;">Updated October 2026.</p>
+
+            <h3 style="margin-top: 30px;">What EMV is</h3>
+            <p>PMBOK 8's glossary defines expected monetary value as &ldquo;the estimated value of an outcome expressed in monetary terms.&rdquo; In plain English: for one risk, multiply the probability by the impact, and when there are several possible outcomes, do that for each one and add them up. The guide doesn't print a standalone <strong>EMV = probability &times; impact</strong> formula. The probability-weighted math appears inside its example decision tree, Figure 5-5 in Section 5.</p>
+
+            <h3 style="margin-top: 30px;">Threats are negative, opportunities are positive</h3>
+            <p>A threat costs you money, so its EMV is negative. An opportunity earns you money, so its EMV is positive. A 30 percent chance of a $40,000 loss is &minus;$12,000. A 40 percent chance of a $10,000 saving is +$4,000. Add the signed values across a risk list and you get the net EMV. A negative net means the threats outweigh the opportunities on average.</p>
+
+            <h3 style="margin-top: 30px;">Decision trees: EMV with a choice in it</h3>
+            <p>PMBOK 8 describes decision tree analysis as a diagramming and calculation technique for evaluating a chain of options under uncertainty, used to select the best of several alternatives. The branches carry costs and individual risks, both threats and opportunities, and the tree is evaluated by calculating the EMV of each branch so the optimal path can be selected. It's listed as a data analysis technique of Perform Risk Analysis (Section 2.7.2.3, Figure 2-50), in the Risk performance domain.</p>
+            <p>Two node types matter. A <strong>decision node</strong> (a square) is where you choose. A <strong>chance node</strong> (a circle) is where the outcome is left to probability, and the probabilities on one chance node have to total 100 percent. To evaluate an option, multiply each chance outcome by its probability, add them up, then subtract the investment cost of that option. Pick the option with the higher EMV. If you have the guide, Figure 5-5 shows a worked tree. The example below uses our own numbers.</p>
+
+            <h3 style="margin-top: 30px;">Worked example, PMP style</h3>
+            <p>The calculator above is prefilled with these numbers. Click Calculate on each tab to see them.</p>
+            <p><strong>Risk list.</strong></p>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>Threat, &ldquo;Vendor delivers late&rdquo;:</strong> 30% &times; $40,000 = <strong>&minus;$12,000</strong>.</li>
+                <li><strong>Threat, &ldquo;Test environment fails&rdquo;:</strong> 10% &times; $25,000 = <strong>&minus;$2,500</strong>.</li>
+                <li><strong>Opportunity, &ldquo;Bulk discount comes through&rdquo;:</strong> 40% &times; $10,000 = <strong>+$4,000</strong>.</li>
+                <li><strong>Net EMV:</strong> &minus;12,000 &minus; 2,500 + 4,000 = <strong>&minus;$10,500</strong>.</li>
+            </ul>
+            <p><strong>Decision tree, &ldquo;Build in-house or buy?&rdquo;</strong></p>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>Option A, Build in-house</strong> (cost $60,000): 70% works first time, payoff $150,000. 30% needs rework, payoff $90,000. Weighted payoff = 105,000 + 27,000 = $132,000. EMV = 132,000 &minus; 60,000 = <strong>$72,000</strong>.</li>
+                <li><strong>Option B, Buy off the shelf</strong> (cost $90,000): 90% fits, payoff $160,000. 10% doesn't fit, payoff $100,000. Weighted payoff = 144,000 + 10,000 = $154,000. EMV = 154,000 &minus; 90,000 = <strong>$64,000</strong>.</li>
+                <li><strong>Answer:</strong> Build, $72,000.</li>
+            </ul>
+            <p>Buy has the bigger payoff and the safer odds, and it still loses once you subtract what it costs. That's the trap the exam is built around.</p>
+
+            <h3 style="margin-top: 30px;">Qualitative vs quantitative</h3>
+            <p>PMBOK 8 (Section 2.7.2.3) describes qualitative analysis as assessing individual risks by probability and impact throughout the project. Quantitative analysis may not always be required, and when it is, it numerically analyzes the combined effect of risks and uncertainty on project objectives. EMV and decision trees are quantitative tools.</p>
+
+            <h3 style="margin-top: 30px;">Where it fits on the 2026 exam</h3>
+            <p>PMI doesn't publish a formula list, so no one can promise you an EMV question. What's documented: PMBOK 8 lists decision tree analysis as a data analysis technique of Perform Risk Analysis, which sits in the Risk performance domain, and risk work falls in the Process domain, 41 percent of the exam. Recent passers report very little calculation on the new exam, so expect EMV as a reading question: which option, which risk to address first, is the reserve enough. Know the math well enough to check an answer choice in ten seconds.</p>
+            <p>One related point. PMBOK 8 says contingency reserves are budget within the cost baseline for identified risks, and may be developed using quantitative analysis methods. A common way to size a contingency reserve is to add up the EMVs of the identified threats. That's common practice, not something the guide prints.</p>
+
+            <h3 style="margin-top: 30px;">Common exam traps</h3>
+            <ul style="margin: 10px 0 10px 20px;">
+                <li><strong>Forgetting to subtract the investment cost.</strong> The option with the bigger weighted payoff can lose once its cost comes off.</li>
+                <li><strong>Getting the sign wrong.</strong> Opportunities are positive, threats are negative. Don't flip them.</li>
+                <li><strong>Probabilities that don't total 100.</strong> The chance outcomes on one branch have to add up to 100 percent. If they don't, something is missing.</li>
+                <li><strong>Picking the highest payoff instead of the highest EMV.</strong> And when the tree is built in costs, the best choice is the lowest expected cost, not the highest. Read what the question is measuring.</li>
+                <li><strong>Treating EMV as the amount you'll actually spend or earn.</strong> It's a probability-weighted average. No single outcome lands on it.</li>
+            </ul>
+
+            <p class="related-links" style="margin-top: 30px;"><strong>Related:</strong> <a href="/tools/evm-calculator">EVM Formulas and Calculator</a> &middot; <a href="/tools/pert-estimator">PERT Formula and Calculator</a> &middot; <a href="/blog/5-risk-management-pmp-questions-2026">5 Risk Management PMP Questions</a> &middot; <a href="/tools/">All PMP Calculators</a></p>
+
+            <p style="margin-top: 30px; text-align: center;">Want to practice risk questions with instant AI explanations?<br>
+            <a href="https://app.pmmastery.app/auth/register?utm_source=tools&utm_medium=organic&utm_campaign=emv-calculator" style="color: #C9A55C; font-weight: 700;">Try PM Mastery free - 100 questions included &rarr;</a></p>
+        </div>
+    </section>
+
+    <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 0 auto 60px; max-width: 700px;">
+        <h3 style="color: white; margin-bottom: 10px;">Master every PMP formula with AI coaching</h3>
+        <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,000+ questions (including 200 in 40 case studies) &middot; unlimited full 180-question mocks on the Pass &middot; an AI coach on every question. 100 questions free to start.</p>
+        <a href="https://app.pmmastery.app/auth/register?utm_source=tools&utm_medium=organic&utm_campaign=emv-calculator" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
+    </div>
+
+    <section style="padding: 40px 0; background: #f8f9fa;">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Common Questions</h2>
+
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">What is the expected monetary value (EMV) formula?</h3>
+                <p>For one risk, EMV is probability times impact: a 30 percent chance of a $40,000 loss is an EMV of -$12,000. Across several outcomes, multiply each by its probability and add them up. Threats are negative, opportunities positive. PMBOK 8 defines EMV as the estimated value of an outcome expressed in monetary terms and shows the weighted calculation in its example decision tree.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">How do you calculate EMV in a decision tree?</h3>
+                <p>For each option, multiply every chance outcome by its probability, add them up, then subtract that option's investment cost. The option with the higher EMV wins. If the tree is built in costs, the lowest expected cost wins. The probabilities on each chance branch must total 100 percent.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">Is EMV on the 2026 PMP exam?</h3>
+                <p>PMI does not publish a formula list. PMBOK 8 lists decision tree analysis as a data analysis technique of Perform Risk Analysis, which sits in the Risk performance domain, and risk work falls in the Process domain, 41 percent of the exam. Recent passers report very few calculations, so expect EMV inside a scenario where you pick an option or a risk response.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem;">Is EMV qualitative or quantitative risk analysis?</h3>
+                <p>Quantitative. Qualitative analysis ranks individual risks by probability and impact. Quantitative analysis puts numbers on the combined effect of risks, and PMBOK 8 notes it isn't always required. EMV and decision trees are quantitative tools.</p>
+            </div>
+            <p class="related-links" style="margin-top: 20px; text-align: center;"><strong>Related:</strong> <a href="/tools/evm-calculator">EVM Formulas and Calculator</a> &middot; <a href="/tools/pert-estimator">PERT Formula and Calculator</a> &middot; <a href="/tools/communication-channels-calculator">Communication Channels Formula and Calculator</a> &middot; <a href="/tools/">All PMP Calculators</a></p>
+        </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is the expected monetary value (EMV) formula?", "acceptedAnswer": {"@type": "Answer", "text": "For one risk, EMV is probability times impact: a 30 percent chance of a $40,000 loss is an EMV of -$12,000. Across several outcomes, multiply each by its probability and add them up. Threats are negative, opportunities positive. PMBOK 8 defines EMV as the estimated value of an outcome expressed in monetary terms and shows the weighted calculation in its example decision tree."}},
+            {"@type": "Question", "name": "How do you calculate EMV in a decision tree?", "acceptedAnswer": {"@type": "Answer", "text": "For each option, multiply every chance outcome by its probability, add them up, then subtract that option's investment cost. The option with the higher EMV wins. If the tree is built in costs, the lowest expected cost wins. The probabilities on each chance branch must total 100 percent."}},
+            {"@type": "Question", "name": "Is EMV on the 2026 PMP exam?", "acceptedAnswer": {"@type": "Answer", "text": "PMI does not publish a formula list. PMBOK 8 lists decision tree analysis as a data analysis technique of Perform Risk Analysis, which sits in the Risk performance domain, and risk work falls in the Process domain, 41 percent of the exam. Recent passers report very few calculations, so expect EMV inside a scenario where you pick an option or a risk response."}},
+            {"@type": "Question", "name": "Is EMV qualitative or quantitative risk analysis?", "acceptedAnswer": {"@type": "Answer", "text": "Quantitative. Qualitative analysis ranks individual risks by probability and impact. Quantitative analysis puts numbers on the combined effect of risks, and PMBOK 8 notes it isn't always required. EMV and decision trees are quantitative tools."}}
+        ]
+    }
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>PM Mastery</h4>
+                    <p>AI-powered PMP exam preparation for the 2026 exam.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="https://app.pmmastery.app/auth/register">Get Started</a></li>
+                        <li><a href="https://app.pmmastery.app/auth/login">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/tools/evm-calculator">EVM Calculator</a></li>
+                        <li><a href="/tools/emv-calculator" style="color: #C9A55C;">EMV Calculator</a></li>
+                        <li><a href="/cheat-sheet">Free Cheat Sheet</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                                            <li><a href="https://www.facebook.com/pmmasteryapp" target="_blank" rel="noopener" style="color: #C9A55C;"><i class="fab fa-facebook"></i> Follow on Facebook</a></li><li><a href="https://www.youtube.com/@PMmasteryApp" target="_blank" rel="noopener" style="color: #C9A55C;"><i class="fab fa-youtube"></i> Follow on YouTube</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/facts">Fact sheet</a></li>
+                        <li><a href="https://app.pmmastery.app/privacy">Privacy Policy</a></li>
+                        <li><a href="https://app.pmmastery.app/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PM Mastery Solutions, LLC. All rights reserved.</p>
+                <p class="footer-disclaimer">PMI, PMP, PMBOK are registered marks of the Project Management Institute, Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js?v=20261007"></script>
+    <script>
+    var RISK_DEFAULTS = [
+        {name: 'Vendor delivers late', type: 'threat', prob: 30, impact: 40000},
+        {name: 'Test environment fails', type: 'threat', prob: 10, impact: 25000},
+        {name: 'Bulk discount comes through', type: 'opportunity', prob: 40, impact: 10000}
+    ];
+    var TREE_DEFAULTS = [
+        {name: 'Build in-house', cost: 60000, outcomes: [
+            {name: 'Works first time', prob: 70, payoff: 150000},
+            {name: 'Needs rework', prob: 30, payoff: 90000}]},
+        {name: 'Buy off the shelf', cost: 90000, outcomes: [
+            {name: 'Fits', prob: 90, payoff: 160000},
+            {name: "Doesn't fit", prob: 10, payoff: 100000}]}
+    ];
+    var MAX_RISKS = 10, MAX_OUTCOMES = 4, uid = 0;
+
+    function fmt(n) {
+        var r = Math.round(n);
+        if (r === 0) r = 0;
+        return (r < 0 ? '\u2212$' : '$') + Math.abs(r).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+    }
+    function esc(t) {
+        return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function num(id) { return parseFloat(document.getElementById(id).value); }
+    function txt(id, fallback) { var v = document.getElementById(id).value.trim(); return v || fallback; }
+
+    function showTab(which) {
+        var risk = which === 'risk';
+        document.getElementById('panel-risk').style.display = risk ? '' : 'none';
+        document.getElementById('panel-tree').style.display = risk ? 'none' : '';
+        document.getElementById('tab-risk').className = 'calc-tab' + (risk ? ' active' : '');
+        document.getElementById('tab-tree').className = 'calc-tab' + (risk ? '' : ' active');
+        document.getElementById('tab-risk').setAttribute('aria-selected', risk ? 'true' : 'false');
+        document.getElementById('tab-tree').setAttribute('aria-selected', risk ? 'false' : 'true');
+    }
+
+    /* ---------- Risk list ---------- */
+    function addRiskRow(d) {
+        var box = document.getElementById('risk-rows');
+        if (box.children.length >= MAX_RISKS) return;
+        d = d || {name: '', type: 'threat', prob: '', impact: ''};
+        var n = ++uid, id = 'rk' + n;
+        var div = document.createElement('div');
+        div.className = 'risk-row';
+        div.id = id;
+        div.innerHTML =
+            '<div class="row-top"><span class="row-title">Risk</span><button type="button" class="btn-remove" aria-label="Remove risk" onclick="removeRow(\'' + id + '\')">&times;</button></div>' +
+            '<div class="row-fields">' +
+            '<div class="wide"><label for="' + id + '-name">Risk name (optional)</label><input type="text" id="' + id + '-name" value="' + esc(d.name) + '" placeholder="e.g. Vendor delivers late"></div>' +
+            '<div><label for="' + id + '-type">Type</label><select id="' + id + '-type"><option value="threat"' + (d.type === 'threat' ? ' selected' : '') + '>Threat</option><option value="opportunity"' + (d.type === 'opportunity' ? ' selected' : '') + '>Opportunity</option></select></div>' +
+            '<div><label for="' + id + '-prob">Probability (%)</label><input type="number" id="' + id + '-prob" min="0" max="100" step="any" value="' + d.prob + '" placeholder="0-100"></div>' +
+            '<div class="wide"><label for="' + id + '-impact">Impact ($)</label><input type="number" id="' + id + '-impact" min="0" step="any" value="' + d.impact + '" placeholder="e.g. 40000"></div>' +
+            '</div>';
+        box.appendChild(div);
+        document.getElementById('add-risk').disabled = box.children.length >= MAX_RISKS;
+    }
+    function removeRow(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var parent = el.parentNode;
+        parent.removeChild(el);
+        if (parent.id === 'risk-rows') {
+            document.getElementById('add-risk').disabled = parent.children.length >= MAX_RISKS;
+        } else if (/^opt-[ab]-outcomes$/.test(parent.id)) {
+            document.getElementById(parent.id.replace('-outcomes', '-add')).disabled = parent.children.length >= MAX_OUTCOMES;
+        }
+    }
+    function resetRisk() {
+        document.getElementById('risk-rows').innerHTML = '';
+        RISK_DEFAULTS.forEach(addRiskRow);
+        document.getElementById('risk-results').innerHTML = '<p style="color: #6c757d; text-align: center; padding: 40px 0;">Click Calculate to see the EMV of each risk and the net.</p>';
+    }
+    function calcRisk() {
+        var rows = document.getElementById('risk-rows').children;
+        var out = document.getElementById('risk-results');
+        var threat = 0, opp = 0, body = '', used = 0;
+        for (var i = 0; i < rows.length; i++) {
+            var id = rows[i].id;
+            var p = num(id + '-prob'), imp = num(id + '-impact');
+            if (isNaN(p) && isNaN(imp)) continue;
+            if (isNaN(p) || isNaN(imp) || p < 0 || p > 100 || imp < 0) {
+                out.innerHTML = '<p style="color:#dc3545;text-align:center;padding:20px;">Check risk ' + (i + 1) + ': probability has to be 0 to 100 and impact has to be zero or more.</p>';
+                return;
+            }
+            var isThreat = document.getElementById(id + '-type').value === 'threat';
+            var emv = (p / 100) * imp * (isThreat ? -1 : 1);
+            if (isThreat) threat += emv; else opp += emv;
+            used++;
+            body += '<tr><td>' + esc(txt(id + '-name', 'Risk ' + (i + 1))) + '<br><span class="hint" style="color:#6c757d;font-size:0.8rem;">' + (isThreat ? 'Threat' : 'Opportunity') + ', ' + p + '% &times; ' + fmt(imp).replace('\u2212', '') + '</span></td><td class="num">' + fmt(emv) + '</td></tr>';
+        }
+        if (!used) {
+            out.innerHTML = '<p style="color:#dc3545;text-align:center;padding:20px;">Enter a probability and an impact for at least one risk.</p>';
+            return;
+        }
+        var net = threat + opp;
+        var html = '<table class="results-table"><thead><tr><th>Risk</th><th class="num">EMV</th></tr></thead><tbody>' + body + '</tbody></table>';
+        html += '<div class="result-card negative"><div class="result-label">Total threat EMV</div><div class="result-value">' + fmt(threat) + '</div></div>';
+        html += '<div class="result-card positive"><div class="result-label">Total opportunity EMV</div><div class="result-value">' + fmt(opp) + '</div></div>';
+        html += '<div class="result-card ' + (net < 0 ? 'negative' : (net > 0 ? 'positive' : 'neutral')) + '"><div class="result-label">Net EMV</div><div class="result-value">' + fmt(net) + '</div><div class="result-formula">threats + opportunities</div></div>';
+        html += '<p class="calc-note">Net EMV is a probability-weighted average. No single outcome actually lands on this number.</p>';
+        out.innerHTML = html;
+    }
+
+    /* ---------- Decision tree ---------- */
+    function outcomeRowHtml(oid, d, removable) {
+        return '<div class="outcome-row" id="' + oid + '">' +
+            '<div class="row-top"><span class="row-title">Outcome</span>' + (removable ? '<button type="button" class="btn-remove" aria-label="Remove outcome" onclick="removeRow(\'' + oid + '\')">&times;</button>' : '') + '</div>' +
+            '<div class="row-fields">' +
+            '<div class="wide"><label for="' + oid + '-name">Outcome name</label><input type="text" id="' + oid + '-name" value="' + esc(d.name) + '"></div>' +
+            '<div><label for="' + oid + '-prob">Probability (%)</label><input type="number" id="' + oid + '-prob" min="0" max="100" step="any" value="' + d.prob + '"></div>' +
+            '<div><label for="' + oid + '-payoff">Payoff ($)</label><input type="number" id="' + oid + '-payoff" min="0" step="any" value="' + d.payoff + '"></div>' +
+            '</div></div>';
+    }
+    function buildTree() {
+        var box = document.getElementById('tree-options');
+        var html = '';
+        TREE_DEFAULTS.forEach(function (opt, k) {
+            var key = k === 0 ? 'a' : 'b';
+            html += '<div class="option-block" id="opt-' + key + '"><h3>Option ' + key.toUpperCase() + '</h3>' +
+                '<div class="option-head">' +
+                '<div><label for="opt-' + key + '-name">Option name</label><input type="text" id="opt-' + key + '-name" value="' + esc(opt.name) + '"></div>' +
+                '<div><label for="opt-' + key + '-cost">Investment cost ($)</label><input type="number" id="opt-' + key + '-cost" min="0" step="any" value="' + opt.cost + '"></div>' +
+                '</div>' +
+                '<div id="opt-' + key + '-outcomes">';
+            opt.outcomes.forEach(function (o) { html += outcomeRowHtml('oc' + (++uid), o, false); });
+            html += '</div><div class="field-error" id="opt-' + key + '-error" style="display:none;"></div>' +
+                '<button type="button" class="btn-small" id="opt-' + key + '-add" onclick="addOutcome(\'' + key + '\')"><i class="fas fa-plus"></i> Add outcome</button></div>';
+        });
+        box.innerHTML = html;
+    }
+    function addOutcome(key) {
+        var box = document.getElementById('opt-' + key + '-outcomes');
+        if (box.children.length >= MAX_OUTCOMES) return;
+        box.insertAdjacentHTML('beforeend', outcomeRowHtml('oc' + (++uid), {name: '', prob: '', payoff: ''}, true));
+        document.getElementById('opt-' + key + '-add').disabled = box.children.length >= MAX_OUTCOMES;
+    }
+    function resetTree() {
+        buildTree();
+        document.getElementById('tree-results').innerHTML = '<p style="color: #6c757d; text-align: center; padding: 40px 0;">Click Calculate to compare the two options.</p>';
+    }
+    function evalOption(key) {
+        var err = document.getElementById('opt-' + key + '-error');
+        err.style.display = 'none';
+        var name = txt('opt-' + key + '-name', 'Option ' + key.toUpperCase());
+        var cost = num('opt-' + key + '-cost');
+        var rows = document.getElementById('opt-' + key + '-outcomes').children;
+        var sum = 0, weighted = 0, bad = false;
+        if (isNaN(cost) || cost < 0) bad = true;
+        for (var i = 0; i < rows.length; i++) {
+            var p = num(rows[i].id + '-prob'), pay = num(rows[i].id + '-payoff');
+            if (isNaN(p) || isNaN(pay) || p < 0 || p > 100 || pay < 0) { bad = true; continue; }
+            sum += p;
+            weighted += (p / 100) * pay;
+        }
+        if (bad) {
+            err.textContent = 'Check this option: cost, probabilities (0 to 100) and payoffs all need a number, zero or more.';
+            err.style.display = 'block';
+            return null;
+        }
+        if (Math.abs(sum - 100) > 0.5) {
+            err.textContent = 'Probabilities for this option add up to ' + (Math.round(sum * 100) / 100) + '%. Chance outcomes on one branch have to total 100%.';
+            err.style.display = 'block';
+            return null;
+        }
+        return {name: name, weighted: weighted, cost: cost, net: weighted - cost};
+    }
+    function calcTree() {
+        var a = evalOption('a'), b = evalOption('b');
+        var out = document.getElementById('tree-results');
+        var html = '';
+        [a, b].forEach(function (o, i) {
+            var label = 'Option ' + (i === 0 ? 'A' : 'B');
+            if (!o) {
+                html += '<div class="result-card neutral"><div class="result-label">' + label + '</div><div class="result-meaning">Not calculated. Fix the error under this option on the left.</div></div>';
+                return;
+            }
+            html += '<div class="result-card ' + (o.net >= 0 ? 'positive' : 'negative') + '"><div class="result-label">' + label + ': ' + esc(o.name) + '</div><div class="result-value">' + fmt(o.net) + '</div>' +
+                '<div class="result-formula">Weighted payoff ' + fmt(o.weighted) + ' \u2212 cost ' + fmt(o.cost) + '</div><div class="result-meaning">Net EMV</div></div>';
+        });
+        if (a && b) {
+            var win;
+            if (Math.round(a.net * 100) === Math.round(b.net * 100)) win = 'Tie: both options have the same EMV.';
+            else win = 'Higher EMV: ' + esc(a.net > b.net ? a.name : b.name) + ' (' + fmt(Math.max(a.net, b.net)) + ')';
+            html += '<div class="winner-line">' + win + '</div>';
+            html += '<p class="calc-note">If the tree is built in costs instead of payoffs, the best choice is the lowest expected cost. Read what the question is measuring.</p>';
+        }
+        out.innerHTML = html;
+    }
+
+    resetRisk();
+    buildTree();
+    </script>
+</body>
+</html>
