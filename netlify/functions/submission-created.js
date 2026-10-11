@@ -23,7 +23,23 @@ function generateUnsubscribeUrl(email) {
   return `https://app.pmmastery.app/unsubscribe?email=${encodeURIComponent(email || '')}&token=${token}`;
 }
 
-exports.handler = async function(event, context) {
+async function reportFailure(stage, formName, email, err) {
+  try {
+    const key = process.env.COURSE_API_KEY;
+    if (!key) { console.error('reportFailure: COURSE_API_KEY not set, cannot alert'); return; }
+    const detail = (err && (err.response && err.response.body ? JSON.stringify(err.response.body) : (err.message || String(err)))) || 'unknown';
+    const res = await fetch('https://app.pmmastery.app/api/lead-pipeline-alert', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-API-Key': key },
+      body: JSON.stringify({ stage, form: formName || 'unknown', email: email || '', error: detail.slice(0, 1000) })
+    });
+    console.log(`Failure alert sent: ${res.status}`);
+  } catch (alertErr) {
+    console.error('reportFailure itself failed:', alertErr);
+  }
+}
+
+async function handle(event, context) {
   const payload = JSON.parse(event.body).payload;
   const email = payload.data.email;
   const name = payload.data.name || 'PMP Student';
@@ -307,12 +323,14 @@ exports.handler = async function(event, context) {
           });
           const result = await response.json();
           console.log(`Course signup registered: ${JSON.stringify(result)}`);
+          if (!response.ok) { await reportFailure('registration', formName, email, new Error(`HTTP ${response.status}: ${JSON.stringify(result)}`)); }
         } else {
           console.warn('COURSE_API_KEY not set, skipping course signup registration');
         }
       } catch (regError) {
         // Don't fail the whole function if registration fails
         console.error('Course signup registration error:', regError);
+        await reportFailure('registration', formName, email, regError);
       }
     }
 
@@ -334,12 +352,14 @@ exports.handler = async function(event, context) {
           });
           const result = await response.json();
           console.log(`Cheatsheet signup registered: ${JSON.stringify(result)}`);
+          if (!response.ok) { await reportFailure('registration', formName, email, new Error(`HTTP ${response.status}: ${JSON.stringify(result)}`)); }
         } else {
           console.warn('COURSE_API_KEY not set, skipping cheatsheet signup registration');
         }
       } catch (regError) {
         // Don't fail the whole function if registration fails
         console.error('Cheatsheet signup registration error:', regError);
+        await reportFailure('registration', formName, email, regError);
       }
     }
 
@@ -354,17 +374,32 @@ exports.handler = async function(event, context) {
           });
           const result = await response.json();
           console.log(`Worksheet signup registered: ${JSON.stringify(result)}`);
+          if (!response.ok) { await reportFailure('registration', formName, email, new Error(`HTTP ${response.status}: ${JSON.stringify(result)}`)); }
         } else {
           console.warn('COURSE_API_KEY not set, skipping worksheet signup registration');
         }
       } catch (regError) {
         console.error('Worksheet signup registration error:', regError);
+        await reportFailure('registration', formName, email, regError);
       }
     }
 
     return { statusCode: 200, body: 'Emails sent successfully' };
   } catch (error) {
     console.error('SendGrid error:', error.response ? error.response.body : error);
+    await reportFailure('sendgrid', formName, email, error);
     return { statusCode: 500, body: 'Failed to send email' };
+  }
+}
+
+exports.handler = async function(event, context) {
+  try {
+    return await handle(event, context);
+  } catch (err) {
+    let formName = 'unknown', email = '';
+    try { const p = JSON.parse(event.body).payload; formName = p.form_name; email = p.data && p.data.email; } catch (_) {}
+    console.error('Unhandled error in submission-created:', err);
+    await reportFailure('unhandled', formName, email, err);
+    return { statusCode: 500, body: 'Unhandled error' };
   }
 };
