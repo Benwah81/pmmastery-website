@@ -208,6 +208,61 @@ exports.handler = async function(event, context) {
       `
     };
 
+  } else if (formName === 'app-worksheet') {
+    // PMP application worksheet lead magnet - send worksheet PDF link
+    msg = {
+      to: email,
+      from: { email: 'ben@pmmastery.app', name: 'Ben from PM Mastery' },
+      replyTo: 'support@pmmastery.app',
+      subject: 'Your PMP application worksheet',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="text-align: center; padding: 20px 0;">
+            <h1 style="color: #3B4C8B; margin: 0;">PM Mastery</h1>
+            <p style="color: #C9A55C; font-weight: 600; margin: 5px 0 0;">Your PMP Exam Prep Partner</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
+            <h2 style="margin: 0 0 10px; color: white;">Hey ${name}! Your worksheet is ready.</h2>
+            <p style="margin: 0; opacity: 0.9;">Plan your PMP application on paper before you type it into PMI's form.</p>
+          </div>
+
+          <div style="background: #f8f9fc; padding: 24px; border-radius: 8px; border-left: 4px solid #C9A55C; margin-bottom: 24px;">
+            <h3 style="color: #3B4C8B; margin: 0 0 12px;">What's inside:</h3>
+            <ul style="color: #444; line-height: 1.8; padding-left: 20px; margin: 0;">
+              <li>Which education path you're on and how many months you need</li>
+              <li>A log for counting your non-overlapping months</li>
+              <li>A planner for drafting each project summary</li>
+              <li>A tracker for your 35 training hours, plus what PMI asks for in an audit</li>
+            </ul>
+          </div>
+
+          <div style="text-align: center; margin-bottom: 24px;">
+            <a href="https://pmmastery.app/PM_Mastery_PMP_Application_Worksheet.pdf"
+               style="display: inline-block; background: linear-gradient(135deg, #C9A55C, #d4b36f); color: #3B4C8B; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
+              Download Your Worksheet
+            </a>
+          </div>
+
+          <div style="background: #fff; padding: 20px; border: 2px solid #C9A55C; border-radius: 8px; text-align: center; margin-bottom: 24px;">
+            <h3 style="color: #3B4C8B; margin: 0 0 8px;">When you're approved, start here</h3>
+            <p style="color: #666; margin: 0 0 16px;">PM Mastery has 4,000+ questions and full mock exams built for the 2026 PMP exam.</p>
+            <a href="https://app.pmmastery.app/auth/register?utm_source=app_worksheet&utm_medium=email&utm_campaign=lead_magnet"
+               style="display: inline-block; background: #3B4C8B; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+              Start Free - 100 Questions Included
+            </a>
+          </div>
+
+          <div style="text-align: center; color: #999; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #eee;">
+            <p style="margin: 4px 0;"><strong>PM Mastery Solutions, LLC</strong></p>
+            <p style="margin: 4px 0;">New Orleans, LA 70115</p>
+            <p style="margin: 12px 0 4px;"><a href="https://pmmastery.app" style="color: #C9A55C;">pmmastery.app</a> &nbsp;|&nbsp; <a href="${unsubscribeUrl}" style="color: #C9A55C;">Unsubscribe</a></p>
+            <p style="margin: 8px 0 0; font-size: 0.75rem;">You requested the free PMP application worksheet at pmmastery.app.</p>
+          </div>
+        </div>
+      `
+    };
+
   } else {
     console.log(`Unhandled form: ${formName}`);
     return { statusCode: 200, body: `Skipped: unhandled form '${formName}'` };
@@ -285,6 +340,25 @@ exports.handler = async function(event, context) {
       } catch (regError) {
         // Don't fail the whole function if registration fails
         console.error('Cheatsheet signup registration error:', regError);
+      }
+    }
+
+    if (formName === 'app-worksheet') {
+      try {
+        const courseApiKey = process.env.COURSE_API_KEY;
+        if (courseApiKey) {
+          const response = await fetch('https://app.pmmastery.app/api/course-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-API-Key': courseApiKey },
+            body: JSON.stringify({ email, name, source: 'app-helper' })
+          });
+          const result = await response.json();
+          console.log(`Worksheet signup registered: ${JSON.stringify(result)}`);
+        } else {
+          console.warn('COURSE_API_KEY not set, skipping worksheet signup registration');
+        }
+      } catch (regError) {
+        console.error('Worksheet signup registration error:', regError);
       }
     }
 

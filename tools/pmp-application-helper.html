@@ -308,6 +308,36 @@
         </div>
     </section>
 
+    <section class="ph-section alt">
+        <div class="container ph-narrow">
+            <div style="background: #fff; border: 2px solid #C9A55C; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 32px; text-align: center;">
+                <h2>Want It on Paper?</h2>
+                <p>A free printable worksheet for your whole application: which path you're on, a log for counting your months, project summary drafts, and a tracker for your 35 training hours. We'll email it to you.</p>
+
+                <form name="app-worksheet" id="worksheetForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleWorksheetSubmit(event)">
+                    <input type="hidden" name="form-name" value="app-worksheet">
+                    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" name="name" placeholder="Your first name" required style="width: 100%; box-sizing: border-box; padding: 14px 16px; font-size: 1rem; border-radius: 8px; border: 2px solid #e9ecef;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="email" name="email" placeholder="Your email address" required style="width: 100%; box-sizing: border-box; padding: 14px 16px; font-size: 1rem; border-radius: 8px; border: 2px solid #e9ecef;">
+                    </div>
+                    <button type="submit" style="background: linear-gradient(135deg, #C9A55C 0%, #d4b36f 100%); color: #3B4C8B; padding: 16px 40px; font-size: 1.15rem; font-weight: 700; border: none; border-radius: 8px; width: 100%; cursor: pointer;">
+                        <i class="fas fa-download"></i> Email Me the Worksheet
+                    </button>
+                    <p style="color: #666; font-size: 0.85rem; margin: 12px 0 0;">This only sends us your name and email. Nothing you typed in the helper above leaves your browser.</p>
+                </form>
+
+                <div id="worksheetSuccess" style="display:none">
+                    <h3>Check your inbox!</h3>
+                    <p>Your worksheet is on its way, and it should open in a new tab now.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="ph-section">
         <div class="container ph-narrow">
             <h2>Frequently Asked Questions</h2>
@@ -393,5 +423,25 @@
 
     <script src="../js/main.js?v=20261007"></script>
     <script src="../js/pmp-application-helper.js?v=20261007" defer></script>
+    <script src="/js/email-typo-guard.js?v=2" defer></script>
+    <script>
+    function handleWorksheetSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(() => {
+        form.style.display = 'none';
+        document.getElementById('worksheetSuccess').style.display = 'block';
+        window.open('/PM_Mastery_PMP_Application_Worksheet.pdf', '_blank');
+        if (typeof gtag !== 'undefined') gtag('event', 'app_worksheet_download', { event_category: 'lead_magnet' });
+        if (window.posthog && posthog.capture) posthog.capture('app_worksheet_download');
+      })
+      .catch(() => { window.open('/PM_Mastery_PMP_Application_Worksheet.pdf', '_blank'); });
+    }
+    </script>
 </body>
 </html>
