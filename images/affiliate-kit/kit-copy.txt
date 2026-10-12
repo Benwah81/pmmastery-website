@@ -15,7 +15,7 @@ Short (~50 words):
 PM Mastery is the PMP exam simulator built for the 2026 exam. It has 4,000+ questions (including 200 in 40 case studies in the new exam format), full-length mock exams, and an AI coach that explains every answer. $99 gets you 90 days of full access, with no subscription.
 
 Long (~150 words):
-Studying for the PMP in 2026? PM Mastery is the PMP exam simulator built around the new exam, not retrofitted from the old one. You get 4,000+ questions covering the People, Process and Business Environment domains, including 200 in 40 case studies written in the new exam's format, and full-length mock exams that show you where you stand before test day. Every answer comes with an explanation, and you can ask the AI coach follow-up questions on any answer: why the other options are wrong, a simpler explanation, or a memory trick. Your readiness report breaks performance down by domain, so you know what to study next. It's $99 for 90 days of full access, with no subscription and nothing to cancel. Use this link and you'll get $10 off: https://app.pmmastery.app/r/YOURCODE
+Studying for the PMP in 2026? PM Mastery is the PMP exam simulator built around the new exam, not retrofitted from the old one. You get 4,000+ questions covering the People, Process and Business Environment domains, including 200 in 40 case studies written in the new exam's format, and full-length mock exams that show you where you stand before test day. Every answer comes with an explanation, and you can ask the AI coach follow-up questions on any answer: why the other options are wrong, a simpler explanation, or a memory trick. Your readiness report breaks performance down by domain, so you know what to study next. It's $99 for 90 days of full access, with no subscription and nothing to cancel. It also comes with a Pass Guarantee: complete 3 full mock exams before your exam, and if you don't pass, your Pass is extended free for 90 days (terms apply). Use this link and you'll get $10 off: https://app.pmmastery.app/r/YOURCODE
 
 READY-MADE POSTS
 -----------------
@@ -44,7 +44,7 @@ See it live: https://pmmastery.app/widget
 
 QUICK RULES
 -----------
-No bidding on PM Mastery in search ads. No coupon or deal-site spam. No self-purchases. Don't promise a pass or imply PMI endorsement. Full terms: https://pmmastery.app/affiliates
+No bidding on PM Mastery in search ads. No coupon or deal-site spam. No self-purchases. Don't promise a pass or imply PMI endorsement. You can mention the Pass Guarantee, described as it is: an extension after 3 full mocks, not a promise to pass. Full terms: https://pmmastery.app/affiliates
 
 QUESTIONS
 ---------
