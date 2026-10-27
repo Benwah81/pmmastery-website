@@ -16,7 +16,7 @@
     <meta property="og:image" content="https://pmmastery.app/og-image-v2.png">
     <meta property="og:site_name" content="PM Mastery">
     <meta property="article:published_time" content="2026-10-02">
-    <meta property="article:modified_time" content="2026-10-02">
+    <meta property="article:modified_time" content="2026-10-27">
     <meta property="article:author" content="PM Mastery">
 
     <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P0RSXYS7K8');</script>
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"PM PrepCast Is Closing: What It Means for Your PMP Prep and Where to Practice After December 4","description":"The PM PrepCast closes December 4, 2026. Key dates, what happens to contact hours, lessons, the exam simulator and score history, a pre-shutdown checklist, and how to replace the simulator.","datePublished":"2026-10-02","dateModified":"2026-10-02","author":{"@type":"Organization","name":"PM Mastery"},"publisher":{"@type":"Organization","name":"PM Mastery Solutions, LLC"},"url":"https://pmmastery.app/blog/pm-prepcast-closing-alternatives-2026"}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"PM PrepCast Is Closing: What It Means for Your PMP Prep and Where to Practice After December 4","description":"The PM PrepCast closes December 4, 2026. Key dates, what happens to contact hours, lessons, the exam simulator and score history, a pre-shutdown checklist, and how to replace the simulator.","datePublished":"2026-10-02","dateModified":"2026-10-27","author":{"@type":"Organization","name":"PM Mastery"},"publisher":{"@type":"Organization","name":"PM Mastery Solutions, LLC"},"url":"https://pmmastery.app/blog/pm-prepcast-closing-alternatives-2026"}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pmmastery.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://pmmastery.app/blog/"},{"@type":"ListItem","position":3,"name":"PM PrepCast Closing: Alternatives"}]}
@@ -163,18 +163,48 @@
 
                 <p>For a wider look at the market, the <a href="/blog/best-pmp-prep-platform-2026">PMP prep platform comparison</a> covers the main platforms side by side.</p>
 
+                <h2>Switching From PrepCast to PM Mastery</h2>
+                <p>If you are moving your practice exams over from PrepCast, create your PM Mastery account through the <a href="https://app.pmmastery.app/r/PREPCAST">PrepCast switcher link</a>. It takes $10 off your first purchase, applied at checkout with no code to type: $89 for the 90-day Exam Prep Pass, $39 for your first month of Premium Monthly, or $389 for Lifetime. No proof of a PrepCast purchase is needed. Every first purchase comes with a 7-day money-back guarantee.</p>
+                <p>The discount is for a new account created from that link. It does not apply to an account you already have. PM Mastery does not provide contact hours, so finish those with PrepCast by November 30.</p>
+
+                <h3>Used PrepCast? Two Questions</h3>
+                <p>I'm Ben, and I build PM Mastery. If you used PrepCast, I'd like to know why you chose it and what a replacement has to get right. No sign-up, and your email is optional.</p>
+                <form name="prepcast-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handlePrepcastFeedback(event)" style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                    <input type="hidden" name="form-name" value="prepcast-feedback">
+                    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+                    <p><label for="pcf-why"><strong>Why did you pick PrepCast in the first place?</strong></label><br>
+                    <textarea id="pcf-why" name="why_prepcast" rows="3" maxlength="1000" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font: inherit;"></textarea></p>
+                    <p><label for="pcf-need"><strong>What does a replacement have to get right for you?</strong></label><br>
+                    <textarea id="pcf-need" name="replacement_must" rows="3" maxlength="1000" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font: inherit;"></textarea></p>
+                    <p><label for="pcf-email">Email (optional, only if you want a reply)</label><br>
+                    <input type="email" id="pcf-email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font: inherit;"></p>
+                    <button type="submit" style="background: #3B4C8B; color: #fff; border: 0; padding: 12px 28px; border-radius: 8px; font-weight: 700; cursor: pointer;">Send</button>
+                </form>
+                <p id="pcf-thanks" hidden style="font-weight: 700; color: #3B4C8B;">Thanks. I read every answer.</p>
+                <p id="pcf-error" hidden style="color: #b00020;">That did not go through. Please try again in a minute.</p>
+                <script>
+                function handlePrepcastFeedback(e) {
+                    e.preventDefault();
+                    var f = e.target;
+                    var body = new URLSearchParams(new FormData(f)).toString();
+                    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+                        .then(function (r) { if (!r.ok) { throw new Error(r.status); } f.hidden = true; document.getElementById('pcf-thanks').hidden = false; })
+                        .catch(function () { document.getElementById('pcf-error').hidden = false; });
+                }
+                </script>
+
                 <h2>Common Questions</h2>
                 <p><strong>When is PM PrepCast closing?</strong><br>The PM PrepCast's last day of sales is October 31, 2026. All products, systems and account access shut down on December 4, 2026, according to OSP International's closure announcement. The Project Management Podcast is not affected and continues.</p>
                 <p><strong>Are PM PrepCast contact hours still valid after it closes?</strong><br>Yes. PrepCast's closure FAQ says contact hours are earned when you complete the training, whether or not the provider is still in business. Download your certificate before December 4 and keep it with your receipt, since that is what PMI asks for in an audit.</p>
                 <p><strong>What happens to my PrepCast exam simulator scores?</strong><br>They are deleted. PrepCast says all accounts become inaccessible on December 4, 2026, and simulator exam history is then permanently deleted. Save or print your score reports and question reviews before that date.</p>
                 <p><strong>What can I use instead of the PrepCast exam simulator?</strong><br>Any simulator built for the 2026 format: 180 questions in 240 minutes, starting with a case-study section. Options include PMI Study Hall, PMI's official PMP Practice Exam, and PM Mastery. If you still need your 35 contact hours, you also need a separate 35-hour course.</p>
 
-                <!-- CTA block (navy gradient, gold button). "Free to start" stays
-                     accurate: the free tier is real. utm_campaign = slug. -->
+                <!-- CTA block (navy gradient, gold button). Button uses the PREPCAST
+                     house affiliate link (tracking is utm_campaign=PREPCAST plus the affiliate report). -->
                 <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); border-radius: 12px; padding: 30px; text-align: center; margin: 30px 0;">
                     <h3 style="color: white; margin-bottom: 10px;">Replace the simulator before you lose it</h3>
-                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,000+ questions (including 200 in 40 case studies) &middot; unlimited full 180-question mocks on the Pass &middot; an AI coach on every question. 100 questions free to start.</p>
-                    <a href="https://app.pmmastery.app/try?utm_source=blog&utm_medium=organic&utm_campaign=pm-prepcast-closing-alternatives-2026" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">4,000+ questions (including 200 in 40 case studies) &middot; unlimited full 180-question mocks on the Pass &middot; an AI coach on every question. 100 questions free to start, and $10 off your first purchase through this link.</p>
+                    <a href="https://app.pmmastery.app/r/PREPCAST" style="background: #C9A55C; color: #3B4C8B; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; font-size: 1.1rem;">Start Free &rarr;</a>
                 </div>
 
                 <p><strong>Related:</strong> <a href="/blog/best-pmp-prep-platform-2026">Best PMP Prep Platform 2026</a> &middot; <a href="/blog/pmp-exam-structure-2026">2026 PMP Exam Structure</a> &middot; <a href="/blog/pmp-requirements-2026">2026 PMP Requirements</a></p>
