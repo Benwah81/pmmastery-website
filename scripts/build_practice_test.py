@@ -233,9 +233,9 @@ PAGE_OUT = os.path.join(SITE, "pmp-practice-test.html")
 
 # Amendment A1: final 20 standalone ids. Swap ids here to change the set.
 FINAL_IDS = {
-    "people": [3241, 3854, 4195, 4400, 3154, 4488],
-    "process": [1960, 3645, 3867, 3939, 4168, 4449, 4538],
-    "business_environment": [3233, 3653, 3753, 4420, 4014, 4481, 4012],
+    "people": [3258, 3854, 4195, 2568, 3154, 4488],
+    "process": [1960, 3645, 3867, 3939, 4464, 4449, 4538],
+    "business_environment": [3188, 3653, 3753, 4420, 4014, 4481, 4012],
 }
 DOMAIN_LABEL = {"people": "People", "process": "Process",
                 "business_environment": "Business Environment"}
