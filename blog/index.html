@@ -75,10 +75,10 @@
             <div class="nav-links">
                 <a href="/#features">Features</a>
                 <a href="/#pricing">Pricing</a>
-                <a href="/cheat-sheet" style="color: #C9A55C !important;"><i class="fas fa-download" style="font-size: 0.8em;"></i> Free Cheat Sheet</a>
+                <a href="/cheat-sheet">Free resources</a>
                 <a href="/blog/" class="active">Blog</a>
-                <a href="https://app.pmmastery.app/auth/login" class="btn-nav-secondary">Login</a>
-                <a href="https://app.pmmastery.app/auth/register" class="btn-nav-primary">Get Started Free</a>
+                <a href="https://app.pmmastery.app/auth/login" class="btn-nav-secondary">Log in</a>
+                <a href="https://app.pmmastery.app/auth/register" class="btn-nav-primary">Start free</a>
             </div>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -87,22 +87,40 @@
     </nav>
 
     <!-- Blog Hero -->
-    <section class="blog-hero">
-        <div class="container">
-            <h1>PMP Exam Prep Blog</h1>
-            <p>Study tips, exam strategies, and certification advice to help you pass</p>
+    <section class="ink-hero page-hero blog-top">
+        <div class="wrap stack" style="gap: 18px;">
+            <div class="eyebrow">The blog</div>
+            <h1>PMP exam prep, written for the 2026 exam</h1>
+            <p class="page-sub">Study tips, exam strategies, and certification advice to help you pass</p>
+            <div class="blog-pills" aria-hidden="true">
+                <span class="on">All</span><span>2026 Exam Update</span><span>Practice Questions</span><span>Platform Comparison</span><span>Study Planning</span><span>Exam Strategy</span>
+            </div>
         </div>
     </section>
 
     <!-- Blog Posts Grid -->
     <section class="blog-section">
-        <div class="container">
+        <div class="wrap">
             <div class="blog-grid">
 
+                <!-- Blog Post - PM PrepCast closing (newest, featured) -->
+                <a href="/blog/pm-prepcast-closing-alternatives-2026" class="blog-card blog-featured">
+                    <div class="blog-featured-l">
+                        <span class="article-category">Platform Comparison</span>
+                        <h3>PM PrepCast Is Closing: What It Means for Your PMP Prep and Where to Practice After December 4</h3>
+                    </div>
+                    <div class="blog-featured-r">
+                        <p>PrepCast stopped selling October 31 and shuts down December 4, 2026. What happens to your contact hours, lessons, simulator and score history, what to do before the shutdown, and how to replace the simulator.</p>
+                        <div class="blog-card-meta">
+                            <span>November 2, 2026</span> &middot; <span>6 min read</span>
+                        </div>
+                    </div>
+                </a>
+
                 <!-- Blog Post - New question types in every mock (newest) -->
-                <a href="/blog/pm-mastery-new-question-types-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pm-mastery-new-question-types-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">New Feature</span>
+                        <span class="article-category">New Feature</span>
                         <h3>New in PM Mastery: Matching, Multi-Select and Chart Questions in Every Mock</h3>
                         <p>Every mock now includes 10 multi-select, 2 chart-based and 2 matching questions. Matching is new in the practice quiz too, with row-by-row review and Redo for every question type.</p>
                         <div class="blog-card-meta">
@@ -112,9 +130,9 @@
                 </a>
 
                 <!-- Blog Post - PMP Mock Exam 2026 -->
-                <a href="/blog/pmp-mock-exam-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-mock-exam-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Prep</span>
+                        <span class="article-category">Exam Prep</span>
                         <h3>PMP Mock Exam 2026: What a Realistic Full-Length Mock Should Include</h3>
                         <p>The real 2026 exam's layout and the eight question types in PMI's Exam Content Outline, page by page. What a realistic mock gets right, what no mock can copy, and how to judge the one you are using.</p>
                         <div class="blog-card-meta">
@@ -123,22 +141,10 @@
                     </div>
                 </a>
 
-                <!-- Blog Post - PM PrepCast closing -->
-                <a href="/blog/pm-prepcast-closing-alternatives-2026" class="blog-card" style="border: 2px solid #C9A55C;">
-                    <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Platform Comparison</span>
-                        <h3>PM PrepCast Is Closing: What It Means for Your PMP Prep and Where to Practice After December 4</h3>
-                        <p>PrepCast stopped selling October 31 and shuts down December 4, 2026. What happens to your contact hours, lessons, simulator and score history, what to do before the shutdown, and how to replace the simulator.</p>
-                        <div class="blog-card-meta">
-                            <span>November 2, 2026</span> &middot; <span>6 min read</span>
-                        </div>
-                    </div>
-                </a>
-
                 <!-- Blog Post - PMP Application and Audit -->
-                <a href="/blog/pmp-application-audit-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-application-audit-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">PMP Application</span>
+                        <span class="article-category">PMP Application</span>
                         <h3>The PMP Application, Section by Section, and What Happens in an Audit</h3>
                         <p>What each section of PMI's application asks for, how PMI counts your months, what you agree to when you submit, and exactly what an audit asks for, straight from PMI's handbook. Plus what to have ready before you click submit.</p>
                         <div class="blog-card-meta">
@@ -148,9 +154,9 @@
                 </a>
 
                 <!-- Blog Post - How to Study for the PMP With AI -->
-                <a href="/blog/how-to-study-for-pmp-with-ai-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/how-to-study-for-pmp-with-ai-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Study Strategy</span>
+                        <span class="article-category">Study Strategy</span>
                         <h3>How to Study for the PMP With ChatGPT (or Any AI) in 2026</h3>
                         <p>People who pass keep describing the same AI study method: miss a question, argue your reasoning, find out whether it was a knowledge gap or a misread clue. The loop, the prompts that work, where a general chatbot breaks down, and what changes when the AI can see the question.</p>
                         <div class="blog-card-meta">
@@ -160,9 +166,9 @@
                 </a>
 
                 <!-- Blog Post - 2026 PMP Exam Structure -->
-                <a href="/blog/pmp-exam-structure-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-exam-structure-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam</span>
+                        <span class="article-category">2026 Exam</span>
                         <h3>2026 PMP Exam Structure: Sections, Breaks, and Question Types</h3>
                         <p>How the 2026 exam is actually laid out: 180 questions, 240 minutes, the front-loaded case-study section, and two breaks. Plus the placement confusion, PMI says questions are random while candidates report case studies first, cleared up from the outline.</p>
                         <div class="blog-card-meta">
@@ -172,9 +178,9 @@
                 </a>
 
                 <!-- Blog Post - Graphic-Based PMP Questions -->
-                <a href="/blog/graphic-based-pmp-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/graphic-based-pmp-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Format</span>
+                        <span class="article-category">Exam Format</span>
                         <h3>Graphic-Based PMP Questions: The 2026 Format Explained</h3>
                         <p>The 2026 exam adds graphic-based questions: charts, graphs, and diagrams you have to read to answer. What PMI's new question type is, why it trips up text-only studiers, and how to practice for it.</p>
                         <div class="blog-card-meta">
@@ -184,9 +190,9 @@
                 </a>
 
                 <!-- Blog Post - How to Read a PMP Practice Question (moved up: has video embed) -->
-                <a href="/blog/how-to-read-pmp-practice-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/how-to-read-pmp-practice-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;"><i class="fas fa-play-circle"></i> Watch or Read</span>
+                        <span class="article-category"><i class="fas fa-play-circle"></i> Watch or Read</span>
                         <h3>How to Read a PMP Practice Question (And Spot the Trap Before You Read the Answers)</h3>
                         <p>Includes a short video walkthrough. Most candidates read top-to-bottom, get pulled by a familiar-sounding option, and rationalize backwards. A 4-step read pattern that catches the trap in the stem, demonstrated on a full 2026-format hybrid case study with 5 questions.</p>
                         <div class="blog-card-meta">
@@ -197,9 +203,9 @@
 
                 <!-- Blog Post - PMP Formulas Explained -->
                 <!-- Blog Post - Brain Sensei vs PM PrepCast -->
-                <a href="/blog/brain-sensei-vs-pm-prepcast-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/brain-sensei-vs-pm-prepcast-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Platform Comparison</span>
+                        <span class="article-category">Platform Comparison</span>
                         <h3>Brain Sensei vs The PM PrepCast: Which Should You Pick?</h3>
                         <p>Two self-paced PMP courses, two different jobs. An honest head-to-head on teaching style, question banks, mock exams, pricing, and contact hours for the 2026 exam.</p>
                         <div class="blog-card-meta">
@@ -207,9 +213,9 @@
                         </div>
                     </div>
                 </a>
-                <a href="/blog/pmp-formulas-explained-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-formulas-explained-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Prep</span>
+                        <span class="article-category">Exam Prep</span>
                         <h3>PMP Formulas Explained with Real Examples</h3>
                         <p>Communication channels, PERT and three-point estimates, standard deviation, float, and earned value. Every formula on the 2026 exam, each with a worked example and the trap that costs people the point.</p>
                         <div class="blog-card-meta">
@@ -219,9 +225,9 @@
                 </a>
 
                 <!-- Blog Post - PMP Mock Score Dropped -->
-                <a href="/blog/pmp-mock-score-dropped-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-mock-score-dropped-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Study Strategy</span>
+                        <span class="article-category">Study Strategy</span>
                         <h3>PMP Mock Score Dropped? Here's Why That's Normal</h3>
                         <p>You aced the 10-question quizzes, then a full mock came back in the 50s. That gap is expected, not a warning sign. Here's what drives it, and why a practice percentage is not the score PMI actually gives you.</p>
                         <div class="blog-card-meta">
@@ -230,9 +236,9 @@
                     </div>
                 </a>
 
-                <a href="/blog/hardest-pmp-tasks-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/hardest-pmp-tasks-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Insights</span>
+                        <span class="article-category">Exam Insights</span>
                         <h3>Procurement and Knowledge Transfer: The 2026 PMP's Quiet Killers</h3>
                         <p>We analyzed 4,200 practice attempts from 111 candidates studying for the new exam. Two 2026 ECO tasks, knowledge transfer and procurement, tripped people up far more than anything else. Here's why, and where to aim your study time.</p>
                         <div class="blog-card-meta">
@@ -242,9 +248,9 @@
                 </a>
 
                 <!-- Blog Post - 2026 PMP Requirements -->
-                <a href="/blog/pmp-requirements-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-requirements-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">PMP Eligibility</span>
+                        <span class="article-category">PMP Eligibility</span>
                         <h3>2026 PMP Requirements: Did They Change?</h3>
                         <p>The July 2026 overhaul rewrote the exam, and it nudged eligibility too: the experience window went from 8 to 10 years, and PMI added a fourth qualifying path. Here are the current rules and the two 2026 dates that affect your timing.</p>
                         <div class="blog-card-meta">
@@ -254,9 +260,9 @@
                 </a>
 
                 <!-- Blog Post - Study Hall Case Study Gap 2026 -->
-                <a href="/blog/study-hall-case-study-gap-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/study-hall-case-study-gap-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Strategy</span>
+                        <span class="article-category">Exam Strategy</span>
                         <h3>The 2026 PMP Front-Loads Case Studies. Buyers Say Study Hall Still Doesn't Let You Practice Them.</h3>
                         <p>Since the new exam went live on July 9, buyers who re-bought Study Hall can't find case study practice questions in it. What actually changed, what a multi-question case study really is, and a full 2026-format case study to work through.</p>
                         <div class="blog-card-meta">
@@ -266,9 +272,9 @@
                 </a>
 
                 <!-- Blog Post - Best PMP Practice Questions 2026 -->
-                <a href="/blog/best-pmp-practice-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/best-pmp-practice-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Prep</span>
+                        <span class="article-category">Exam Prep</span>
                         <h3>Best PMP Practice Questions for the 2026 Exam</h3>
                         <p>Most question banks were built for the old exam. Here's what makes a question good for 2026, the red flags of an outdated bank, and how to judge quality before you pay.</p>
                         <div class="blog-card-meta">
@@ -278,9 +284,9 @@
                 </a>
 
                 <!-- Blog Post - Is the 2026 PMP Based on PMBOK 8 -->
-                <a href="/blog/is-2026-pmp-based-on-pmbok-8" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/is-2026-pmp-based-on-pmbok-8" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>Is the 2026 PMP Exam Based on PMBOK 8?</h3>
                         <p>Most people think the 2026 exam is based on PMBOK 8. It isn't, not exactly. Here's what it's actually built from, where PMBOK 8 fits, and what's really inside the new guide.</p>
                         <div class="blog-card-meta">
@@ -290,9 +296,9 @@
                 </a>
 
                 <!-- Blog Post - Is the PMP Exam Harder in 2026 -->
-                <a href="/blog/is-pmp-exam-harder-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/is-pmp-exam-harder-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>Is the PMP Exam Harder in 2026? An Honest Take</h3>
                         <p>Everyone's asking it as July 9 approaches. The honest answer: not harder, different. A change-by-change breakdown of what's genuinely tougher, what isn't, and how to prep for the new format.</p>
                         <div class="blog-card-meta">
@@ -302,9 +308,9 @@
                 </a>
 
                 <!-- Blog Post - AI on the 2026 PMP Exam -->
-                <a href="/blog/ai-on-the-2026-pmp-exam" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/ai-on-the-2026-pmp-exam" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>AI on the 2026 PMP Exam: What's Actually Tested (and How to Answer the Questions)</h3>
                         <p>AI is on the PMP exam for the first time starting July 9, and you're not being tested on AI tools or algorithms. What PMI actually tests, the one principle behind nearly every AI question, and a worked example with full reasoning.</p>
                         <div class="blog-card-meta">
@@ -314,9 +320,9 @@
                 </a>
 
                 <!-- Blog Post - PMP Exam Day Strategy 2026 -->
-                <a href="/blog/pmp-exam-day-strategy-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-exam-day-strategy-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Strategy</span>
+                        <span class="article-category">Exam Strategy</span>
                         <h3>PMP Exam Day 2026: How to Pace 180 Questions in 240 Minutes</h3>
                         <p>The 2026 exam is 180 questions in 240 minutes with two 10-minute breaks. How to pace it, when to take your breaks, the new case-study section, and the break rule that catches people off guard.</p>
                         <div class="blog-card-meta">
@@ -326,9 +332,9 @@
                 </a>
 
                 <!-- Blog Post - 5 Stakeholder Questions 2026 Edition -->
-                <a href="/blog/5-stakeholder-pmp-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/5-stakeholder-pmp-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Practice Questions</span>
+                        <span class="article-category">Practice Questions</span>
                         <h3>5 Stakeholder Management Questions That Trip Up Experienced PMs (2026 Edition)</h3>
                         <p>RACI, engagement planning, and the power/interest grid. Five stakeholder scenarios where experienced PMs lose points, with full explanations of how PMI actually thinks.</p>
                         <div class="blog-card-meta">
@@ -338,9 +344,9 @@
                 </a>
 
                 <!-- Blog Post - PMP Case Studies 2026 -->
-                <a href="/blog/pmp-case-studies-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-case-studies-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>PMP Case Studies on the 2026 Exam: What They Are and How to Answer Them</h3>
                         <p>Case studies are new on the July 2026 exam: one scenario, several linked questions. What they are, how they differ from standard questions, how to approach them, and a full example you can try.</p>
                         <div class="blog-card-meta">
@@ -350,9 +356,9 @@
                 </a>
 
                 <!-- Blog Post - 5 Business Environment Questions 2026 Edition -->
-                <a href="/blog/5-business-environment-pmp-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/5-business-environment-pmp-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Practice Questions</span>
+                        <span class="article-category">Practice Questions</span>
                         <h3>5 Business Environment Questions That Trip Up Experienced PMs (2026 Edition)</h3>
                         <p>Business Environment is 26% of the 2026 exam, the biggest weight increase from prior versions. Compliance, benefits realization, external changes, and organizational change. Five scenarios where experienced PMs lose points, with full explanations.</p>
                         <div class="blog-card-meta">
@@ -362,9 +368,9 @@
                 </a>
 
                 <!-- Blog Post - 5 Risk Management Questions 2026 Edition -->
-                <a href="/blog/5-risk-management-pmp-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/5-risk-management-pmp-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Practice Questions</span>
+                        <span class="article-category">Practice Questions</span>
                         <h3>5 Risk Management Questions That Trip Up Experienced PMs (2026 Edition)</h3>
                         <p>Risk register vs risk report. Contingency vs management reserve. Secondary vs residual risk. PMI tests precise PMBOK definitions, not how risk gets handled at work. Five scenarios where experienced PMs lose points, with full explanations.</p>
                         <div class="blog-card-meta">
@@ -374,9 +380,9 @@
                 </a>
 
                 <!-- Blog Post - Brain Sensei vs PM Mastery -->
-                <a href="/blog/brain-sensei-vs-pm-mastery-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/brain-sensei-vs-pm-mastery-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Platform Comparison</span>
+                        <span class="article-category">Platform Comparison</span>
                         <h3>Brain Sensei vs PM Mastery: Honest Comparison for the 2026 PMP Exam</h3>
                         <p>Two platforms, two different jobs. Brain Sensei is a course. PM Mastery is a practice engine. Here's how they actually compare and which one fits your situation, written by a current PMP candidate.</p>
                         <div class="blog-card-meta">
@@ -386,9 +392,9 @@
                 </a>
 
                 <!-- Blog Post - 5 Agile and Hybrid Questions 2026 Edition -->
-                <a href="/blog/5-agile-hybrid-pmp-questions-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/5-agile-hybrid-pmp-questions-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Practice Questions</span>
+                        <span class="article-category">Practice Questions</span>
                         <h3>5 Agile and Hybrid PMP Questions That Trip Up Experienced PMs (2026 Edition)</h3>
                         <p>60% of the new PMP exam is agile or hybrid. Most candidates over-rotate on Scrum mechanics and lose points on the judgment questions. Five scenarios where experience hurts you, with full explanations.</p>
                         <div class="blog-card-meta">
@@ -398,21 +404,21 @@
                 </a>
 
                 <!-- Blog Post - Best PMP Prep Platform Comparison (Breaking) -->
-                <a href="/blog/best-pmp-prep-platform-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/best-pmp-prep-platform-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Platform Comparison</span>
+                        <span class="article-category">Platform Comparison</span>
                         <h3>Best PMP Prep Platform for the 2026 Exam: Honest Comparison</h3>
                         <p>PMI Study Hall vs PM Mastery vs Brain Sensei vs PM PrepCast vs Udemy. Pricing, features, honest pros and cons, and recommended combinations by goal. From a current PMP candidate.</p>
                         <div class="blog-card-meta">
-                            <span>November 2, 2026</span> &middot; <span>13 min read</span>
+                            <span>November 5, 2026</span> &middot; <span>13 min read</span>
                         </div>
                     </div>
                 </a>
 
                 <!-- Blog Post - PMI Confirmed 2026 Changes (Breaking) -->
-                <a href="/blog/pmi-confirmed-2026-pmp-exam-changes" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmi-confirmed-2026-pmp-exam-changes" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Breaking</span>
+                        <span class="article-category">Breaking</span>
                         <h3>PMI Just Confirmed the 2026 PMP Exam Changes - Here's What You Need to Know</h3>
                         <p>Business Environment jumps to 26%, AI and sustainability questions confirmed, PMBOK 8 is free, and exam fees are going up. Everything from PMI's ATP webinar today.</p>
                         <div class="blog-card-meta">
@@ -422,9 +428,9 @@
                 </a>
 
                 <!-- Blog Post - Should I Take PMP Before July 2026 (Decision Framework) -->
-                <a href="/blog/should-i-take-pmp-before-july-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/should-i-take-pmp-before-july-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Exam Strategy</span>
+                        <span class="article-category">Exam Strategy</span>
                         <h3>Should You Take the PMP Before July 2026? An Honest Decision Framework</h3>
                         <p>Eleven weeks until the new exam drops. A four-scenario framework for deciding whether to rush the current format or prepare for the new one. No hedge-everything advice.</p>
                         <div class="blog-card-meta">
@@ -446,9 +452,9 @@
                 </a>
 
                 <!-- Blog Post - 5 PMP Questions -->
-                <a href="/blog/5-pmp-questions-that-trip-up-experienced-pms" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/5-pmp-questions-that-trip-up-experienced-pms" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Practice Questions</span>
+                        <span class="article-category">Practice Questions</span>
                         <h3>5 PMP Questions That Trip Up Even Experienced PMs</h3>
                         <p>Real-world experience can actually hurt you on the PMP exam. Try these 5 realistic questions with reveal-answer explanations and learn how PMI actually thinks.</p>
                         <div class="blog-card-meta">
@@ -458,9 +464,9 @@
                 </a>
 
                 <!-- Blog Post - Is PMP Worth It -->
-                <a href="/blog/is-pmp-exam-worth-it-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/is-pmp-exam-worth-it-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">Career &amp; Certification</span>
+                        <span class="article-category">Career &amp; Certification</span>
                         <h3>Is the PMP Exam Worth It in 2026?</h3>
                         <p>Real costs, salary data from PMI's 14th Edition survey (33% premium), a PMP vs MBA breakdown, and an honest ROI analysis from someone currently going through the process.</p>
                         <div class="blog-card-meta">
@@ -470,9 +476,9 @@
                 </a>
 
                 <!-- Blog Post - Agile vs Predictive vs Hybrid -->
-                <a href="/blog/agile-vs-predictive-vs-hybrid-pmp-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/agile-vs-predictive-vs-hybrid-pmp-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Strategy</span>
+                        <span class="article-category">2026 Exam Strategy</span>
                         <h3>Agile vs Predictive vs Hybrid: What the 2026 PMP Exam Actually Tests</h3>
                         <p>60% of the 2026 exam is agile or hybrid, and it doesn't just ask you to define Scrum ceremonies. How PMI frames delivery-approach questions, when each approach fits, and the hybrid traps to watch for.</p>
                         <div class="blog-card-meta">
@@ -482,9 +488,9 @@
                 </a>
 
                 <!-- Blog Post - AI Coach (Featured) -->
-                <a href="/blog/ai-coach-pmp-tutor" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/ai-coach-pmp-tutor" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">New Feature</span>
+                        <span class="article-category">New Feature</span>
                         <h3>We Built an AI Tutor for the 2026 PMP Exam - Powered by Claude</h3>
                         <p>A personalized AI coach for the 2026 PMP exam. Ask any question, get instant expert explanations, and study smarter with AI that adapts to your weak areas.</p>
                         <div class="blog-card-meta">
@@ -494,9 +500,9 @@
                 </a>
 
                 <!-- Blog Post - PMBOK 8 vs 7 (Featured) -->
-                <a href="/blog/pmbok-8th-vs-7th-edition" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmbok-8th-vs-7th-edition" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>PMBOK 8th Edition vs 7th Edition - Every Change Explained</h3>
                         <p>New domain weights, AI integration, sustainability focus, and what it all means for your PMP exam prep. Side-by-side comparison.</p>
                         <div class="blog-card-meta">
@@ -506,9 +512,9 @@
                 </a>
 
                 <!-- Blog Post - Domain Weights 2026 -->
-                <a href="/blog/pmp-exam-domain-weights-2026" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/pmp-exam-domain-weights-2026" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>2026 PMP Exam Domain Weights Explained</h3>
                         <p>People 33%, Process 41%, Business Environment 26%. What each domain covers, all 26 ECO tasks listed, and how to allocate your study time.</p>
                         <div class="blog-card-meta">
@@ -518,9 +524,9 @@
                 </a>
 
                 <!-- Blog Post - Community Forum (Featured) -->
-                <a href="/blog/community-forum" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/community-forum" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">New Feature</span>
+                        <span class="article-category">New Feature</span>
                         <h3>Study for the PMP Together - Community Forum Now Live</h3>
                         <p>Ask questions, share tips, and help each other pass the PMP exam. A self-moderated study community built right into your prep platform.</p>
                         <div class="blog-card-meta">
@@ -530,9 +536,9 @@
                 </a>
 
                 <!-- Blog Post - 2026 Exam Changes -->
-                <a href="/blog/2026-pmp-exam-changes" class="blog-card" style="border: 2px solid #C9A55C;">
+                <a href="/blog/2026-pmp-exam-changes" class="blog-card">
                     <div class="blog-card-content">
-                        <span class="article-category" style="background: #C9A55C; color: #3B4C8B;">2026 Exam Update</span>
+                        <span class="article-category">2026 Exam Update</span>
                         <h3>Everything Changing on the 2026 PMP Exam (July 9, 2026)</h3>
                         <p>The PMP exam is getting its biggest overhaul in years - new domain weights, PMBOK 8th Edition, case study questions, and 60% agile/hybrid content. Here's what you need to know.</p>
                         <div class="blog-card-meta">
@@ -594,14 +600,14 @@
     </section>
 
     <!-- Cheat Sheet CTA -->
-    <section class="email-capture" style="background: #2d3a6b;">
-        <div class="container">
-            <div class="email-capture-content" style="max-width: 600px; margin: 0 auto; text-align: center;">
-                <h2 style="color: #fff;">Get the Free 2026 PMP Cheat Sheet</h2>
-                <p style="color: rgba(255,255,255,0.8);">Every formula, all 6 principles, risk strategies, and exam tips on 4 pages.</p>
-                <div style="margin-top: 24px;">
-                    <a href="/cheat-sheet" class="btn-primary-large" style="background: #C9A55C; color: #1a1f3c; border: none; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-block;">Download Your Cheat Sheet</a>
+    <section class="blog-cs">
+        <div class="wrap">
+            <div class="blog-cs-card">
+                <div class="blog-cs-text">
+                    <strong>Get the Free 2026 PMP Cheat Sheet</strong>
+                    <span>Every formula, all 6 principles, risk strategies, and exam tips on 4 pages.</span>
                 </div>
+                <a href="/cheat-sheet" class="btn-gold">Download Your Cheat Sheet</a>
             </div>
         </div>
     </section>
