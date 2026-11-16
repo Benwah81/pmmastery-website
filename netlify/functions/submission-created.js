@@ -23,6 +23,29 @@ function generateUnsubscribeUrl(email) {
   return `https://app.pmmastery.app/unsubscribe?email=${encodeURIComponent(email || '')}&token=${token}`;
 }
 
+// Lead-form names go into emails sent to whatever address the visitor typed,
+// so a name is never trusted. Same rules as the app's signup form
+// (routes/auth_routes.py is_valid_name, added after the 2026-11-15 bot attack):
+// 60 characters max, no links, no $, no < or >.
+const SPAM_NAME = /(https?:|www\.|:\/\/|\.(vip|com|net|org|io|xyz|ru|top|app)\b|\$|<|>)/i;
+
+function cleanName(raw) {
+  if (raw === undefined || raw === null) return 'PMP Student';
+  const name = String(raw).replace(/\s+/g, ' ').trim();
+  if (!name) return 'PMP Student';
+  if (Array.from(name).length > 60 || SPAM_NAME.test(name)) return 'there';
+  return name;
+}
+
+function escapeHtml(value) {
+  return String(value === undefined || value === null ? '' : value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 async function reportFailure(stage, formName, email, err) {
   try {
     const key = process.env.COURSE_API_KEY;
@@ -42,7 +65,11 @@ async function reportFailure(stage, formName, email, err) {
 async function handle(event, context) {
   const payload = JSON.parse(event.body).payload;
   const email = payload.data.email;
-  const name = payload.data.name || 'PMP Student';
+  // name is cleaned for storage and the app API; safeName / safeEmail are the
+  // only forms that may be written into email HTML.
+  const name = cleanName(payload.data.name);
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
   const formName = payload.form_name;
   const unsubscribeUrl = generateUnsubscribeUrl(email);
 
@@ -70,7 +97,7 @@ async function handle(event, context) {
 
           <div style="background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
             <h2 style="margin: 0 0 10px; color: white;">Day 1: A quarter of the 2026 exam is hiding in plain sight</h2>
-            <p style="margin: 0; opacity: 0.9;">Hey ${name}! Welcome to the course. Let's start with the change nobody's prepping for.</p>
+            <p style="margin: 0; opacity: 0.9;">Hey ${safeName}! Welcome to the course. Let's start with the change nobody's prepping for.</p>
           </div>
 
           <div style="padding: 0 10px; color: #333; line-height: 1.7;">
@@ -135,7 +162,7 @@ async function handle(event, context) {
           </div>
 
           <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
-            <h2 style="margin: 0 0 10px; color: white;">Hey ${name}! Your cheat sheet is ready.</h2>
+            <h2 style="margin: 0 0 10px; color: white;">Hey ${safeName}! Your cheat sheet is ready.</h2>
             <p style="margin: 0; opacity: 0.9;">Everything you need on one page for the 2026 PMP exam.</p>
           </div>
 
@@ -239,7 +266,7 @@ async function handle(event, context) {
           </div>
 
           <div style="background: linear-gradient(135deg, #3B4C8B 0%, #5D6FB5 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-bottom: 24px;">
-            <h2 style="margin: 0 0 10px; color: white;">Hey ${name}! Your worksheet is ready.</h2>
+            <h2 style="margin: 0 0 10px; color: white;">Hey ${safeName}! Your worksheet is ready.</h2>
             <p style="margin: 0; opacity: 0.9;">Plan your PMP application on paper before you type it into PMI's form.</p>
           </div>
 
@@ -292,8 +319,8 @@ async function handle(event, context) {
     html: `
       <div style="font-family: Arial, sans-serif; padding: 20px;">
         <h2 style="color: #3B4C8B;">New Lead from ${formName}</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Form:</strong> ${formName}</p>
         <p><strong>Time:</strong> ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })}</p>
       </div>
