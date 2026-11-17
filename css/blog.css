@@ -654,3 +654,11 @@
     .blog-cs-card { padding: 28px 24px; }
     .blog-cs-card .btn-gold { width: 100%; text-align: center; }
 }
+
+/* Google Preferred Sources button (blog posts, injected by main.js) */
+.pref-source { text-align: center; margin: -10px 0 30px; }
+.pref-source a.pref-source-btn { text-decoration: none; }
+.pref-source-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border: 2px solid #3B4C8B; border-radius: 8px; color: #3B4C8B; background: #fff; font-weight: 600; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; }
+.pref-source-btn:hover, .pref-source-btn:focus { background: #3B4C8B; color: #fff; }
+.pref-source-btn .fa-google { color: #C9A55C; }
+.pref-source-note { font-size: 0.85rem; color: #666; margin: 8px 0 0; }
