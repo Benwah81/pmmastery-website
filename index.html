@@ -490,11 +490,11 @@
                     <span class="plan-pill">Most Popular</span>
                     <h3>Exam Prep Pass</h3>
                     <div class="plan-price"><span class="plan-amount">$99</span><span class="plan-per">one-time</span></div>
-                    <p class="plan-sub">90 days full access, no subscription</p>
+                    <p class="plan-sub">90 days full access<span id="holiday-offer-sub"> (4 months if you buy by Dec 31)</span>, no subscription</p>
                     <p class="plan-sub" id="holiday-offer" style="color: #C9A55C; font-weight: 700;"><i class="fas fa-gift"></i> Holiday offer: get the Exam Prep Pass by Dec 31 and you get 4 months of access instead of 3. Same $99, one time, no auto-renew.</p>
-                    <script>(function(){try{if(Date.now()>=Date.UTC(2027,0,1,6,0,0)){var el=document.getElementById('holiday-offer');if(el){el.parentNode.removeChild(el);}}}catch(e){}})();</script>
+                    <script>(function(){try{if(Date.now()>=Date.UTC(2027,0,1,6,0,0)){['holiday-offer','holiday-offer-sub'].forEach(function(id){var el=document.getElementById(id);if(el){el.parentNode.removeChild(el);}});}}catch(e){}})();</script>
                     <ul>
-                        <li><i class="fas fa-check"></i> Everything in Premium, for 90 days</li>
+                        <li><i class="fas fa-check"></i> Everything in Premium, for your whole access period</li>
                         <li><i class="fas fa-check"></i> 4,000+ questions (incl. 200 in case studies)</li>
                         <li class="gold"><i class="fas fa-robot"></i> AI Coach powered by Claude (25/day)</li>
                         <li><i class="fas fa-check"></i> 40 case studies (200 questions)</li>
@@ -503,7 +503,7 @@
                         <li><i class="fas fa-check"></i> Advanced analytics &amp; readiness score</li>
                         <li class="strong"><i class="fas fa-check"></i> One payment. Never renews. Nothing extra to buy inside the app.</li>
                         <li><i class="fas fa-check"></i> 7-day money-back guarantee, no questions asked (first purchase)</li>
-                        <li><i class="fas fa-award"></i> Pass Guarantee: complete 3 full mock exams before your exam, and if you don't pass, your Pass is extended free for 90 days (terms apply).</li>
+                        <li><i class="fas fa-award"></i> Pass Guarantee: a free 90-day extension if you don't pass. To qualify, complete 3 full mock exams before your exam (terms apply).</li>
                     </ul>
                     <a href="https://app.pmmastery.app/checkout/pass" class="btn-gold">Get the Pass</a>
                 </div>
